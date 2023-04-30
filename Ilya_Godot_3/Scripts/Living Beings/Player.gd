@@ -1,28 +1,13 @@
-extends KinematicBody2D
+extends "res://Stats/KinematicBody2D.gd"
 
 
-export var AXELERATION = 1000
-export var MAX_SPEED = 100
 export var ROLL_SPEED = 150
-export var FRICTION = 1000
 
 
-signal on_death
-
-
-enum {
-	MOVE,
-	ROLL,
-	ATTACK
-}
-
-
-var state = MOVE
-var velocity = Vector2.ZERO
-var roll_vector = Vector2.RIGHT
-var stats = PlayerStats
-var items = 0
 var inventory = []
+var stats = PlayerStats
+var roll_vector = Vector2.RIGHT
+var state = MOVE
 
 
 onready var animationPlayer = $AnimationPlayer
@@ -34,9 +19,15 @@ onready var hurtbox = $Hurtbox
 onready var ui = get_viewport().get_node("Root/HealthUI/Control")
 
 
+enum {
+	MOVE,
+	ROLL,
+	ATTACK
+}
+
+
 func _ready():
 	randomize()
-	yield(SceneChanger, "on_game_ready")
 	inventory = stats.inventory
 	position.x = stats.position_x
 	position.y = stats.position_y
@@ -129,51 +120,3 @@ func _on_Hurtbox_area_entered(area):
 func die():
 	emit_signal("on_death")
 	queue_free()
-
-
-func save():
-	var data = {
-		"filename": get_filename(),
-		"position": position,
-		"health": stats.health,
-		"experience": stats.experience,
-		"max_exp": stats.max_exp,
-		"max_health": stats.max_health,
-		"atk": stats.atk,
-		"lvl": stats.lvl,
-		"inventory": stats.inventory
-	}
-	
-	return data
-
-
-func load_from_data(data):
-	position = data["position"]
-	stats.health = data["health"]
-	stats.experience = data["experience"]
-	stats.max_exp = data["max_exp"]
-	stats.max_health = data["max_health"]
-	stats.atk = data["atk"]
-	stats.lvl = data["lvl"]
-	stats.inventory = data["inventory"].duplicate(true)
-	stats.set_health(stats.health)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

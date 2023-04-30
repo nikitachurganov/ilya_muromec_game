@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bush.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Grass.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
@@ -208,11 +207,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
-[sub_resource type="GDScript" id=6]
-script/source = "extends RemoteTransform2D
-
-"
-
 [node name="World" type="Node2D"]
 script = ExtResource( 7 )
 
@@ -236,12 +230,6 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -65537, 0, 0, -131069, 0, 0, -131065, 0, 0, -131061, 0, 0, -131057, 0, 0, -131053, 0, 0, -131049, 0, 0, -131045, 0, 0, -131041, 0, 0, -131037, 0, 0, -131033, 0, 0, -131029, 0, 0, -131025, 0, 0, 65535, 0, 0, 47, 0, 0, 196607, 0, 0, 131119, 0, 0, 327679, 0, 0, 262191, 0, 0, 458751, 0, 0, 393263, 0, 0, 589823, 0, 0, 524335, 0, 0, 720895, 0, 0, 655407, 0, 0, 851967, 0, 0, 786479, 0, 0, 983039, 0, 0, 917551, 0, 0, 1114111, 0, 0, 1048623, 0, 0, 1245183, 0, 0, 1179695, 0, 0, 1376255, 0, 0, 1310731, 0, 0, 1310735, 0, 0, 1310739, 0, 0, 1310743, 0, 0, 1310747, 0, 0, 1310751, 0, 0, 1310755, 0, 0, 1310759, 0, 0, 1310763, 0, 0, 1310767, 0, 0, 1441795, 1, 0, 1441797, 1, 0, 1441799, 1, 0, 1441801, 1, 0 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 130, 80 )
-
-[node name="BottomRight" parent="Camera2D/Limits" index="1"]
-position = Vector2( 797, 361 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
@@ -254,9 +242,11 @@ __meta__ = {
 parameters/playback = SubResource( 5 )
 parameters/Roll/blend_position = Vector2( 0, 0 )
 
-[node name="FollowCamera" type="RemoteTransform2D" parent="YSort/Player"]
-remote_path = NodePath("../../../Camera2D")
-script = SubResource( 6 )
+[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+position = Vector2( -12, -9 )
+
+[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+position = Vector2( 791, 360 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -325,9 +315,8 @@ position = Vector2( 179, 306 )
 
 [node name="Item" parent="YSort/Items" instance=ExtResource( 9 )]
 position = Vector2( 202, 217 )
-item_name = "Fish"
 
-[editable path="Camera2D"]
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
+[editable path="YSort/Player/Camera2D"]

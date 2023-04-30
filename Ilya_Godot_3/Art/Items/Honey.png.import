@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Honey.png-6acb6259fb06fdc70606fa3ff165c520.stex"
+path="res://.import/Honey.png-584504044cd9fcfe0f257f3e5e1f0087.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Food/Honey.png"
-dest_files=[ "res://.import/Honey.png-6acb6259fb06fdc70606fa3ff165c520.stex" ]
+source_file="res://Art/Items/Honey.png"
+dest_files=[ "res://.import/Honey.png-584504044cd9fcfe0f257f3e5e1f0087.stex" ]
 
 [params]
 

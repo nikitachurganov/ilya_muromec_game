@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Beaf.png-a0e6b375a55396909dca994a490d9a0f.stex"
+path="res://.import/Calamari.png-e4a3276f2057c38ca0f95016cac31774.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Food/Beaf.png"
-dest_files=[ "res://.import/Beaf.png-a0e6b375a55396909dca994a490d9a0f.stex" ]
+source_file="res://Art/Items/Calamari.png"
+dest_files=[ "res://.import/Calamari.png-e4a3276f2057c38ca0f95016cac31774.stex" ]
 
 [params]
 

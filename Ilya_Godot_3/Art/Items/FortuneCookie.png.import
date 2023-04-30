@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FortuneCookie.png-ac9bbc00378c164f760cc1f553fbbbdb.stex"
+path="res://.import/FortuneCookie.png-9db6871d814967e103f2bb1d8ee9da50.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Food/FortuneCookie.png"
-dest_files=[ "res://.import/FortuneCookie.png-ac9bbc00378c164f760cc1f553fbbbdb.stex" ]
+source_file="res://Art/Items/FortuneCookie.png"
+dest_files=[ "res://.import/FortuneCookie.png-9db6871d814967e103f2bb1d8ee9da50.stex" ]
 
 [params]
 

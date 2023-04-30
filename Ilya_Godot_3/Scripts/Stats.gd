@@ -12,6 +12,8 @@ export var position_y = 150
 var inventory = []
 var items
 
+onready var saving_group = "TO_BE_SAVED"
+
 onready var save_dir = "user://Saves"
 onready var save_temp = "%s.tres"
 

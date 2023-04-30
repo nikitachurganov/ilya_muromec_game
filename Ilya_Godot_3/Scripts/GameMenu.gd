@@ -32,6 +32,8 @@ func save():
 	dir.change_dir(PlayerStats.save_dir)
 	
 	var file = save_file.new()
+	var able_to_save = get_tree().get_nodes_in_group(PlayerStats.saving_group)
+	file.set_data(able_to_save[0].save())
 	var save_path = PlayerStats.save_dir.plus_file(PlayerStats.save_temp % "save")
 	
 	ResourceSaver.save(save_path, file)

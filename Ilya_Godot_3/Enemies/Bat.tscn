@@ -46,7 +46,7 @@ radius = 7.0
 height = 4.0
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 114.07
+radius = 91.0
 
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 4.0
@@ -63,7 +63,7 @@ GIVE_EXP = 123
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -74,7 +74,6 @@ texture = ExtResource( 2 )
 shape = SubResource( 7 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -85,7 +84,6 @@ shape = SubResource( 8 )
 max_health = 15
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 1, 1, 1, 0.427451 )

@@ -13,3 +13,14 @@ func create_grass_effect():
 func _on_Hurtbox_area_entered(area):
 	create_grass_effect()
 	queue_free()
+
+func save():
+	var data = {
+		"filename": get_filename(),
+		"position": position
+	}
+	
+	return data
+
+func load_from_data(data):
+	position = data["position"]

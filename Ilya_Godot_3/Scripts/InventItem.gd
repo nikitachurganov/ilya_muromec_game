@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 func set_item(item_name):
-	texture = load("res://Art/Items/Food/%s.png" % item_name)
+	$Box/Texture.texture = load("res://Art/Items/%s.png" % item_name)
