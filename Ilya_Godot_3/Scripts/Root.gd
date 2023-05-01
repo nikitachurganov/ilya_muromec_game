@@ -12,6 +12,4 @@ func save():
 
 func connect_player_to_death():
 	var player = $World/YSort/Player
-	#if player.connect("on_death", $HealthUI/Control, "set_death_screen", []):
-		#player.disconnect("on_death", $HealthUI/Control, "set_death_screen", [])
 	player.connect("on_death", $HealthUI/Control, "set_death_screen", [])
