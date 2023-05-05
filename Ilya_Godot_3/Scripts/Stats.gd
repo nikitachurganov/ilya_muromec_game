@@ -44,6 +44,9 @@ func set_def(value):
 	def = value
 	emit_signal("def_changed", def)
 
+func HP_replenishment(val):
+	self.health = min(self.health + val, self.max_health)
+
 func set_exp(value):
 	experience = value
 	emit_signal("exp_changed", experience)

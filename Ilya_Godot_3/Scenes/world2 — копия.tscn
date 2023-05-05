@@ -237,6 +237,7 @@ position = Vector2( 130, 80 )
 __meta__ = {
 "_edit_group_": true
 }
+EP = false
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 5 )

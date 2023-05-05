@@ -1,7 +1,7 @@
 extends NinePatchRect
 
 onready var item = preload("res://Scenes/InventItem.tscn")
-onready var container = $GridContainer
+onready var container = $Box/GridContainer
 
 func _ready():
 	clear()

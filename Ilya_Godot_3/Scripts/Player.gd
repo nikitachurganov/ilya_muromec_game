@@ -5,6 +5,7 @@ export var AXELERATION = 1000
 export var MAX_SPEED = 100
 export var ROLL_SPEED = 150
 export var FRICTION = 1000
+export var EP = true
 
 
 signal on_death
@@ -44,6 +45,7 @@ func _ready():
 	animationTree.active = true
 	collisionSwordHitbox.disabled = true
 	swordHitbox.knockback_vector = roll_vector
+	$Timer.start(1)
 
 
 func _physics_process(delta):
@@ -60,7 +62,6 @@ func _physics_process(delta):
 
 func pick(item):
 	var it = item.get_item()
-	#inventory.push_back(it)
 	stats.inventory.push_back(it)
 	print(inventory.size())
 	ui.update_inventory(inventory)
@@ -159,21 +160,6 @@ func load_from_data(data):
 	stats.set_health(stats.health)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func _on_Timer_timeout():
+	if EP:
+		stats.HP_replenishment(1)

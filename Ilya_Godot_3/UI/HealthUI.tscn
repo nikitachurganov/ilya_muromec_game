@@ -91,9 +91,9 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Panel" parent="Control" instance=ExtResource( 7 )]
-margin_left = -24.0
+margin_left = 8.0
 margin_top = 29.0
-margin_right = 323.0
+margin_right = 355.0
 margin_bottom = 173.0
 
 [node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
