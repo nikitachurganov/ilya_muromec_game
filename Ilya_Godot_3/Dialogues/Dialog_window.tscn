@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Dialogues/Subtract.png" type="Texture" id=1]
 [ext_resource path="res://Dialogues/Dialog.gd" type="Script" id=2]
+[ext_resource path="res://Art/Dialogues/2GARIN_porteret.png" type="Texture" id=3]
+[ext_resource path="res://Art/Dialogues/MUROM_portret.png" type="Texture" id=4]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+physics_interpolation_mode = 2
 script = ExtResource( 2 )
 d_file = "res://Dialogues/json/Tugarin_test_dialog.json"
 
@@ -11,13 +15,31 @@ d_file = "res://Dialogues/json/Tugarin_test_dialog.json"
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.701961 )
+color = Color( 0, 0, 0, 0.870588 )
+
+[node name="IlyaMuromets" type="TextureRect" parent="."]
+margin_left = 32.0
+margin_top = 59.0
+margin_right = 135.0
+margin_bottom = 133.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="OtherDude" type="TextureRect" parent="."]
+margin_left = 260.0
+margin_top = 59.0
+margin_right = 355.0
+margin_bottom = 133.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+pause_mode = 2
+physics_interpolation_mode = 2
 anchor_left = 0.5
-anchor_top = 0.7
+anchor_top = 0.75
 anchor_right = 0.5
-anchor_bottom = 0.7
+anchor_bottom = 0.75
 margin_left = -154.0
 margin_top = -40.5
 margin_right = 154.0
@@ -25,6 +47,7 @@ margin_bottom = 40.5
 texture = ExtResource( 1 )
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+pause_mode = 2
 margin_left = 5.0
 margin_top = 5.5
 margin_right = 136.0
@@ -32,6 +55,8 @@ margin_bottom = 23.5
 text = "Name"
 
 [node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+pause_mode = 2
+physics_interpolation_mode = 2
 margin_left = 5.0
 margin_top = 25.0
 margin_right = 296.0
@@ -39,6 +64,7 @@ margin_bottom = 72.0
 text = "Text........................ asdsssssssssssssssssssssssssssssssssssssssssss\\"
 
 [node name="Timer" type="Timer" parent="."]
+pause_mode = 2
 wait_time = 0.4
 one_shot = true
 

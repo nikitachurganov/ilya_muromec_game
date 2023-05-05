@@ -375,7 +375,11 @@ position = Vector2( 391, 80 )
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 273, 39 )
 
+[node name="CanvasLayer" parent="YSort/KinematicBody2D" index="3"]
+otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
+
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
+[editable path="YSort/KinematicBody2D"]
