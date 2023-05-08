@@ -1,13 +1,14 @@
 extends Control
 
-onready var pack = $Panel
+onready var pack = $NinePatchRect
 
 func toggle_inventory(inventory):
 	if pack.visible:
-		pack.clear()
+		#pack.clear()
 		pack.visible = false
 	else:
 		pack.visible = true
+		pack.activeItem = null
 		pack.show_inventory(inventory)
 
 func update_inventory(inventory):

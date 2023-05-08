@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sword.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Panel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/GameMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Panel2.tscn" type="PackedScene" id=10]
 
 [node name="HealthUI" type="CanvasLayer"]
 
@@ -91,10 +92,13 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Panel" parent="Control" instance=ExtResource( 7 )]
+visible = false
 margin_left = 8.0
 margin_top = 29.0
 margin_right = 355.0
 margin_bottom = 173.0
+
+[node name="NinePatchRect" parent="Control" instance=ExtResource( 10 )]
 
 [node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
 visible = false

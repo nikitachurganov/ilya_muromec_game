@@ -1,0 +1,391 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Art/Items/Beaf.png" type="Texture" id=1]
+[ext_resource path="res://Art/Items/Calamari.png" type="Texture" id=2]
+[ext_resource path="res://Art/Buttons/InventoryButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://Art/Buttons/InventoryButtonNotPressed.png" type="Texture" id=4]
+[ext_resource path="res://Art/Subtract.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Panel2.gd" type="Script" id=6]
+[ext_resource path="res://Art/Buttons/UsePressed.png" type="Texture" id=7]
+[ext_resource path="res://Art/Buttons/UseNotPressed.png" type="Texture" id=8]
+[ext_resource path="res://Art/Buttons/DeletePressed.png" type="Texture" id=9]
+[ext_resource path="res://Art/Buttons/DeleteNotPressed.png" type="Texture" id=10]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -60.0
+margin_right = 150.0
+margin_bottom = 60.0
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+margin_right = 176.0
+margin_bottom = 120.0
+columns = 5
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton2"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton3"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton4"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton5" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton5"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton6" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton6"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton7" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 36.0
+margin_top = 36.0
+margin_right = 68.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton7"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton8" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 72.0
+margin_top = 36.0
+margin_right = 104.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton8"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton9" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 108.0
+margin_top = 36.0
+margin_right = 140.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton9"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton10" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 144.0
+margin_top = 36.0
+margin_right = 176.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton10"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton11" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_top = 72.0
+margin_right = 32.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton11"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton12" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 36.0
+margin_top = 72.0
+margin_right = 68.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton12"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton13" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 104.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton13"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton14" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 108.0
+margin_top = 72.0
+margin_right = 140.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton14"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="TextureButton15" type="TextureButton" parent="HBoxContainer/GridContainer"]
+margin_left = 144.0
+margin_top = 72.0
+margin_right = 176.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer/TextureButton15"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="Objects" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 180.0
+margin_right = 300.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Objects"]
+margin_right = 120.0
+margin_bottom = 14.0
+text = "Beaf"
+align = 1
+
+[node name="ItemPhoto" type="TextureRect" parent="HBoxContainer/Objects"]
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="HBoxContainer/Objects"]
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 86.0
+text = "Heal +3"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Objects"]
+margin_top = 90.0
+margin_right = 120.0
+margin_bottom = 106.0
+
+[node name="Use" type="TextureButton" parent="HBoxContainer/Objects/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Objects/HBoxContainer/Use"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 15.0
+text = "Use"
+align = 1
+
+[node name="Drop" type="TextureButton" parent="HBoxContainer/Objects/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Objects/HBoxContainer/Drop"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 15.0
+text = "Drop"
+align = 1
+
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton2" to="." method="_on_TextureButton2_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton2" to="." method="_on_TextureButton2_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton3" to="." method="_on_TextureButton3_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton3" to="." method="_on_TextureButton3_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton4" to="." method="_on_TextureButton4_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton4" to="." method="_on_TextureButton4_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton5" to="." method="_on_TextureButton5_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton5" to="." method="_on_TextureButton5_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton6" to="." method="_on_TextureButton6_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton6" to="." method="_on_TextureButton6_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton7" to="." method="_on_TextureButton7_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton7" to="." method="_on_TextureButton7_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton8" to="." method="_on_TextureButton8_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton8" to="." method="_on_TextureButton8_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton9" to="." method="_on_TextureButton9_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton9" to="." method="_on_TextureButton9_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton10" to="." method="_on_TextureButton10_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton10" to="." method="_on_TextureButton10_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton11" to="." method="_on_TextureButton11_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton11" to="." method="_on_TextureButton11_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton12" to="." method="_on_TextureButton12_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton12" to="." method="_on_TextureButton12_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton13" to="." method="_on_TextureButton13_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton13" to="." method="_on_TextureButton13_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton14" to="." method="_on_TextureButton14_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton14" to="." method="_on_TextureButton14_button_up"]
+[connection signal="button_down" from="HBoxContainer/GridContainer/TextureButton15" to="." method="_on_TextureButton15_button_down"]
+[connection signal="button_up" from="HBoxContainer/GridContainer/TextureButton15" to="." method="_on_TextureButton15_button_up"]
+[connection signal="button_down" from="HBoxContainer/Objects/HBoxContainer/Use" to="." method="_on_Use_button_down"]
+[connection signal="button_up" from="HBoxContainer/Objects/HBoxContainer/Use" to="." method="_on_Use_button_up"]
+[connection signal="button_down" from="HBoxContainer/Objects/HBoxContainer/Drop" to="." method="_on_Drop_button_down"]
+[connection signal="button_up" from="HBoxContainer/Objects/HBoxContainer/Drop" to="." method="_on_Drop_button_up"]

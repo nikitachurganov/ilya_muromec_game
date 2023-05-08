@@ -240,6 +240,7 @@ __meta__ = {
 EP = false
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
+active = true
 parameters/playback = SubResource( 5 )
 parameters/Roll/blend_position = Vector2( 0, 0 )
 

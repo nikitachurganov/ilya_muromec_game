@@ -45,7 +45,7 @@ func _ready():
 	animationTree.active = true
 	collisionSwordHitbox.disabled = true
 	swordHitbox.knockback_vector = roll_vector
-	$Timer.start(1)
+	$Timer.start(5)
 
 
 func _physics_process(delta):
@@ -63,7 +63,6 @@ func _physics_process(delta):
 func pick(item):
 	var it = item.get_item()
 	stats.inventory.push_back(it)
-	print(inventory.size())
 	ui.update_inventory(inventory)
 
 
