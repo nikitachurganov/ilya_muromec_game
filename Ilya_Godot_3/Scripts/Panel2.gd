@@ -31,6 +31,18 @@ func show_inventory(inventory):
 			activeItemDescription.text = "Heal +4"
 		if stats.inventory[activeItem] == "Fish":
 			activeItemDescription.text = "Heal +1"
+		if stats.inventory[activeItem] == "Axe":
+			activeItemDescription.text = "Def +5"
+			if stats.helmet == "":
+				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
+		if stats.inventory[activeItem] == "BigSword":
+			activeItemDescription.text = "ATK +5"
+			if stats.sword == "":
+				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
+		if stats.inventory[activeItem] == "FortuneCookie":
+			activeItemDescription.text = "Def +5"
+			if stats.armor == "":
+				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
 	
 	var count = 0
 	for item in $HBoxContainer/GridContainer.get_children():
@@ -202,14 +214,25 @@ func _on_Use_button_down():
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.y += 1
 	if stats.inventory[activeItem] == "Honey":
 		stats.HP_replenishment(3)
+		update_inventory()
 	elif stats.inventory[activeItem] == "Beaf":
 		stats.HP_replenishment(2)
+		update_inventory()
 	elif stats.inventory[activeItem] == "Calamari":
 		stats.HP_replenishment(4)
+		update_inventory()
 	elif stats.inventory[activeItem] == "Fish":
 		stats.HP_replenishment(1)
-	stats.inventory.remove(activeItem)
-	activeItem = null
+		update_inventory()
+	elif stats.inventory[activeItem] == "Axe":
+		stats.set_equipment("Axe")
+		update_inventory()
+	elif stats.inventory[activeItem] == "BigSword":
+		stats.set_equipment("BigSword")
+		update_inventory()
+	elif stats.inventory[activeItem] == "FortuneCookie":
+		stats.set_equipment("FortuneCookie")
+		update_inventory()
 	show_inventory(stats.inventory)
 
 func _on_Use_button_up():
@@ -226,3 +249,7 @@ func _on_Drop_button_down():
 func _on_Drop_button_up():
 	$HBoxContainer/Objects/HBoxContainer/Drop/Label.rect_position.x -= 1
 	$HBoxContainer/Objects/HBoxContainer/Drop/Label.rect_position.y -= 1
+
+func update_inventory():
+	stats.inventory.remove(activeItem)
+	activeItem = null

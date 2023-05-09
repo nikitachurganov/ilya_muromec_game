@@ -141,7 +141,10 @@ func save():
 		"max_health": stats.max_health,
 		"atk": stats.atk,
 		"lvl": stats.lvl,
-		"inventory": stats.inventory
+		"inventory": stats.inventory,
+		"sword": stats.sword,
+		"helmet": stats.helmet,
+		"armor": stats.armor
 	}
 	
 	return data
@@ -149,6 +152,9 @@ func save():
 
 func load_from_data(data):
 	position = data["position"]
+	stats.sword = data["sword"]
+	stats.helmet = data["helmet"]
+	stats.armor = data["armor"]
 	stats.health = data["health"]
 	stats.experience = data["experience"]
 	stats.max_exp = data["max_exp"]

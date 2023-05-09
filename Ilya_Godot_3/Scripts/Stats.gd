@@ -11,6 +11,9 @@ export var position_x = 150
 export var position_y = 150
 var inventory = []
 var items
+var sword = ""
+var helmet = ""
+var armor = ""
 
 onready var saving_group = "TO_BE_SAVED"
 
@@ -26,6 +29,40 @@ signal exp_changed(value)
 signal max_exp_changed(value)
 signal lvl_changed(value)
 signal def_changed(value)
+signal equipment_changed
+
+func set_equipment(equipment):
+	if equipment == "BigSword":
+		if sword == "":
+			sword = "BigSword"
+			set_atk(atk + 5)
+		else:
+			inventory.push_back(sword)
+			if sword == "BigSword":
+				set_atk(atk - 5)
+			sword = "BigSword"
+			set_atk(atk + 5)
+	if equipment == "Axe":
+		if helmet == "":
+			helmet = "Axe"
+			set_def(def + 5)
+		else:
+			inventory.push_back(helmet)
+			if helmet == "Axe":
+				set_def(def - 5)
+			helmet = "Axe"
+			set_def(def + 5)
+	if equipment == "FortuneCookie":
+		if armor == "":
+			armor = "FortuneCookie"
+			set_def(def + 5)
+		else:
+			inventory.push_back(armor)
+			if armor == "FortuneCookie":
+				set_def(def - 5)
+			armor = "FortuneCookie"
+			set_def(def + 5)
+	emit_signal("equipment_changed")
 
 func set_max_health(value):
 	max_health = value
@@ -58,7 +95,6 @@ func set_exp(value):
 		set_atk(atk + 5)
 		set_max_health(max_health + 10)
 		set_health(max_health)
-		set_def(def + 10)
 		set_lvl(lvl)
 
 func set_lvl(value):

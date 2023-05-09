@@ -16,6 +16,9 @@ func change_scene(path):
 	SceneChanger.change_scene(path)
 
 func new_game():
+	stats.helmet = ""
+	stats.armor = ""
+	stats.sword = ""
 	stats.max_health = 100
 	stats.health = stats.max_health
 	stats.max_exp = 500
@@ -36,6 +39,15 @@ func load_file():
 	
 	if file.file_exists(file_path):
 		var saved_game = load(file_path)
-		#print(saved_game.get_saved_name())
 		
 		emit_signal("on_loaded", saved_game.get_data())
+
+
+func _on_Quit_button_down():
+	$Buttons/Quit/Label.rect_position.x += 1
+	$Buttons/Quit/Label.rect_position.y += 1
+
+
+func _on_Quit_button_up():
+	$Buttons/Quit/Label.rect_position.x -= 1
+	$Buttons/Quit/Label.rect_position.y -= 1

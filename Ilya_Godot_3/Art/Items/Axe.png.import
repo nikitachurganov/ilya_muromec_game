@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BigSword.png-d10296dc8994100e498951d6218c7a5a.stex"
+path="res://.import/Axe.png-1edb251ad8cddc5ce94146cf838a6f5b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Weapon/BigSword.png"
-dest_files=[ "res://.import/BigSword.png-d10296dc8994100e498951d6218c7a5a.stex" ]
+source_file="res://Art/Items/Axe.png"
+dest_files=[ "res://.import/Axe.png-1edb251ad8cddc5ce94146cf838a6f5b.stex" ]
 
 [params]
 
