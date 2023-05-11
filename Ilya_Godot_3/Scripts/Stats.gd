@@ -32,36 +32,141 @@ signal def_changed(value)
 signal equipment_changed
 
 func set_equipment(equipment):
-	if equipment == "BigSword":
+	if equipment == "Sword1":
 		if sword == "":
-			sword = "BigSword"
+			sword = "Sword1"
+			set_atk(atk + 2)
+		else:
+			inventory.push_back(sword)
+			if sword == "Sword2":
+				set_atk(atk - 5)
+			elif sword == "Sword3":
+				set_atk(atk - 10)
+			else:
+				set_atk(atk - 2)
+			sword = "Sword1"
+			set_atk(atk + 2)
+	
+	if equipment == "Sword2":
+		if sword == "":
+			sword = "Sword2"
 			set_atk(atk + 5)
 		else:
 			inventory.push_back(sword)
-			if sword == "BigSword":
+			if sword == "Sword2":
 				set_atk(atk - 5)
-			sword = "BigSword"
+			elif sword == "Sword3":
+				set_atk(atk - 10)
+			else:
+				set_atk(atk - 2)
+			sword = "Sword2"
 			set_atk(atk + 5)
-	if equipment == "Axe":
-		if helmet == "":
-			helmet = "Axe"
-			set_def(def + 5)
+	
+	if equipment == "Sword3":
+		if sword == "":
+			sword = "Sword3"
+			set_atk(atk + 10)
 		else:
-			inventory.push_back(helmet)
-			if helmet == "Axe":
-				set_def(def - 5)
-			helmet = "Axe"
-			set_def(def + 5)
-	if equipment == "FortuneCookie":
+			inventory.push_back(sword)
+			if sword == "Sword2":
+				set_atk(atk - 5)
+			elif sword == "Sword3":
+				set_atk(atk - 10)
+			else:
+				set_atk(atk - 2)
+			sword = "Sword3"
+			set_atk(atk + 10)
+	
+	if equipment == "Armor1":
 		if armor == "":
-			armor = "FortuneCookie"
+			armor = "Armor1"
+			set_def(def + 2)
+		else:
+			inventory.push_back(armor)
+			if armor == "Armor2":
+				set_def(def - 5)
+			elif armor == "Armor3":
+				set_def(def - 10)
+			else:
+				set_def(atk - 2)
+			armor = "Armor1"
+			set_def(def + 2)
+	
+	if equipment == "Armor2":
+		if armor == "":
+			armor = "Armor2"
 			set_def(def + 5)
 		else:
 			inventory.push_back(armor)
-			if armor == "FortuneCookie":
+			if armor == "Armor2":
 				set_def(def - 5)
-			armor = "FortuneCookie"
+			elif armor == "Armor3":
+				set_def(def - 10)
+			else:
+				set_def(atk - 2)
+			armor = "Armor2"
 			set_def(def + 5)
+	
+	if equipment == "Armor3":
+		if armor == "":
+			armor = "Armor3"
+			set_def(def + 10)
+		else:
+			inventory.push_back(armor)
+			if armor == "Armor2":
+				set_def(def - 5)
+			elif armor == "Armor3":
+				set_def(def - 10)
+			else:
+				set_def(def - 2)
+			armor = "Armor3"
+			set_def(def + 10)
+	
+	if equipment == "Helmet1":
+		if helmet == "":
+			helmet = "Helmet1"
+			set_def(def + 2)
+		else:
+			inventory.push_back(helmet)
+			if helmet == "Helmet2":
+				set_def(def - 5)
+			elif helmet == "Helmet3":
+				set_def(def - 10)
+			else:
+				set_def(def - 2)
+			helmet = "Helmet1"
+			set_def(def + 2)
+	
+	if equipment == "Helmet2":
+		if helmet == "":
+			helmet = "Helmet2"
+			set_def(def + 5)
+		else:
+			inventory.push_back(helmet)
+			if helmet == "Helmet2":
+				set_def(def - 5)
+			elif helmet == "Helmet3":
+				set_def(def - 10)
+			else:
+				set_def(def - 2)
+			helmet = "Helmet2"
+			set_def(def + 5)
+	
+	if equipment == "Helmet3":
+		if helmet == "":
+			helmet = "Helmet3"
+			set_def(def + 10)
+		else:
+			inventory.push_back(helmet)
+			if helmet == "Helmet2":
+				set_def(def - 5)
+			elif helmet == "Helmet3":
+				set_def(def - 10)
+			else:
+				set_def(def - 2)
+			helmet = "Helmet3"
+			set_def(def + 10)
+	
 	emit_signal("equipment_changed")
 
 func set_max_health(value):

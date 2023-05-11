@@ -1,6 +1,6 @@
 extends Node2D
 
-export(String) var item_name = "Fish"
+export(String) var item_name = "Pie"
 #export(String) var item_type
 
 var item = ""

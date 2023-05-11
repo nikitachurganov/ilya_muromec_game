@@ -212,7 +212,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -302,70 +301,68 @@ position = Vector2( 244, 320 )
 
 [node name="Item" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 307, 89 )
-item_name = "FortuneCookie"
+item_name = "Helmet1"
 
 [node name="Item2" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 233, 70 )
-item_name = "BigSword"
+item_name = "Sword1"
 
 [node name="Item3" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 282, 138 )
-item_name = "Honey"
+item_name = "Milk"
 
 [node name="Item4" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 377, 135 )
-item_name = "Calamari"
 
 [node name="Item6" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 677, 237 )
-item_name = "Calamari"
+item_name = "Milk"
 
 [node name="Item7" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 563, 313 )
-item_name = "Calamari"
+item_name = "Armor1"
 
 [node name="Item8" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 589, 44 )
-item_name = "Calamari"
+item_name = "Armor2"
 
 [node name="Item9" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 605, 163 )
-item_name = "Calamari"
+item_name = "Sword3"
 
 [node name="Item10" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 691, 117 )
-item_name = "Calamari"
+item_name = "Helmet2"
 
 [node name="Item11" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 127, 294 )
-item_name = "Calamari"
+item_name = "Milk"
 
 [node name="Item12" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 120, 174 )
-item_name = "Axe"
+item_name = "Armor2"
 
 [node name="Item13" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 234, 226 )
-item_name = "Calamari"
 
 [node name="Item14" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 346, 243 )
-item_name = "Calamari"
+item_name = "Milk"
 
 [node name="Item15" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 403, 201 )
-item_name = "Calamari"
+item_name = "Armor2"
 
 [node name="Item16" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 489, 184 )
-item_name = "Calamari"
+item_name = "Helmet1"
 
 [node name="Item17" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 491, 112 )
-item_name = "Calamari"
 
 [node name="Item5" parent="YSort/Items" instance=ExtResource( 7 )]
 position = Vector2( 391, 80 )
+item_name = "Sword2"
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 273, 39 )

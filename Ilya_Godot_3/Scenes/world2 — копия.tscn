@@ -317,6 +317,7 @@ position = Vector2( 179, 306 )
 
 [node name="Item" parent="YSort/Items" instance=ExtResource( 9 )]
 position = Vector2( 202, 217 )
+item_name = "Armor3"
 
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
