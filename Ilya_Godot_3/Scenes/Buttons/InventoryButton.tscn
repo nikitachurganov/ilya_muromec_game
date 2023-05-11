@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/Buttons/InventoryButtonNotPressed.png" type="Texture" id=1]
+[ext_resource path="res://Art/Items/Pie.png" type="Texture" id=2]
+[ext_resource path="res://Art/Buttons/InventoryButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/InventoryButton.gd" type="Script" id=4]
+
+[node name="TextureButton" type="TextureButton"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 26.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[connection signal="button_down" from="." to="." method="_on_TextureButton_button_down"]
+[connection signal="button_up" from="." to="." method="_on_TextureButton_button_up"]
