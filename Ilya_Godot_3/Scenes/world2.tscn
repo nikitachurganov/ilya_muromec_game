@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bush.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=7]
 [ext_resource path="res://NPC/Tugarin_Zmey_NPC_for_example.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=9]
+[ext_resource path="res://Enemies/Tugarin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Tatar_spear.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor.png 0"
@@ -158,6 +161,10 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
+
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 16, 16, 16, 16, 0, 32, 0, 48, 0, 48, 16, 64, 16, 64, 32, 64, 48, 48, 48, 32, 48, 16, 48, 0, 48, 0, 32, 0, 16 )
 
@@ -233,6 +240,21 @@ parameters/playback = SubResource( 5 )
 
 [node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
 position = Vector2( 793, 360 )
+
+[node name="Tatar_spear" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 371, 106 )
+
+[node name="AnimationTree" parent="YSort/Tatar_spear" index="4"]
+parameters/playback = SubResource( 7 )
+
+[node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 148, 223 )
+
+[node name="Tugarin" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 129, 25 )
+
+[node name="AnimationTree" parent="YSort/Tugarin" index="4"]
+parameters/playback = SubResource( 6 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -375,10 +397,16 @@ tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -196603, 536870912, 0, -196601, 536870912, 0, -65537, 0, 0, -131069, 0, 0, -131061, 0, 0, -131057, 0, 0, -131053, 0, 0, -131049, 0, 0, -131045, 0, 0, -131041, 0, 0, -131037, 0, 0, -131033, 0, 0, -131029, 0, 0, -131025, 0, 0, -65527, 536870913, 0, 65535, 0, 0, 47, 0, 0, 196607, 0, 0, 131119, 0, 0, 327679, 0, 0, 262191, 0, 0, 458751, 0, 0, 393263, 0, 0, 589823, 0, 0, 524335, 0, 0, 720895, 0, 0, 655407, 0, 0, 851967, 0, 0, 786479, 0, 0, 983039, 0, 0, 917551, 0, 0, 1114111, 0, 0, 1048623, 0, 0, 1245183, 0, 0, 1179695, 0, 0, 1376255, 0, 0, 1310723, 0, 0, 1310727, 0, 0, 1310731, 0, 0, 1310735, 0, 0, 1310739, 0, 0, 1310743, 0, 0, 1310747, 0, 0, 1310751, 0, 0, 1310755, 0, 0, 1310759, 0, 0, 1310763, 0, 0, 1310767, 0, 0 )
+tile_data = PoolIntArray( -196603, 536870912, 0, -196601, 536870912, 0, -65537, 0, 0, -131069, 0, 0, -131061, 0, 0, -131057, 0, 0, -131053, 0, 0, -131049, 0, 0, -131045, 0, 0, -131041, 0, 0, -131037, 0, 0, -131033, 0, 0, -131029, 0, 0, -131025, 0, 0, -65527, 536870913, 0, 65535, 0, 0, 47, 0, 0, 196607, 0, 0, 131119, 0, 0, 327679, 0, 0, 262191, 0, 0, 327683, 0, 0, 458751, 0, 0, 393263, 0, 0, 589823, 0, 0, 524335, 0, 0, 720895, 0, 0, 655407, 0, 0, 851967, 0, 0, 786479, 0, 0, 983039, 0, 0, 917551, 0, 0, 1114111, 0, 0, 1048623, 0, 0, 1245183, 0, 0, 1179695, 0, 0, 1376255, 0, 0, 1310723, 0, 0, 1310727, 0, 0, 1310731, 0, 0, 1310735, 0, 0, 1310739, 0, 0, 1310743, 0, 0, 1310747, 0, 0, 1310751, 0, 0, 1310755, 0, 0, 1310759, 0, 0, 1310763, 0, 0, 1310767, 0, 0 )
 
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
+[editable path="YSort/Tatar_spear"]
+[editable path="YSort/Tatar_spear/PlayerDetectionZone"]
+[editable path="YSort/Tatar_spear/Hurtbox"]
+[editable path="YSort/Tugarin"]
+[editable path="YSort/Tugarin/Hurtbox"]
+[editable path="YSort/Tugarin/PlayerDetectionZone"]
 [editable path="YSort/KinematicBody2D"]
