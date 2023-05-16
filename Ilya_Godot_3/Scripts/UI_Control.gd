@@ -22,7 +22,7 @@ func set_death_screen():
 	pack.hide()
 	$DeathScreen.show()
 
-func _unhandled_input(event):
+func _unhandled_key_input(event):
 	if event.is_action_pressed("esc"):
 		$Menu.open()
 

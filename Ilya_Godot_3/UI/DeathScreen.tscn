@@ -22,16 +22,19 @@ margin_left = -50.0
 margin_top = -10.0
 margin_right = 50.0
 margin_bottom = 10.0
-text = "Return to menu"
 scene_to_open = "res://UI/Menu.tscn"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" parent="Button" index="0"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -29.0
-margin_right = 27.5
-margin_bottom = -15.0
+margin_left = -49.5
+margin_top = -9.5
+margin_right = 49.5
+margin_bottom = 9.5
 text = "You died"
+align = 1
+valign = 1
+
+[editable path="Button"]

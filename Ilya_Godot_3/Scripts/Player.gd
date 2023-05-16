@@ -25,7 +25,6 @@ var stats = PlayerStats
 var items = 0
 var inventory = []
 
-
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -37,8 +36,14 @@ onready var ui = get_viewport().get_node("Root/HealthUI/Control")
 
 func _ready():
 	randomize()
+	stats.armor = ""
+	stats.sword = ""
+	stats.helmet = ""
+	stats.def = 0
+	stats.emit_signal("equipment_changed")
 	yield(SceneChanger, "on_game_ready")
 	inventory = stats.inventory
+	stats.emit_signal("equipment_changed")
 	position.x = stats.position_x
 	position.y = stats.position_y
 	stats.connect("no_health", self, "die")
@@ -139,12 +144,12 @@ func save():
 		"experience": stats.experience,
 		"max_exp": stats.max_exp,
 		"max_health": stats.max_health,
-		"atk": stats.atk,
 		"lvl": stats.lvl,
 		"inventory": stats.inventory,
 		"sword": stats.sword,
 		"helmet": stats.helmet,
-		"armor": stats.armor
+		"armor": stats.armor,
+		"atk": stats.self_atk
 	}
 	
 	return data
@@ -152,9 +157,6 @@ func save():
 
 func load_from_data(data):
 	position = data["position"]
-	stats.sword = data["sword"]
-	stats.helmet = data["helmet"]
-	stats.armor = data["armor"]
 	stats.health = data["health"]
 	stats.experience = data["experience"]
 	stats.max_exp = data["max_exp"]
@@ -163,6 +165,7 @@ func load_from_data(data):
 	stats.lvl = data["lvl"]
 	stats.inventory = data["inventory"].duplicate(true)
 	stats.set_health(stats.health)
+	stats.emit_signal("equipment_changed")
 
 
 func _on_Timer_timeout():

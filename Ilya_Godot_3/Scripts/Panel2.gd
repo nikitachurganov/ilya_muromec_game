@@ -1,17 +1,31 @@
 extends NinePatchRect
 
 var activeItem = null
-#var inventory = PlayerStats.inventory
-onready var container = $HBoxContainer/GridContainer
-onready var activeItemName = $HBoxContainer/Objects/Label
-onready var activeItemPhoto = $HBoxContainer/Objects/ItemPhoto
-onready var activeItemDescription = $HBoxContainer/Objects/Label2
 var stats = PlayerStats
+
+var items = {
+	"Helmet1": {"def": 2, "type": "helmet"},
+	"Helmet2": {"def": 5, "type": "helmet"},
+	"Helmet3": {"def": 10, "type": "helmet"},
+	"Sword1": {"atk": 2, "type": "sword"},
+	"Sword2": {"atk": 5, "type": "sword"},
+	"Sword3": {"atk": 10, "type": "sword"},
+	"Armor1": {"def": 2, "type": "armor"},
+	"Armor2": {"def": 5, "type": "armor"},
+	"Armor3": {"def": 10, "type": "armor"},
+	"Milk": {"heal": 5, "type": "food"},
+	"Apple": {"heal": 2, "type": "food"},
+	"Pie": {"heal": 3, "type": "food"}
+}
 
 func _ready():
 	visible = false
 
 func show_inventory(inventory):
+	var activeItemName = $HBoxContainer/Objects/Label
+	var activeItemPhoto = $HBoxContainer/Objects/ItemPhoto
+	var activeItemDescription = $HBoxContainer/Objects/Label2
+	
 	if activeItem == null:
 		activeItemName.text = ""
 		activeItemPhoto.texture = null
@@ -23,46 +37,18 @@ func show_inventory(inventory):
 		$HBoxContainer/Objects/HBoxContainer/Drop.visible = true
 		activeItemPhoto.texture = load("res://Art/Items/%s.png" % stats.inventory[activeItem])
 		activeItemName.text = stats.inventory[activeItem]
-		if stats.inventory[activeItem] == "Pie":
-			activeItemDescription.text = "Heal +3"
-		if stats.inventory[activeItem] == "Milk":
-			activeItemDescription.text = "Heal +5"
-		if stats.inventory[activeItem] == "Apple":
-			activeItemDescription.text = "Heal +2"
-		if stats.inventory[activeItem] == "Armor1":
-			activeItemDescription.text = "Def +2"
+		if items[stats.inventory[activeItem]]["type"] == "food":
+			activeItemDescription.text = "Heal +%s" % items[stats.inventory[activeItem]]["heal"]
+		if items[stats.inventory[activeItem]]["type"] == "armor":
+			activeItemDescription.text = "DEF +%s" % items[stats.inventory[activeItem]]["def"]
 			if stats.armor == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Armor2":
-			activeItemDescription.text = "Def +5"
-			if stats.armor == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Armor3":
-			activeItemDescription.text = "Def +10"
-			if stats.armor == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Sword1":
-			activeItemDescription.text = "ATK +2"
+		if items[stats.inventory[activeItem]]["type"] == "sword":
+			activeItemDescription.text = "ATK +%s" % items[stats.inventory[activeItem]]["atk"]
 			if stats.sword == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Sword2":
-			activeItemDescription.text = "ATK +5"
-			if stats.sword == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Sword3":
-			activeItemDescription.text = "ATK +10"
-			if stats.sword == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Helmet1":
-			activeItemDescription.text = "Def +2"
-			if stats.helmet == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Helmet2":
-			activeItemDescription.text = "Def +5"
-			if stats.helmet == "":
-				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
-		if stats.inventory[activeItem] == "Helmet3":
-			activeItemDescription.text = "Def +10"
+		if items[stats.inventory[activeItem]]["type"] == "helmet":
+			activeItemDescription.text = "DEF +%s" % items[stats.inventory[activeItem]]["def"]
 			if stats.helmet == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
 	
@@ -83,37 +69,16 @@ func activeItemChoose(count):
 func _on_Use_button_down():
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.x += 1
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.y += 1
-	if stats.inventory[activeItem] == "Pie":
-		stats.HP_replenishment(3)
-	elif stats.inventory[activeItem] == "Milk":
-		stats.HP_replenishment(5)
-	elif stats.inventory[activeItem] == "Apple":
-		stats.HP_replenishment(2)
-	elif stats.inventory[activeItem] == "Armor1":
-		stats.set_equipment("Armor1")
-	elif stats.inventory[activeItem] == "Armor2":
-		stats.set_equipment("Armor2")
-	elif stats.inventory[activeItem] == "Armor3":
-		stats.set_equipment("Armor3")
-	elif stats.inventory[activeItem] == "Sword1":
-		stats.set_equipment("Sword1")
-	elif stats.inventory[activeItem] == "Sword2":
-		stats.set_equipment("Sword2")
-	elif stats.inventory[activeItem] == "Sword3":
-		stats.set_equipment("Sword3")
-	elif stats.inventory[activeItem] == "Helmet1":
-		stats.set_equipment("Helmet1")
-	elif stats.inventory[activeItem] == "Helmet2":
-		stats.set_equipment("Helmet2")
-	elif stats.inventory[activeItem] == "Helmet3":
-		stats.set_equipment("Helmet3")
+	if items[stats.inventory[activeItem]]["type"] == "food":
+		stats.HP_replenishment(items[stats.inventory[activeItem]]["heal"])
+	elif items[stats.inventory[activeItem]]["type"] == "armor" or items[stats.inventory[activeItem]]["type"] == "helmet" or items[stats.inventory[activeItem]]["type"] == "sword":
+		stats.set_equipment(stats.inventory[activeItem])
 	update_inventory()
 	show_inventory(stats.inventory)
 
 func _on_Use_button_up():
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.x -= 1
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.y -= 1
-	print(stats.helmet, stats.armor, stats.sword)
 
 func _on_Drop_button_down():
 	$HBoxContainer/Objects/HBoxContainer/Drop/Label.rect_position.x += 1

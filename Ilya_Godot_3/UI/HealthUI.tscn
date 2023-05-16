@@ -8,12 +8,13 @@
 [ext_resource path="res://Scripts/UI_Control.gd" type="Script" id=6]
 [ext_resource path="res://Art/Items/Sword1.png" type="Texture" id=7]
 [ext_resource path="res://UI/GameMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/DeathScreen.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Panel2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Panel2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Art/Items/Armor1.png" type="Texture" id=11]
 [ext_resource path="res://Art/Items/Hemlet1.png" type="Texture" id=12]
 
 [node name="HealthUI" type="CanvasLayer"]
+pause_mode = 2
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
@@ -128,7 +129,7 @@ stretch_mode = 6
 
 [node name="NinePatchRect" parent="Control" instance=ExtResource( 10 )]
 
+[node name="Menu" parent="Control" instance=ExtResource( 8 )]
+
 [node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
 visible = false
-
-[node name="Menu" parent="Control" instance=ExtResource( 8 )]

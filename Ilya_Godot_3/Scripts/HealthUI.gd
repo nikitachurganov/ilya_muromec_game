@@ -8,14 +8,9 @@ var max_exp = 500 setget set_max_exp
 var lvl = 1 setget set_lvl
 var def = 0 setget set_def
 
-onready var labelHealth = $LabelHealth
-onready var labelAtk = $LabelAtk
-onready var labelExp = $LabelExp
-onready var labelLvl = $LabelLvl
-onready var labelDef = $LabelDef
-onready var healthUIFull = $TextureHealth
-
 func set_health(value):
+	var labelHealth = $LabelHealth
+	var healthUIFull = $TextureHealth
 	health = clamp(value, 0, max_health)
 	if labelHealth != null:
 		labelHealth.text = str(health) + " HP"
@@ -23,21 +18,25 @@ func set_health(value):
 		healthUIFull.rect_size.x = health / max_health * 64
 
 func set_atk(value):
+	var labelAtk = $LabelAtk
 	atk = clamp(value, 0, 100)
 	if labelAtk != null:
 		labelAtk.text = str(atk)
 
 func set_def(value):
+	var labelDef = $LabelDef
 	def = clamp(value, 0, 100)
 	if labelDef != null:
 		labelDef.text = str(def)
 
 func set_exp(value):
+	var labelExp = $LabelExp
 	experience = clamp(value, 0, max_exp)
 	if labelExp != null:
 		labelExp.text = "EXP = " + str(experience) + "/" + str(max_exp)
 
 func set_lvl(value):
+	var labelLvl = $LabelLvl
 	lvl = clamp(value, 0, 500)
 	if labelLvl != null:
 		labelLvl.text = "LVL " + str(lvl)

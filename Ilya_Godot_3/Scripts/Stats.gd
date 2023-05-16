@@ -10,13 +10,29 @@ export var def = 0 setget set_def
 export var position_x = 150
 export var position_y = 150
 var inventory = []
+var self_atk = atk
 var items
 var sword = ""
 var helmet = ""
 var armor = ""
 
-onready var saving_group = "TO_BE_SAVED"
+var swords = {
+	"Sword1": {"attack": 2},
+	"Sword2": {"attack": 5},
+	"Sword3": {"attack": 10}
+}
+var armors = {
+	"Armor1": {"def": 2},
+	"Armor2": {"def": 5},
+	"Armor3": {"def": 10}
+}
+var helmets = {
+	"Helmet1": {"def": 2},
+	"Helmet2": {"def": 5},
+	"Helmet3": {"def": 10}
+}
 
+onready var saving_group = "TO_BE_SAVED"
 onready var save_dir = "user://Saves"
 onready var save_temp = "%s.tres"
 
@@ -32,140 +48,38 @@ signal def_changed(value)
 signal equipment_changed
 
 func set_equipment(equipment):
-	if equipment == "Sword1":
+	if equipment == "":
+		return
+	
+	if equipment == "Sword1" or equipment == "Sword2" or equipment == "Sword3":
 		if sword == "":
-			sword = "Sword1"
-			set_atk(atk + 2)
+			sword = equipment
+			set_atk(atk + swords[equipment]["attack"])
 		else:
 			inventory.push_back(sword)
-			if sword == "Sword2":
-				set_atk(atk - 5)
-			elif sword == "Sword3":
-				set_atk(atk - 10)
-			else:
-				set_atk(atk - 2)
-			sword = "Sword1"
-			set_atk(atk + 2)
+			set_atk(atk - swords[sword]["attack"])
+			sword = equipment
+			set_atk(atk + swords[equipment]["attack"])
 	
-	if equipment == "Sword2":
-		if sword == "":
-			sword = "Sword2"
-			set_atk(atk + 5)
-		else:
-			inventory.push_back(sword)
-			if sword == "Sword2":
-				set_atk(atk - 5)
-			elif sword == "Sword3":
-				set_atk(atk - 10)
-			else:
-				set_atk(atk - 2)
-			sword = "Sword2"
-			set_atk(atk + 5)
-	
-	if equipment == "Sword3":
-		if sword == "":
-			sword = "Sword3"
-			set_atk(atk + 10)
-		else:
-			inventory.push_back(sword)
-			if sword == "Sword2":
-				set_atk(atk - 5)
-			elif sword == "Sword3":
-				set_atk(atk - 10)
-			else:
-				set_atk(atk - 2)
-			sword = "Sword3"
-			set_atk(atk + 10)
-	
-	if equipment == "Armor1":
+	if equipment == "Armor1" or equipment == "Armor2" or equipment == "Armor3":
 		if armor == "":
-			armor = "Armor1"
-			set_def(def + 2)
+			armor = equipment
+			set_def(def + armors[equipment]["def"])
 		else:
 			inventory.push_back(armor)
-			if armor == "Armor2":
-				set_def(def - 5)
-			elif armor == "Armor3":
-				set_def(def - 10)
-			else:
-				set_def(atk - 2)
-			armor = "Armor1"
-			set_def(def + 2)
+			set_def(def - armors[armor]["def"])
+			armor = equipment
+			set_def(def + armors[armor]["def"])
 	
-	if equipment == "Armor2":
-		if armor == "":
-			armor = "Armor2"
-			set_def(def + 5)
-		else:
-			inventory.push_back(armor)
-			if armor == "Armor2":
-				set_def(def - 5)
-			elif armor == "Armor3":
-				set_def(def - 10)
-			else:
-				set_def(atk - 2)
-			armor = "Armor2"
-			set_def(def + 5)
-	
-	if equipment == "Armor3":
-		if armor == "":
-			armor = "Armor3"
-			set_def(def + 10)
-		else:
-			inventory.push_back(armor)
-			if armor == "Armor2":
-				set_def(def - 5)
-			elif armor == "Armor3":
-				set_def(def - 10)
-			else:
-				set_def(def - 2)
-			armor = "Armor3"
-			set_def(def + 10)
-	
-	if equipment == "Helmet1":
+	if equipment == "Helmet1" or equipment == "Helmet2" or equipment == "Helmet3":
 		if helmet == "":
-			helmet = "Helmet1"
-			set_def(def + 2)
+			helmet = equipment
+			set_def(def + helmets[equipment]["def"])
 		else:
 			inventory.push_back(helmet)
-			if helmet == "Helmet2":
-				set_def(def - 5)
-			elif helmet == "Helmet3":
-				set_def(def - 10)
-			else:
-				set_def(def - 2)
-			helmet = "Helmet1"
-			set_def(def + 2)
-	
-	if equipment == "Helmet2":
-		if helmet == "":
-			helmet = "Helmet2"
-			set_def(def + 5)
-		else:
-			inventory.push_back(helmet)
-			if helmet == "Helmet2":
-				set_def(def - 5)
-			elif helmet == "Helmet3":
-				set_def(def - 10)
-			else:
-				set_def(def - 2)
-			helmet = "Helmet2"
-			set_def(def + 5)
-	
-	if equipment == "Helmet3":
-		if helmet == "":
-			helmet = "Helmet3"
-			set_def(def + 10)
-		else:
-			inventory.push_back(helmet)
-			if helmet == "Helmet2":
-				set_def(def - 5)
-			elif helmet == "Helmet3":
-				set_def(def - 10)
-			else:
-				set_def(def - 2)
-			helmet = "Helmet3"
-			set_def(def + 10)
+			set_def(def - helmets[helmet]["def"])
+			helmet = equipment
+			set_def(def + helmets[helmet]["def"])
 	
 	emit_signal("equipment_changed")
 
@@ -198,6 +112,7 @@ func set_exp(value):
 		set_max_exp(max_exp + 50)
 		set_exp(experience)
 		set_atk(atk + 5)
+		self_atk = atk
 		set_max_health(max_health + 10)
 		set_health(max_health)
 		set_lvl(lvl)
