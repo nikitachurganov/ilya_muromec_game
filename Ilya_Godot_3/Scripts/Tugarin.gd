@@ -47,11 +47,12 @@ func _physics_process(delta):
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 				
+				var dist = player.global_position - global_position
+				print(dist)
+				print(dist.x * dist.x - dist.y * dist.y + 24*24 )
 				
-				if  (player.global_position.x - global_position.x <=  1 && player.global_position.x - global_position.x >=  -1) ||(player.global_position.y - global_position.y <=  1 && player.global_position.y - global_position.y >=  -1) :
-					print(player.global_position - global_position)
+				if  (dist.x * dist.x - dist.y * dist.y <= 5 && dist.x * dist.x - dist.y * dist.y >= -5) || (dist.x * dist.x - dist.y * dist.y + 24*24 <= 5 && dist.x * dist.x - dist.y * dist.y + 24*24 >= -5):
 					state = ATTACK
-					
 				
 			else:
 				animationState.travel("Idle")
@@ -73,7 +74,6 @@ func attack_animation_finished():
 	state = CHASE
 
 func _on_Hurtbox_area_entered(area):
-	
 	stats.health -= PlayerStats.atk
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
@@ -83,10 +83,3 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-
-func _on_Hitbox_body_entered(body):
-	pass
-
-func _on_Hitbox_area_entered(area):
-	pass
-	
