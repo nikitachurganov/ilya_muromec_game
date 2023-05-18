@@ -47,12 +47,12 @@ func _physics_process(delta):
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 				
-				var dist = player.global_position - global_position
-				print(dist)
-				print(dist.x * dist.x - dist.y * dist.y + 24*24 )
+				#var dist = player.global_position - global_position
+				#print(dist)
+				#print(dist.x * dist.x - dist.y * dist.y + 24*24 )
 				
-				if  (dist.x * dist.x - dist.y * dist.y <= 5 && dist.x * dist.x - dist.y * dist.y >= -5) || (dist.x * dist.x - dist.y * dist.y + 24*24 <= 5 && dist.x * dist.x - dist.y * dist.y + 24*24 >= -5):
-					state = ATTACK
+				#if  (dist.x * dist.x - dist.y * dist.y <= 5 && dist.x * dist.x - dist.y * dist.y >= -5) || (dist.x * dist.x - dist.y * dist.y + 24*24 <= 5 && dist.x * dist.x - dist.y * dist.y + 24*24 >= -5):
+				#s	state = ATTACK
 			else:
 				animationState.travel("Idle")
 				state = IDLE
@@ -82,3 +82,29 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+
+func _on_AreaHit_area_entered(area):
+	state = ATTACK
+
+
+func save():
+	var data = {
+		"filename": get_filename(),
+		"position": position,
+		"health": stats.health,
+		"max_health": stats.max_health,
+		"state": state,
+		"global_position": global_position
+	}
+	
+	return data
+
+
+func load_from_data(data):
+	position = data["position"]
+	global_position = data["global_position"]
+	stats.health = data["health"]
+	stats.max_health = data["max_health"]
+	state = data["state"]
+	stats.set_health(stats.health)
