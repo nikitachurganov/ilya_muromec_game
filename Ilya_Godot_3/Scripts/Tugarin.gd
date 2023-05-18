@@ -74,7 +74,7 @@ func attack_animation_finished():
 	state = CHASE
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= PlayerStats.atk
+	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 
