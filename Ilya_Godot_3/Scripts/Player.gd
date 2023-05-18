@@ -36,18 +36,13 @@ onready var ui = get_viewport().get_node("Root/HealthUI/Control")
 
 func _ready():
 	randomize()
-	stats.armor = ""
-	stats.sword = ""
-	stats.helmet = ""
 	stats.def = 0
-	stats.emit_signal("equipment_changed")
 	yield(SceneChanger, "on_game_ready")
 	inventory = stats.inventory
 	stats.emit_signal("equipment_changed")
 	position.x = stats.position_x
 	position.y = stats.position_y
 	stats.connect("no_health", self, "die")
-	animationTree.active = true
 	collisionSwordHitbox.disabled = true
 	swordHitbox.knockback_vector = roll_vector
 	$Timer.start(5)
@@ -149,7 +144,7 @@ func save():
 		"sword": stats.sword,
 		"helmet": stats.helmet,
 		"armor": stats.armor,
-		"atk": stats.self_atk
+		"atk": stats.atk
 	}
 	
 	return data
@@ -165,6 +160,9 @@ func load_from_data(data):
 	stats.lvl = data["lvl"]
 	stats.inventory = data["inventory"].duplicate(true)
 	stats.set_health(stats.health)
+	stats.set_equipment(data["armor"])
+	stats.set_equipment(data["sword"])
+	stats.set_equipment(data["helmet"])
 	stats.emit_signal("equipment_changed")
 
 

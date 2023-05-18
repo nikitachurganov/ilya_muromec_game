@@ -6,30 +6,28 @@ export var atk = 10 setget set_atk
 export var max_exp = 500 setget set_max_exp
 export var experience = 0 setget set_exp
 onready var lvl = 1 setget set_lvl
-export var def = 0 setget set_def
+export var def = 0 
 export var position_x = 150
 export var position_y = 150
 var inventory = []
-var self_atk = atk
-var items
 var sword = ""
 var helmet = ""
 var armor = ""
 
-var swords = {
-	"Sword1": {"attack": 2},
-	"Sword2": {"attack": 5},
-	"Sword3": {"attack": 10}
-}
-var armors = {
-	"Armor1": {"def": 2},
-	"Armor2": {"def": 5},
-	"Armor3": {"def": 10}
-}
-var helmets = {
-	"Helmet1": {"def": 2},
-	"Helmet2": {"def": 5},
-	"Helmet3": {"def": 10}
+var items = {
+	"": {"attack": 0, "def": 0},
+	"Helmet1": {"def": 2, "type": "helmet"},
+	"Helmet2": {"def": 5, "type": "helmet"},
+	"Helmet3": {"def": 10, "type": "helmet"},
+	"Sword1": {"attack": 2, "type": "sword"},
+	"Sword2": {"attack": 5, "type": "sword"},
+	"Sword3": {"attack": 10, "type": "sword"},
+	"Armor1": {"def": 2, "type": "armor"},
+	"Armor2": {"def": 5, "type": "armor"},
+	"Armor3": {"def": 10, "type": "armor"},
+	"Milk": {"heal": 5, "type": "food"},
+	"Apple": {"heal": 2, "type": "food"},
+	"Pie": {"heal": 3, "type": "food"}
 }
 
 onready var saving_group = "TO_BE_SAVED"
@@ -54,32 +52,29 @@ func set_equipment(equipment):
 	if equipment == "Sword1" or equipment == "Sword2" or equipment == "Sword3":
 		if sword == "":
 			sword = equipment
-			set_atk(atk + swords[equipment]["attack"])
+			set_atk(atk)
 		else:
 			inventory.push_back(sword)
-			set_atk(atk - swords[sword]["attack"])
 			sword = equipment
-			set_atk(atk + swords[equipment]["attack"])
+			set_atk(atk)
 	
 	if equipment == "Armor1" or equipment == "Armor2" or equipment == "Armor3":
 		if armor == "":
 			armor = equipment
-			set_def(def + armors[equipment]["def"])
+			set_def()
 		else:
 			inventory.push_back(armor)
-			set_def(def - armors[armor]["def"])
 			armor = equipment
-			set_def(def + armors[armor]["def"])
+			set_def()
 	
 	if equipment == "Helmet1" or equipment == "Helmet2" or equipment == "Helmet3":
 		if helmet == "":
 			helmet = equipment
-			set_def(def + helmets[equipment]["def"])
+			set_def()
 		else:
 			inventory.push_back(helmet)
-			set_def(def - helmets[helmet]["def"])
 			helmet = equipment
-			set_def(def + helmets[helmet]["def"])
+			set_def()
 	
 	emit_signal("equipment_changed")
 
@@ -96,8 +91,8 @@ func set_max_exp(value):
 	max_exp = value
 	emit_signal("max_exp_changed", max_exp)
 
-func set_def(value):
-	def = value
+func set_def():
+	def = items[armor]["def"] + items[helmet]["def"]
 	emit_signal("def_changed", def)
 
 func HP_replenishment(val):
@@ -112,7 +107,6 @@ func set_exp(value):
 		set_max_exp(max_exp + 50)
 		set_exp(experience)
 		set_atk(atk + 5)
-		self_atk = atk
 		set_max_health(max_health + 10)
 		set_health(max_health)
 		set_lvl(lvl)
@@ -129,3 +123,4 @@ func set_health(value):
 
 func _ready():
 	self.health = max_health
+	set_atk(atk)

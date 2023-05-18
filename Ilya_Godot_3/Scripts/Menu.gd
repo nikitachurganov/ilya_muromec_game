@@ -5,6 +5,11 @@ signal on_loaded(data)
 
 func _ready():
 	get_tree().paused = false
+	if File.new().file_exists(stats.save_dir.plus_file(stats.save_temp % "save")):
+		$Buttons/Resume.visible = true
+	else:
+		$Buttons/Resume.visible = false
+	
 	$Buttons/Button.connect("pressed", self, "change_scene", [$Buttons/Button.scene_to_open])
 	$Buttons/Button.connect("pressed", self, "new_game")
 	

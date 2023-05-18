@@ -19,7 +19,8 @@ func set_health(value):
 
 func set_atk(value):
 	var labelAtk = $LabelAtk
-	atk = clamp(value, 0, 100)
+	atk = clamp(PlayerStats.atk, 0, 100)
+	atk += PlayerStats.items[PlayerStats.sword]["attack"]
 	if labelAtk != null:
 		labelAtk.text = str(atk)
 

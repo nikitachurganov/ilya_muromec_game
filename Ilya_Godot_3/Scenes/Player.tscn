@@ -720,6 +720,7 @@ anims/RollUp = SubResource( 40 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 21 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 22 )
 parameters/Attack/blend_position = Vector2( 1, 0 )
 parameters/Idle/blend_position = Vector2( 1, 0 )

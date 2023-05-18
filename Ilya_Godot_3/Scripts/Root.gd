@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	#add_to_group(PlayerStats.saving_group)
 	connect_player_to_death()
 
 func save():

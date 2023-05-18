@@ -44,7 +44,7 @@ func load_from_data(data):
 		$YSort/Bats.remove_child(enemy)
 		enemy.queue_free()
 	
-	var p =$YSort/Player
+	var p = $YSort/Player
 	PlayerStats.health = data["player"]["health"]
 	PlayerStats.max_health = data["player"]["max_health"]
 	PlayerStats.experience = data["player"]["experience"]
@@ -55,6 +55,10 @@ func load_from_data(data):
 	p.position = data["player"]["position"]
 	PlayerStats.position_x = p.position.x
 	PlayerStats.position_y = p.position.y
+	PlayerStats.set_equipment(data["player"]["armor"])
+	PlayerStats.set_equipment(data["player"]["sword"])
+	PlayerStats.set_equipment(data["player"]["helmet"])
+	PlayerStats.set_health(PlayerStats.health)
 	
 	#get_parent().connect_player_to_death()
 	
