@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art/MenuBackground2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/GameMenu.gd" type="Script" id=2]
 [ext_resource path="res://Art/Buttons/MenuButtonNotPressed.png" type="Texture" id=3]
 [ext_resource path="res://Art/Buttons/MenuButtonPressed.png" type="Texture" id=4]
+[ext_resource path="res://Art/glossariy.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Buttons/GlossariyButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Glossriy.gd" type="Script" id=7]
+[ext_resource path="res://Art/Buttons/ClosePressed.png" type="Texture" id=8]
+[ext_resource path="res://Art/Buttons/CloseNotPressed.png" type="Texture" id=9]
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -120,6 +125,123 @@ text = "Quit"
 align = 1
 valign = 1
 
+[node name="Glossriy" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -75.0
+margin_right = 150.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 300, 150 )
+script = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="Glossriy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Glossriy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 26.0
+margin_right = -7.0
+margin_bottom = -25.0
+
+[node name="Control" type="Control" parent="Glossriy/HBoxContainer"]
+margin_bottom = 99.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Glossriy/HBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 139.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Glossriy/HBoxContainer/Control/ScrollContainer"]
+margin_right = 139.0
+margin_bottom = 120.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Glossriy/HBoxContainer/Control/ScrollContainer/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 139, 99 )
+text = "qwe 123 qwe qwe qwe qweqweqweqwwwweqwe qweqwe qwe qwe qwe qwe qwe qwe qwe qwe qwe qwe qwe qwe qwe qweqweqwe qewqwe"
+fit_content_height = true
+
+[node name="Control2" type="Control" parent="Glossriy/HBoxContainer"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 99.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Glossriy/HBoxContainer/Control2"]
+margin_right = 12.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 139, 99 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Glossriy/HBoxContainer/Control2/ScrollContainer"]
+margin_right = 131.0
+margin_bottom = 76.0
+
+[node name="TextureButton" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+label_text = "12345"
+
+[node name="Label" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton" index="0"]
+text = "asdasdasdasdsad"
+
+[node name="TextureButton2" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 20.0
+margin_bottom = 36.0
+label_text = "qwerty"
+
+[node name="Label" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton2" index="0"]
+text = "jhgfds"
+
+[node name="TextureButton3" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 40.0
+margin_bottom = 56.0
+label_text = "askdhkasdvkv aksdvkhasvdasv akshdvkahdvk hasaskdv kasdvk"
+
+[node name="Label" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton3" index="0"]
+text = "dfghjkhgfbdv"
+
+[node name="TextureButton4" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 60.0
+margin_bottom = 76.0
+label_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. Nulla facilisi. Nullam egestas velit eget lacus elementum, eu tincidunt odio tempus. Vivamus convallis nisl vel mauris sollicitudin, non mollis justo aliquam. Sed non bibendum erat. Vivamus at vestibulum felis. In hac habitasse platea dictumst. Suspendisse potenti. Mauris in velit dui.Nunc vel orci eget sapien dictum egestas. Curabitur auctor, purus a luctus efficitur, ante est lacinia neque, eu vehicula magna nisl non metus. Vivamus lacinia nisl at neque faucibus, ac malesuada nisl pretium. In hac habitasse platea dictumst. Sed vel mauris at orci accumsan luctus. Quisque eget est ac risus aliquet varius vitae et magna. Sed id dui vel metus pulvinar congue in id dui.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin euismod dui non nibh dictum, eu fermentum metus pretium. Fusce ut velit laoreet, tempus arcu eu, molestie tortor. Nam vel justo cursus, faucibus lorem eget, egestas eros. Maecenas eleifend erat at justo fringilla imperdiet id ac magna. Suspendisse vel facilisis odio, at ornare nibh.In vehicula lig"
+
+[node name="Label" parent="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton4" index="0"]
+text = "sdfghhbvds"
+
+[node name="Label" type="Label" parent="Glossriy"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 145.0
+margin_bottom = 20.0
+text = "Glossary"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Glossriy"]
+margin_left = 155.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 20.0
+align = 1
+valign = 1
+
+[node name="TextureButton" type="TextureButton" parent="Glossriy"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -28.0
+margin_top = 4.0
+margin_right = -12.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+
 [connection signal="button_down" from="Panel/Main/Buttons/Resume" to="." method="_on_Resume_button_down"]
 [connection signal="button_up" from="Panel/Main/Buttons/Resume" to="." method="_on_Resume_button_up"]
 [connection signal="button_down" from="Panel/Main/Buttons/Glossariy" to="." method="_on_Glossariy_button_down"]
@@ -128,3 +250,9 @@ valign = 1
 [connection signal="button_up" from="Panel/Main/Buttons/Save" to="." method="_on_Save_button_up"]
 [connection signal="button_down" from="Panel/Main/Buttons/Quit" to="." method="_on_Quit_button_down"]
 [connection signal="button_up" from="Panel/Main/Buttons/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="pressed" from="Glossriy/TextureButton" to="Glossriy" method="_on_TextureButton_pressed"]
+
+[editable path="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton"]
+[editable path="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton2"]
+[editable path="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton3"]
+[editable path="Glossriy/HBoxContainer/Control2/ScrollContainer/VBoxContainer/TextureButton4"]

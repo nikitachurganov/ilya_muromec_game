@@ -9,6 +9,7 @@ func _ready():
 	$Panel/Main/Buttons/Resume.connect("pressed", self, "open")
 	$Panel/Main/Buttons/Quit.connect("pressed", SceneChanger, "change_scene", ["res://UI/Menu.tscn"])
 	$Panel/Main/Buttons/Save.connect("pressed", self, "save")
+	$Panel/Main/Buttons/Glossariy.connect("pressed", $Glossriy, "open")
 
 func open():
 	if visible:
