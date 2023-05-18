@@ -616,7 +616,6 @@ shape = SubResource( 41 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="area_entered" from="HitboxPivot/Hitbox" to="." method="_on_Hitbox_area_entered"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="Hurtbox"]

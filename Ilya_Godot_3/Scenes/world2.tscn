@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bush.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=9]
 [ext_resource path="res://Enemies/Tugarin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Enemies/Tatar_spear.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor.png 0"
@@ -161,8 +160,6 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
-
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
@@ -241,17 +238,12 @@ parameters/playback = SubResource( 5 )
 [node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
 position = Vector2( 793, 360 )
 
-[node name="Tatar_spear" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 371, 106 )
-
-[node name="AnimationTree" parent="YSort/Tatar_spear" index="4"]
-parameters/playback = SubResource( 7 )
-
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 148, 223 )
 
 [node name="Tugarin" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 129, 25 )
+scale = Vector2( 2, 2 )
 
 [node name="AnimationTree" parent="YSort/Tugarin" index="4"]
 parameters/playback = SubResource( 6 )
@@ -403,10 +395,8 @@ tile_data = PoolIntArray( -196603, 536870912, 0, -196601, 536870912, 0, -65537, 
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
-[editable path="YSort/Tatar_spear"]
-[editable path="YSort/Tatar_spear/PlayerDetectionZone"]
-[editable path="YSort/Tatar_spear/Hurtbox"]
 [editable path="YSort/Tugarin"]
-[editable path="YSort/Tugarin/Hurtbox"]
 [editable path="YSort/Tugarin/PlayerDetectionZone"]
+[editable path="YSort/Tugarin/Hurtbox"]
+[editable path="YSort/Tugarin/HitboxPivot/Hitbox"]
 [editable path="YSort/KinematicBody2D"]

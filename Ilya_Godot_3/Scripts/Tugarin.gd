@@ -74,7 +74,7 @@ func attack_animation_finished():
 	state = CHASE
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= PlayerStats.atk
+	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 
@@ -83,3 +83,25 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+
+func save():
+	var data = {
+		"filename": get_filename(),
+		"position": position,
+		"health": stats.health,
+		"max_health": stats.max_health,
+		"state": state,
+		"global_position": global_position
+	}
+	
+	return data
+
+
+func load_from_data(data):
+	position = data["position"]
+	global_position = data["global_position"]
+	stats.health = data["health"]
+	stats.max_health = data["max_health"]
+	state = data["state"]
+	stats.set_health(stats.health)
