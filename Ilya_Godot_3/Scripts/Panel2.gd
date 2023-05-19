@@ -23,17 +23,17 @@ func show_inventory(inventory):
 		activeItemPhoto.texture = load("res://Art/Items/%s.png" % stats.inventory[activeItem])
 		activeItemName.text = stats.inventory[activeItem]
 		if stats.items[stats.inventory[activeItem]]["type"] == "food":
-			activeItemDescription.text = "Heal +%s" % stats.items[stats.inventory[activeItem]]["heal"]
+			activeItemDescription.text = "+%s к здровью" % stats.items[stats.inventory[activeItem]]["heal"]
 		if stats.items[stats.inventory[activeItem]]["type"] == "armor":
-			activeItemDescription.text = "DEF +%s" % stats.items[stats.inventory[activeItem]]["def"]
+			activeItemDescription.text = "+%s к защите" % stats.items[stats.inventory[activeItem]]["def"]
 			if stats.armor == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
 		if stats.items[stats.inventory[activeItem]]["type"] == "sword":
-			activeItemDescription.text = "ATK +%s" % stats.items[stats.inventory[activeItem]]["attack"]
+			activeItemDescription.text = "+%s к атаке" % stats.items[stats.inventory[activeItem]]["attack"]
 			if stats.sword == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
 		if stats.items[stats.inventory[activeItem]]["type"] == "helmet":
-			activeItemDescription.text = "DEF +%s" % stats.items[stats.inventory[activeItem]]["def"]
+			activeItemDescription.text = "+%s к защите" % stats.items[stats.inventory[activeItem]]["def"]
 			if stats.helmet == "":
 				$HBoxContainer/Objects/HBoxContainer/Drop.visible = false
 	

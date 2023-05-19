@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/InventoryButtonPressed.png-922648e40a7675f5d5184073e2ab3f3a.stex"
+path="res://.import/DeleteHover.png-cbcf2d936a66c07db5ea85142f907700.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Buttons/InventoryButtonPressed.png"
-dest_files=[ "res://.import/InventoryButtonPressed.png-922648e40a7675f5d5184073e2ab3f3a.stex" ]
+source_file="res://Art/Buttons/DeleteHover.png"
+dest_files=[ "res://.import/DeleteHover.png-cbcf2d936a66c07db5ea85142f907700.stex" ]
 
 [params]
 
