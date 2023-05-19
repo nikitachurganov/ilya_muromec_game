@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bush.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Enemies/Tugarin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/Gorynych.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Enemies/Solovey.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor.png 0"
@@ -236,6 +237,9 @@ parameters/playback = SubResource( 5 )
 
 [node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
 position = Vector2( 793, 360 )
+
+[node name="Solovey" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 131, 17 )
 
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 132, 275 )
