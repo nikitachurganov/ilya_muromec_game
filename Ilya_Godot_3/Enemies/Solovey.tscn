@@ -1,6 +1,139 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Art/solovey.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 4.0
+height = 4.0
+
+[sub_resource type="Animation" id=19]
+resource_name = "AttackBlowDown"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "AttackBlowLeft"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54, 55 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "AttackBlowRight"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "AttackBlowUp"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 44, 45, 46, 47 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "AttackHitDown"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "AttackHitLeft"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "AttackHitRight"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "AttackHitUp"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 29, 30, 31 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleDown"
@@ -64,21 +197,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 6 ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -145,6 +263,37 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 10, 11 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "IdleUp"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "IdleDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=25]
+blend_point_0/node = SubResource( 21 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 22 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 23 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 24 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id=26]
+states/Idle/node = SubResource( 25 )
+states/Idle/position = Vector2( 174, 78 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
+
 [node name="Solovey" type="KinematicBody2D"]
 
 [node name="SpruteShow" type="Sprite" parent="."]
@@ -152,19 +301,33 @@ tracks/0/keys = {
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 56
-frame = 1
+frame = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 12 )
+rotation = 1.5708
+shape = SubResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AttackBlowDown = SubResource( 19 )
+anims/AttackBlowLeft = SubResource( 20 )
+anims/AttackBlowRight = SubResource( 16 )
+anims/AttackBlowUp = SubResource( 18 )
+anims/AttackHitDown = SubResource( 14 )
+anims/AttackHitLeft = SubResource( 15 )
+anims/AttackHitRight = SubResource( 11 )
+anims/AttackHitUp = SubResource( 12 )
 anims/IdleDown = SubResource( 1 )
 anims/IdleLeft = SubResource( 2 )
 anims/IdleRight = SubResource( 3 )
 anims/IdleUp = SubResource( 4 )
-anims/RESET = SubResource( 5 )
 anims/RunDown = SubResource( 8 )
 anims/RunLeft = SubResource( 9 )
 anims/RunRight = SubResource( 6 )
 anims/RunUp = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 26 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 27 )
+parameters/Idle/blend_position = Vector2( 0, 0 )

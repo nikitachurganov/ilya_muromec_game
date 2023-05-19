@@ -23,7 +23,6 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
-onready var hitzone = $HitZone
 onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
