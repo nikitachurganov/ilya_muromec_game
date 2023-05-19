@@ -13,7 +13,7 @@ func set_health(value):
 	var healthUIFull = $TextureHealth
 	health = clamp(value, 0, max_health)
 	if labelHealth != null:
-		labelHealth.text = str(health) + " HP"
+		labelHealth.text = str(health) + " ХП"
 	if healthUIFull != null:
 		healthUIFull.rect_size.x = health / max_health * 64
 
@@ -34,13 +34,13 @@ func set_exp(value):
 	var labelExp = $LabelExp
 	experience = clamp(value, 0, max_exp)
 	if labelExp != null:
-		labelExp.text = "EXP = " + str(experience) + "/" + str(max_exp)
+		labelExp.text = "Опыт " + str(experience) + "/" + str(max_exp)
 
 func set_lvl(value):
 	var labelLvl = $LabelLvl
 	lvl = clamp(value, 0, 500)
 	if labelLvl != null:
-		labelLvl.text = "LVL " + str(lvl)
+		labelLvl.text = "Уровень " + str(lvl)
 
 func set_max_health(value):
 	max_health = max(value, 1)

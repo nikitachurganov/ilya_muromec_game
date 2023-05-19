@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
-export var acceleration = 300
-export var max_speed = 50
-export var friction = 1000
+export var acceleration = 150
+export var max_speed = 20
+export var friction = 200
 
 enum{
 	IDLE,
@@ -70,7 +70,7 @@ func attack_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
-	knockback = area.knockback_vector * 40
+	knockback = area.knockback_vector * 70
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
@@ -102,4 +102,4 @@ func load_from_data(data):
 	stats.set_health(stats.health)
 
 func _on_HitZoneDetection_area_entered(area):
-		state = ATTACK
+	state = ATTACK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Buttons/SceneButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Art/Buttons/MenuButtonNotPressed.png" type="Texture" id=4]
 [ext_resource path="res://Art/Buttons/MenuButtonPressed.png" type="Texture" id=5]
 [ext_resource path="res://Art/MenuBackground2.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 7 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -60,7 +65,7 @@ margin_bottom = 38.0
 rect_min_size = Vector2( 100, 5 )
 
 [node name="Label" parent="Buttons/Resume" index="0"]
-text = "Resume"
+text = "Продолжить игру"
 align = 1
 valign = 1
 
@@ -73,7 +78,7 @@ rect_min_size = Vector2( 100, 5 )
 scene_to_open = "res://Scenes/Root1.tscn"
 
 [node name="Label" parent="Buttons/Button" index="0"]
-text = "New Game"
+text = "Новая игра"
 align = 1
 valign = 1
 
@@ -88,7 +93,8 @@ texture_pressed = ExtResource( 5 )
 [node name="Label" type="Label" parent="Buttons/Quit"]
 margin_right = 99.0
 margin_bottom = 19.0
-text = "Quit"
+custom_fonts/font = SubResource( 1 )
+text = "Выйти из игры"
 align = 1
 valign = 1
 
