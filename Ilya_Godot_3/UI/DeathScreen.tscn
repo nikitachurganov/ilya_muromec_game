@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Buttons/SceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 3 )
+
+[node name="DeathScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.121569, 0.0588235, 0.0588235, 1 )
+
+[node name="Button" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -10.0
+margin_right = 50.0
+margin_bottom = 10.0
+scene_to_open = "res://UI/Menu.tscn"
+
+[node name="Label" parent="Button" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.5
+margin_top = -9.5
+margin_right = 49.5
+margin_bottom = 9.5
+text = "Начать заново"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 57.0
+margin_right = 216.0
+margin_bottom = 78.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Вас убили"
+align = 1
+valign = 1
+
+[editable path="Button"]

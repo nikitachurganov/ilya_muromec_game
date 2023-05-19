@@ -1,0 +1,145 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://Art/Sword.png" type="Texture" id=2]
+[ext_resource path="res://Art/Shield.png" type="Texture" id=3]
+[ext_resource path="res://Art/NoHealth.png" type="Texture" id=4]
+[ext_resource path="res://Art/FullHealth.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/UI_Control.gd" type="Script" id=6]
+[ext_resource path="res://Art/Items/Sword1.png" type="Texture" id=7]
+[ext_resource path="res://UI/GameMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Panel2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Art/Items/Armor1.png" type="Texture" id=11]
+[ext_resource path="res://Art/Items/Hemlet1.png" type="Texture" id=12]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 13 )
+
+[node name="HealthUI" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="HealthUI" type="Control" parent="Control"]
+margin_left = 6.0
+margin_top = 143.0
+margin_right = 91.0
+margin_bottom = 200.0
+script = ExtResource( 1 )
+
+[node name="LabelHealth" type="Label" parent="Control/HealthUI"]
+margin_right = 58.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "100 ХП"
+
+[node name="LabelAtk" type="Label" parent="Control/HealthUI"]
+margin_left = 18.0
+margin_top = 12.84
+margin_right = 37.0
+margin_bottom = 26.84
+custom_fonts/font = SubResource( 1 )
+text = "10"
+
+[node name="LabelExp" type="Label" parent="Control/HealthUI"]
+margin_top = 28.0
+margin_right = 76.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 1 )
+text = "Опыт  0/500"
+
+[node name="LabelLvl" type="Label" parent="Control/HealthUI"]
+margin_top = 42.0
+margin_right = 40.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 1 )
+text = "1 уровень"
+
+[node name="LabelDef" type="Label" parent="Control/HealthUI"]
+margin_left = 63.0
+margin_top = 11.84
+margin_right = 75.0
+margin_bottom = 25.84
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="TextureAtk" type="TextureRect" parent="Control/HealthUI"]
+margin_left = 13.0
+margin_top = 8.84
+margin_right = 20.0
+margin_bottom = 24.84
+rect_rotation = 45.0
+rect_scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 2 )
+
+[node name="TextureDef" type="TextureRect" parent="Control/HealthUI"]
+margin_left = 44.0
+margin_top = 9.8401
+margin_right = 582.0
+margin_bottom = 547.84
+rect_scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 3 )
+
+[node name="TextureNoHealth" type="TextureRect" parent="Control/HealthUI"]
+margin_left = 47.0
+margin_top = 1.0
+margin_right = 111.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1, 0.65 )
+texture = ExtResource( 4 )
+
+[node name="TextureHealth" type="TextureRect" parent="Control/HealthUI"]
+margin_left = 47.0
+margin_top = 1.0
+margin_right = 111.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1, 0.65 )
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = 4.0
+margin_right = 12.0
+margin_bottom = 108.0
+rect_scale = Vector2( 0.5, 0.5 )
+alignment = 1
+
+[node name="Helmet" type="TextureRect" parent="Control/VBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 12 )
+stretch_mode = 4
+
+[node name="Armor" type="TextureRect" parent="Control/VBoxContainer"]
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 11 )
+stretch_mode = 6
+
+[node name="Sword" type="TextureRect" parent="Control/VBoxContainer"]
+margin_top = 72.0
+margin_right = 32.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 7 )
+stretch_mode = 6
+
+[node name="NinePatchRect" parent="Control" instance=ExtResource( 10 )]
+
+[node name="Menu" parent="Control" instance=ExtResource( 8 )]
+
+[node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
+visible = false
