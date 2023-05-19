@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const Arrow = preload("res://Scenes/Arrow.tscn")
 
 export var acceleration = 300
 export var max_speed = 50
@@ -9,7 +10,8 @@ export var friction = 1000
 enum{
 	IDLE,
 	CHASE,
-	ATTACK_HIT
+	ATTACK_HIT, 
+	ATTACK_BLOW
 }
 
 var velocity =  Vector2.ZERO
@@ -52,6 +54,8 @@ func _physics_process(delta):
 				state = IDLE
 		ATTACK_HIT:
 			attack_state_hit(delta)
+		ATTACK_BLOW:
+			attack_state_blow(delta)
 			
 	velocity = move_and_slide(velocity)
 
@@ -61,9 +65,18 @@ func seek_player():
 
 func attack_state_hit(delta):
 	velocity = Vector2.ZERO
+	var arrow = Arrow.instance()
+	arrow.position = $Position2D.global_position
+	get_parent().add_child(arrow)
 	animationState.travel("AttackHit")
+	state = CHASE
+	
+
+func attack_state_blow(delta):
+	animationState.travel("AttackBlow")
 	
 	
+
 func attack_animation_finished():
 	state = CHASE
 	
@@ -102,4 +115,7 @@ func load_from_data(data):
 	stats.set_health(stats.health)
 
 func _on_HitZoneDetection_area_entered(area):
-		state = ATTACK_HIT
+	state = ATTACK_HIT
+
+func _on_HitZoneDetectionAir_area_entered(area):
+	state = ATTACK_BLOW

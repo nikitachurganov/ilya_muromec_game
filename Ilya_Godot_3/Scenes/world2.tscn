@@ -239,7 +239,7 @@ parameters/playback = SubResource( 5 )
 position = Vector2( 793, 360 )
 
 [node name="Solovey" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 131, 17 )
+position = Vector2( 181, 44 )
 
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 132, 275 )
