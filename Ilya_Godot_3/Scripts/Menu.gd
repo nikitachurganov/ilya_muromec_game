@@ -1,5 +1,6 @@
 extends Control
 
+#проверка
 var stats = PlayerStats
 signal on_loaded(data)
 
