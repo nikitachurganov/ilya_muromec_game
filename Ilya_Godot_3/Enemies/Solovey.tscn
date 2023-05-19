@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Art/solovey.png" type="Texture" id=1]
 
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 4.0
-height = 4.0
+height = 8.0
 
 [sub_resource type="Animation" id=19]
 resource_name = "AttackBlowDown"
@@ -288,9 +288,13 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeBlendSpace2D" id=28]
+
 [sub_resource type="AnimationNodeStateMachine" id=26]
 states/Idle/node = SubResource( 25 )
 states/Idle/position = Vector2( 174, 78 )
+states/Run/node = SubResource( 28 )
+states/Run/position = Vector2( 350, 78 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
@@ -301,7 +305,6 @@ states/Idle/position = Vector2( 174, 78 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 56
-frame = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 12 )
@@ -329,5 +332,7 @@ anims/RunUp = SubResource( 7 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 27 )
-parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( 0.00889254, 0.512069 )
+parameters/Run/blend_position = Vector2( 0, 0 )
