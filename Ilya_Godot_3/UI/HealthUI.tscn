@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sword.png" type="Texture" id=2]
@@ -12,6 +12,11 @@
 [ext_resource path="res://UI/Panel2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Art/Items/Armor1.png" type="Texture" id=11]
 [ext_resource path="res://Art/Items/Hemlet1.png" type="Texture" id=12]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 13 )
 
 [node name="HealthUI" type="CanvasLayer"]
 pause_mode = 2
@@ -31,32 +36,37 @@ script = ExtResource( 1 )
 [node name="LabelHealth" type="Label" parent="Control/HealthUI"]
 margin_right = 58.0
 margin_bottom = 14.0
-text = "100 HP"
+custom_fonts/font = SubResource( 1 )
+text = "100 ХП"
 
 [node name="LabelAtk" type="Label" parent="Control/HealthUI"]
 margin_left = 18.0
 margin_top = 12.84
 margin_right = 37.0
 margin_bottom = 26.84
+custom_fonts/font = SubResource( 1 )
 text = "10"
 
 [node name="LabelExp" type="Label" parent="Control/HealthUI"]
 margin_top = 28.0
 margin_right = 76.0
 margin_bottom = 42.0
-text = "EXP = 0/500"
+custom_fonts/font = SubResource( 1 )
+text = "Опыт  0/500"
 
 [node name="LabelLvl" type="Label" parent="Control/HealthUI"]
 margin_top = 42.0
 margin_right = 40.0
 margin_bottom = 56.0
-text = "LVL 1"
+custom_fonts/font = SubResource( 1 )
+text = "1 уровень"
 
 [node name="LabelDef" type="Label" parent="Control/HealthUI"]
 margin_left = 63.0
 margin_top = 11.84
 margin_right = 75.0
 margin_bottom = 25.84
+custom_fonts/font = SubResource( 1 )
 text = "0"
 
 [node name="TextureAtk" type="TextureRect" parent="Control/HealthUI"]

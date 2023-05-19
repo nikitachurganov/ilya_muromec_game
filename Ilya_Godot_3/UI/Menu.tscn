@@ -65,7 +65,7 @@ margin_bottom = 38.0
 rect_min_size = Vector2( 100, 5 )
 
 [node name="Label" parent="Buttons/Resume" index="0"]
-text = "Resume"
+text = "Продолжить игру"
 align = 1
 valign = 1
 
@@ -78,7 +78,7 @@ rect_min_size = Vector2( 100, 5 )
 scene_to_open = "res://Scenes/Root1.tscn"
 
 [node name="Label" parent="Buttons/Button" index="0"]
-text = "New Game"
+text = "Новая игра"
 align = 1
 valign = 1
 
@@ -94,7 +94,7 @@ texture_pressed = ExtResource( 5 )
 margin_right = 99.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 1 )
-text = "Quit"
+text = "Выйти из игры"
 align = 1
 valign = 1
 
