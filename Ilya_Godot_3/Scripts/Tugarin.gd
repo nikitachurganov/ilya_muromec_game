@@ -46,14 +46,7 @@ func _physics_process(delta):
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
-				
-				var dist = player.global_position - global_position
-				print(dist)
-				print(dist.x * dist.x - dist.y * dist.y + 24*24 )
-				
-				if  (dist.x * dist.x - dist.y * dist.y <= 5 && dist.x * dist.x - dist.y * dist.y >= -5) || (dist.x * dist.x - dist.y * dist.y + 24*24 <= 5 && dist.x * dist.x - dist.y * dist.y + 24*24 >= -5):
-					state = ATTACK
-				
+
 			else:
 				animationState.travel("Idle")
 				state = IDLE
@@ -75,7 +68,7 @@ func attack_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
-	knockback = area.knockback_vector * 40
+	knockback = area.knockback_vector * 10
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
@@ -105,3 +98,7 @@ func load_from_data(data):
 	stats.max_health = data["max_health"]
 	state = data["state"]
 	stats.set_health(stats.health)
+
+
+func _on_HitZoneDetection_area_entered(area):
+	state = ATTACK

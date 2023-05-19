@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=9]
 [ext_resource path="res://Enemies/Tugarin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Gorynych.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor.png 0"
@@ -160,8 +161,6 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
-
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 16, 16, 16, 16, 0, 32, 0, 48, 0, 48, 16, 64, 16, 64, 32, 64, 48, 48, 48, 32, 48, 16, 48, 0, 48, 0, 32, 0, 16 )
 
@@ -239,14 +238,10 @@ parameters/playback = SubResource( 5 )
 position = Vector2( 793, 360 )
 
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 148, 223 )
+position = Vector2( 132, 275 )
 
 [node name="Tugarin" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 129, 25 )
-scale = Vector2( 2, 2 )
-
-[node name="AnimationTree" parent="YSort/Tugarin" index="4"]
-parameters/playback = SubResource( 6 )
+position = Vector2( 518, 34 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -285,31 +280,13 @@ position = Vector2( 255, 111 )
 [node name="Bats" type="YSort" parent="YSort"]
 
 [node name="Bat" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 550, 119 )
+position = Vector2( 708, 70 )
 
 [node name="Bat2" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 567, 227 )
+position = Vector2( 688, 298 )
 
 [node name="Bat3" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 371, 243 )
-
-[node name="Bat4" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 467, 297 )
-
-[node name="Bat5" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 484, 75 )
-
-[node name="Bat6" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 77, 304 )
-
-[node name="Bat8" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 692, 258 )
-
-[node name="Bat9" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 683, 78 )
-
-[node name="Bat10" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 244, 320 )
+position = Vector2( 380, 308 )
 
 [node name="Items" type="YSort" parent="YSort"]
 
@@ -384,6 +361,9 @@ position = Vector2( 273, 39 )
 [node name="CanvasLayer" parent="YSort/KinematicBody2D" index="3"]
 otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
 
+[node name="gorynych" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 409, 120 )
+
 [node name="CollisionThings" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -395,8 +375,4 @@ tile_data = PoolIntArray( -196603, 536870912, 0, -196601, 536870912, 0, -65537, 
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
-[editable path="YSort/Tugarin"]
-[editable path="YSort/Tugarin/PlayerDetectionZone"]
-[editable path="YSort/Tugarin/Hurtbox"]
-[editable path="YSort/Tugarin/HitboxPivot/Hitbox"]
 [editable path="YSort/KinematicBody2D"]
