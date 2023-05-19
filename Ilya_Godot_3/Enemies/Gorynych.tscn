@@ -1320,6 +1320,7 @@ height = 38.0
 [node name="gorynych" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 2 )
+max_speed = 30
 
 [node name="SpriteShadow" type="Sprite" parent="."]
 position = Vector2( 0, 25 )
@@ -1329,7 +1330,6 @@ texture = ExtResource( 4 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 60
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 23 )
@@ -1384,6 +1384,7 @@ rotation = 1.5708
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 7 )]
 position = Vector2( 16, 39 )
 collision_mask = 4
+damage = 20
 
 [node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
 position = Vector2( -21, 8 )
