@@ -21,7 +21,8 @@ func show_inventory(inventory):
 		$HBoxContainer/Objects/HBoxContainer/Use.visible = true
 		$HBoxContainer/Objects/HBoxContainer/Drop.visible = true
 		activeItemPhoto.texture = load("res://Art/Items/%s.png" % stats.inventory[activeItem])
-		activeItemName.text = stats.inventory[activeItem]
+		#activeItemName.text = stats.inventory[activeItem]["name"]
+		activeItemName.text = stats.items[stats.inventory[activeItem]]["name"]
 		if stats.items[stats.inventory[activeItem]]["type"] == "food":
 			activeItemDescription.text = "+%s к здровью" % stats.items[stats.inventory[activeItem]]["heal"]
 		if stats.items[stats.inventory[activeItem]]["type"] == "armor":

@@ -16,18 +16,18 @@ var armor = ""
 
 var items = {
 	"": {"attack": 0, "def": 0},
-	"Helmet1": {"def": 2, "type": "helmet"},
-	"Helmet2": {"def": 5, "type": "helmet"},
-	"Helmet3": {"def": 10, "type": "helmet"},
-	"Sword1": {"attack": 2, "type": "sword"},
-	"Sword2": {"attack": 5, "type": "sword"},
-	"Sword3": {"attack": 10, "type": "sword"},
-	"Armor1": {"def": 2, "type": "armor"},
-	"Armor2": {"def": 5, "type": "armor"},
-	"Armor3": {"def": 10, "type": "armor"},
-	"Milk": {"heal": 5, "type": "food"},
-	"Apple": {"heal": 2, "type": "food"},
-	"Pie": {"heal": 3, "type": "food"}
+	"Helmet1": {"def": 2, "type": "helmet", "name": "Кожаный шлем"},
+	"Helmet2": {"def": 5, "type": "helmet", "name": "Простой шлем"},
+	"Helmet3": {"def": 10, "type": "helmet", "name": "Металлический шлем"},
+	"Sword1": {"attack": 2, "type": "sword", "name": "Простой меч"},
+	"Sword2": {"attack": 5, "type": "sword", "name": "Железный меч"},
+	"Sword3": {"attack": 10, "type": "sword", "name": "Меч Кладенец"},
+	"Armor1": {"def": 2, "type": "armor", "name": "Кожаная броня"},
+	"Armor2": {"def": 5, "type": "armor", "name": "Кольчуга"},
+	"Armor3": {"def": 10, "type": "armor", "name": "Доспехи"},
+	"Milk": {"heal": 5, "type": "food", "name": "Молоко"},
+	"Apple": {"heal": 2, "type": "food", "name": "Яблоко"},
+	"Pie": {"heal": 3, "type": "food", "name": "Пирожок"}
 }
 
 onready var saving_group = "TO_BE_SAVED"
