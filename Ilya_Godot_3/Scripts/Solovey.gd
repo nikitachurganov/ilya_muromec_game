@@ -63,17 +63,18 @@ func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
 
-func attack_state_hit(delta):
+func attack_state_blow(delta):
 	velocity = Vector2.ZERO
 	var arrow = Arrow.instance()
-	arrow.position = $Position2D.global_position
+	
 	get_parent().add_child(arrow)
-	animationState.travel("AttackHit")
+	arrow.position = $Position2D.global_position
 	state = CHASE
+	animationState.travel("AttackBlow")
 	
 
-func attack_state_blow(delta):
-	animationState.travel("AttackBlow")
+func attack_state_hit(delta):
+	animationState.travel("AttackHit")
 	
 	
 
