@@ -42,6 +42,18 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Arrow:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "AttackBlowLeft"
@@ -71,6 +83,18 @@ tracks/1/keys = {
 "args": [  ],
 "method": "attack_animation_finished"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Arrow:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -102,6 +126,18 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Arrow:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "AttackBlowUp"
@@ -131,6 +167,18 @@ tracks/1/keys = {
 "args": [  ],
 "method": "attack_animation_finished"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Arrow:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -678,7 +726,7 @@ tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
-parameters/AttackBlow/blend_position = Vector2( -0.343899, 0.0709677 )
+parameters/AttackBlow/blend_position = Vector2( 0.014263, -0.578448 )
 parameters/AttackHit/blend_position = Vector2( -0.462758, -0.0709678 )
 parameters/Idle/blend_position = Vector2( 0.066561, -0.73629 )
 parameters/Run/blend_position = Vector2( -0.0507132, 0.168548 )
@@ -718,6 +766,7 @@ position = Vector2( 0, 5 )
 shape = SubResource( 53 )
 
 [node name="HitZoneDetectionAir" parent="." instance=ExtResource( 7 )]
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitZoneDetectionAir" index="0"]
 position = Vector2( -2, 3 )
@@ -727,12 +776,15 @@ shape = SubResource( 54 )
 position = Vector2( -1, -3 )
 
 [node name="Arrow" parent="Position2D" instance=ExtResource( 8 )]
+rotation = 1.5708
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="area_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_area_entered"]
 [connection signal="timeout" from="HitZoneDetection/Timer" to="HitZoneDetection" method="_on_Timer_timeout"]
-[connection signal="area_entered" from="HitZoneDetectionAir" to="." method="_on_HitZoneDetectionAir_area_entered"]
+[connection signal="body_entered" from="HitZoneDetectionAir" to="." method="_on_HitZoneDetectionAir_body_entered"]
+[connection signal="invincibility_ended" from="HitZoneDetectionAir" to="HitZoneDetectionAir" method="_on_HitZoneDetectionAir_invincibility_ended"]
+[connection signal="invincibility_started" from="HitZoneDetectionAir" to="HitZoneDetectionAir" method="_on_HitZoneDetectionAir_invincibility_started"]
+[connection signal="timeout" from="HitZoneDetectionAir/Timer" to="HitZoneDetectionAir" method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]

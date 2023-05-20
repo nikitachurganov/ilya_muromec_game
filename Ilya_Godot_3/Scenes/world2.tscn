@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bush.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/Gorynych.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Solovey.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Enemies/Tatar_archer.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor.png 0"
@@ -242,10 +243,10 @@ position = Vector2( 793, 360 )
 position = Vector2( 181, 44 )
 
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 132, 275 )
+position = Vector2( 66, 309 )
 
 [node name="Tugarin" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 518, 34 )
+position = Vector2( 579, 31 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -290,7 +291,7 @@ position = Vector2( 708, 70 )
 position = Vector2( 688, 298 )
 
 [node name="Bat3" parent="YSort/Bats" instance=ExtResource( 6 )]
-position = Vector2( 380, 308 )
+position = Vector2( 698, 187 )
 
 [node name="Items" type="YSort" parent="YSort"]
 
@@ -366,7 +367,10 @@ position = Vector2( 273, 39 )
 otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
 
 [node name="gorynych" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 409, 120 )
+position = Vector2( 543, 291 )
+
+[node name="Tatar_archer" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 374, 156 )
 
 [node name="CollisionThings" type="TileMap" parent="."]
 tile_set = SubResource( 2 )

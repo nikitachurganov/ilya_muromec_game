@@ -24,9 +24,22 @@ func _on_Timer_timeout():
 	self.invincible = false
 
 
-func _on_HitZone_invincibility_ended():
+func _on_HitZoneDetectionAir_invincibility_ended():
 	collisionShape.disabled = false
 
 
-func _on_HitZone_invincibility_started():
+func _on_HitZoneDetectionAir_invincibility_started():
 	collisionShape.set_deferred("disabled", true)
+
+
+var player = null
+
+func can_see_player():
+	return player != null
+
+func _on_HitZoneDetection_body_entered(body):
+	player = body
+
+
+func _on_HitZoneDetection_body_exited(body):
+	player = null

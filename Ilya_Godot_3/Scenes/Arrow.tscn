@@ -7,6 +7,8 @@
 extents = Vector2( 7.5, 0.5 )
 
 [node name="Arrow" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -19,4 +21,5 @@ shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
+[connection signal="area_entered" from="." to="." method="_on_Arrow_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

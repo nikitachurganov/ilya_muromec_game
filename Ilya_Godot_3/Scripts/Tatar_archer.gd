@@ -10,8 +10,7 @@ export var friction = 1000
 enum{
 	IDLE,
 	CHASE,
-	ATTACK_HIT, 
-	ATTACK_BLOW
+	ATTACK
 }
 
 var velocity =  Vector2.ZERO
@@ -22,10 +21,13 @@ var state = CHASE
 
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
+onready var hitZone = $HitZoneDetection
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
 onready var animationState = animationTree.get("parameters/playback")
+
+
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
@@ -37,25 +39,24 @@ func _physics_process(delta):
 			seek_player()
 		CHASE:
 			var player = playerDetectionZone.player
+			
 			input_vector = input_vector.normalized()
 			if player != null:
 				input_vector.x = player.global_position.x - global_position.x
 				input_vector.y = global_position.y - player.global_position.y
 				animationTree.set("parameters/Idle/blend_position", input_vector)
 				animationTree.set("parameters/Run/blend_position", input_vector)
-				animationTree.set("parameters/AttackHit/blend_position", input_vector)
-				animationTree.set("parameters/AttackBlow/blend_position", input_vector)
+				animationTree.set("parameters/Attack/blend_position", input_vector)
+
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
-				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
-				
+				velocity = velocity.move_toward(direction * -max_speed, acceleration * delta)
+		
 			else:
 				animationState.travel("Idle")
 				state = IDLE
-		ATTACK_HIT:
-			attack_state_hit(delta)
-		ATTACK_BLOW:
-			attack_state_blow(delta)
+		ATTACK:
+			attack_state(delta)
 			
 	velocity = move_and_slide(velocity)
 
@@ -63,17 +64,8 @@ func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
 
-func attack_state_blow(delta):
-	velocity = Vector2.ZERO
-	animationState.travel("AttackBlow")
-	var arrow = Arrow.instance()
-
-	get_parent().add_child(arrow)
-	arrow.position = $Position2D.global_position
-	
-	
-func attack_state_hit(delta):
-	animationState.travel("AttackHit")
+func attack_state(delta):
+	animationState.travel("Attack")
 	
 func attack_animation_finished():
 	state = CHASE
@@ -101,7 +93,6 @@ func save():
 	
 	return data
 
-
 func load_from_data(data):
 	position = data["position"]
 	global_position = data["global_position"]
@@ -110,8 +101,21 @@ func load_from_data(data):
 	state = data["state"]
 	stats.set_health(stats.health)
 
-func _on_HitZoneDetection_area_entered(area):
-	state = ATTACK_HIT
+func arrow_create():
+	var arrow = Arrow.instance()
+	
+	var player = hitZone.player
+	if player != null:
+		var player_position = player.global_position
+		var direction = (player_position - global_position).normalized()
+		arrow.set_direction(direction)
+		var rotation_radians = atan2(direction.y, direction.x)
+		var rotation_degrees = rad2deg(rotation_radians)
+		arrow.rotation = rotation_degrees
+	print(player)	
+	get_parent().add_child(arrow)
+	arrow.position = $Position2D.global_position
 
-func _on_HitZoneDetectionAir_body_entered(body):
-	state = ATTACK_BLOW
+func _on_HitZoneDetection_body_entered(body):
+	state = ATTACK
+
