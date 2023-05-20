@@ -5,7 +5,7 @@ onready var save_file = preload("res://Scripts/Recources/SaveData.gd")
 signal on_saved
 
 func _ready():
-	#hide()
+	hide()
 	$Panel/Main/Buttons/Resume.connect("pressed", self, "open")
 	$Panel/Main/Buttons/Quit.connect("pressed", SceneChanger, "change_scene", ["res://UI/Menu.tscn"])
 	$Panel/Main/Buttons/Save.connect("pressed", self, "save")

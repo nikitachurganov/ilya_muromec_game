@@ -144,7 +144,8 @@ func save():
 		"sword": stats.sword,
 		"helmet": stats.helmet,
 		"armor": stats.armor,
-		"atk": stats.atk
+		"atk": stats.atk,
+		"quests": stats.quests
 	}
 	
 	return data

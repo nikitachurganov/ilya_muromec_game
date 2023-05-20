@@ -59,6 +59,7 @@ func load_from_data(data):
 	PlayerStats.set_equipment(data["player"]["sword"])
 	PlayerStats.set_equipment(data["player"]["helmet"])
 	PlayerStats.set_health(PlayerStats.health)
+	PlayerStats.quests = data["player"]["quests"]
 	
 	#get_parent().connect_player_to_death()
 	

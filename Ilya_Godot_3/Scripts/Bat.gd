@@ -14,6 +14,8 @@ enum {
 	CHASE
 }
 
+signal enemy_dead
+
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var state = CHASE
@@ -99,6 +101,7 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+	emit_signal("enemy_dead")
 
 
 func save():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sword.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Art/Items/Armor1.png" type="Texture" id=11]
 [ext_resource path="res://Art/Items/Hemlet1.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Art/Quest_background.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/QuestScript.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -143,3 +145,16 @@ stretch_mode = 6
 
 [node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
 visible = false
+
+[node name="Quest" type="TextureRect" parent="Control"]
+margin_right = 85.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 85, 18 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="Control/Quest"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+align = 1
+valign = 1

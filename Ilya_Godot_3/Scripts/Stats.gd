@@ -30,6 +30,8 @@ var items = {
 	"Pie": {"heal": 3, "type": "food", "name": "Пирожок"}
 }
 
+var quests = ["set equipment", "kill solovey"]
+
 onready var saving_group = "TO_BE_SAVED"
 onready var save_dir = "user://Saves"
 onready var save_temp = "%s.tres"
@@ -44,6 +46,7 @@ signal max_exp_changed(value)
 signal lvl_changed(value)
 signal def_changed(value)
 signal equipment_changed
+signal first_quest
 
 func set_equipment(equipment):
 	if equipment == "":
@@ -53,6 +56,7 @@ func set_equipment(equipment):
 		if sword == "":
 			sword = equipment
 			set_atk(atk)
+			emit_signal("first_quest")
 		else:
 			inventory.push_back(sword)
 			sword = equipment
@@ -62,6 +66,7 @@ func set_equipment(equipment):
 		if armor == "":
 			armor = equipment
 			set_def()
+			emit_signal("first_quest")
 		else:
 			inventory.push_back(armor)
 			armor = equipment
@@ -71,6 +76,7 @@ func set_equipment(equipment):
 		if helmet == "":
 			helmet = equipment
 			set_def()
+			emit_signal("first_quest")
 		else:
 			inventory.push_back(helmet)
 			helmet = equipment

@@ -35,6 +35,7 @@ func new_game():
 	stats.lvl = 1
 	stats.position_x = 150
 	stats.position_y = 150
+	stats.quests = ["set equipment", "kill solovey"]
 
 func quit():
 	get_tree().quit()

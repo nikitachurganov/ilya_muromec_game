@@ -17,3 +17,5 @@ position = Vector2( 130, 4 )
 new_sceen = "res://Scenes/Root2.tscn"
 position_x = 117
 position_y = 348
+
+[editable path="SceenTransition"]
