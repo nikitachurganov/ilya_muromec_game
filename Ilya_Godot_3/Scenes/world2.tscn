@@ -362,6 +362,8 @@ item_name = "Sword2"
 
 [node name="KinematicBody2D" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 273, 39 )
+collision_layer = 1
+collision_mask = 0
 
 [node name="CanvasLayer" parent="YSort/KinematicBody2D" index="3"]
 otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
@@ -370,7 +372,7 @@ otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
 position = Vector2( 543, 291 )
 
 [node name="Tatar_archer" parent="YSort" instance=ExtResource( 14 )]
-position = Vector2( 374, 156 )
+position = Vector2( 406, 52 )
 
 [node name="CollisionThings" type="TileMap" parent="."]
 tile_set = SubResource( 2 )

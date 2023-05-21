@@ -1,7 +1,7 @@
 [gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Art/tatar2.png" type="Texture" id=1]
-[ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/AirZoneDetection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Tatar_archer.gd" type="Script" id=3]
 [ext_resource path="res://Art/MediumShadow.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=5]
@@ -49,12 +49,9 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( -0.1, 0 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "arrow_create"
-}, {
 "args": [  ],
 "method": "arrow_create"
 } ]
@@ -425,11 +422,12 @@ height = 8.0
 [sub_resource type="CircleShape2D" id=39]
 radius = 66.0076
 
-[sub_resource type="CircleShape2D" id=40]
-radius = 132.004
+[sub_resource type="CircleShape2D" id=42]
+radius = 132.242
 
 [node name="Tatar_archer" type="KinematicBody2D"]
 script = ExtResource( 3 )
+max_speed = 25
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 0, 15 )
@@ -438,7 +436,7 @@ texture = ExtResource( 4 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 48
-frame = 32
+frame = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 13 )
@@ -484,22 +482,20 @@ shape = SubResource( 38 )
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 39 )
 
-[node name="HitZoneDetection" parent="." instance=ExtResource( 2 )]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="HitZoneDetection" index="0"]
-shape = SubResource( 40 )
-
 [node name="Position2D" type="Position2D" parent="."]
 rotation = -1.5708
 
+[node name="AirZoneDetection" parent="." instance=ExtResource( 2 )]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="AirZoneDetection" index="0"]
+shape = SubResource( 42 )
+
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
-[connection signal="body_entered" from="HitZoneDetection" to="HitZoneDetection" method="_on_HitZoneDetection_body_entered"]
-[connection signal="body_exited" from="HitZoneDetection" to="HitZoneDetection" method="_on_HitZoneDetection_body_exited"]
+[connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
-[editable path="HitZoneDetection"]
+[editable path="AirZoneDetection"]

@@ -14,9 +14,9 @@ func set_direction(direction: Vector2):
 	direction.y -= offset
 	velocity = direction * speed
 
-func _on_VisibilityNotifier2D_screen_exited():
+
+func _on_Whistle_area_entered(area):
 	queue_free()
 
-
-func _on_Arrow_area_entered(area):
+func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

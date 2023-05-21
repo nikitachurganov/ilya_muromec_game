@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/Solovey.gd" type="Script" id=5]
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/AirZoneDetection.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 4.0
@@ -48,7 +49,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -92,7 +93,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -129,6 +130,20 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "arrow_create"
+} ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "AttackBlowUp"
@@ -157,6 +172,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "attack_animation_finished"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "arrow_create"
 } ]
 }
 
@@ -441,21 +470,6 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=51]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-
 [sub_resource type="Animation" id=8]
 resource_name = "RunDown"
 loop = true
@@ -663,7 +677,7 @@ radius = 15.0
 height = 6.0
 
 [sub_resource type="CircleShape2D" id=54]
-radius = 75.4255
+radius = 95.0474
 
 [node name="Solovey" type="KinematicBody2D"]
 collision_layer = 16
@@ -674,7 +688,7 @@ script = ExtResource( 5 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 56
-frame = 52
+frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 12 )
@@ -694,7 +708,6 @@ anims/IdleDown = SubResource( 1 )
 anims/IdleLeft = SubResource( 2 )
 anims/IdleRight = SubResource( 3 )
 anims/IdleUp = SubResource( 4 )
-anims/RESET = SubResource( 51 )
 anims/RunDown = SubResource( 8 )
 anims/RunLeft = SubResource( 9 )
 anims/RunRight = SubResource( 6 )
@@ -739,32 +752,31 @@ shape = SubResource( 52 )
 disabled = false
 
 [node name="HitZoneDetection" parent="." instance=ExtResource( 7 )]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitZoneDetection" index="0"]
 position = Vector2( 0, 5 )
 shape = SubResource( 53 )
 
-[node name="HitZoneDetectionAir" parent="." instance=ExtResource( 7 )]
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -1, -3 )
+
+[node name="AirZoneDetection" parent="." instance=ExtResource( 8 )]
+collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="HitZoneDetectionAir" index="0"]
-position = Vector2( -2, 3 )
+[node name="CollisionShape2D" parent="AirZoneDetection" index="0"]
+position = Vector2( 0, 2 )
 shape = SubResource( 54 )
-
-[node name="Position2D" type="Position2D" parent="."]
-visible = false
-position = Vector2( -1, -3 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="timeout" from="HitZoneDetection/Timer" to="HitZoneDetection" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="HitZoneDetectionAir" to="." method="_on_HitZoneDetectionAir_body_entered"]
-[connection signal="invincibility_ended" from="HitZoneDetectionAir" to="HitZoneDetectionAir" method="_on_HitZoneDetectionAir_invincibility_ended"]
-[connection signal="invincibility_started" from="HitZoneDetectionAir" to="HitZoneDetectionAir" method="_on_HitZoneDetectionAir_invincibility_started"]
-[connection signal="timeout" from="HitZoneDetectionAir/Timer" to="HitZoneDetectionAir" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
+[connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
 [editable path="HitboxPivot/Hitbox"]
 [editable path="HitZoneDetection"]
-[editable path="HitZoneDetectionAir"]
+[editable path="AirZoneDetection"]

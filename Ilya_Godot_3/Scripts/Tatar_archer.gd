@@ -21,7 +21,7 @@ var state = CHASE
 
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
-onready var hitZone = $HitZoneDetection
+onready var hitZone = $AirZoneDetection
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
@@ -65,6 +65,7 @@ func seek_player():
 		state = CHASE
 
 func attack_state(delta):
+	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
 func attack_animation_finished():
@@ -115,6 +116,6 @@ func arrow_create():
 	get_parent().add_child(arrow)
 	arrow.position = $Position2D.global_position
 
-func _on_HitZoneDetection_body_entered(body):
-	state = ATTACK
 
+func _on_AirZoneDetection_body_entered(body):
+	state = ATTACK
