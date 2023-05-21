@@ -46,7 +46,7 @@ func _physics_process(delta):
 				input_vector.y = global_position.y - player.global_position.y
 				animationTree.set("parameters/Idle/blend_position", input_vector)
 				animationTree.set("parameters/Run/blend_position", input_vector)
-				animationTree.set("parameters/Attack/blend_position", input_vector)
+				
 
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
@@ -103,16 +103,15 @@ func load_from_data(data):
 
 func arrow_create():
 	var arrow = Arrow.instance()
-	
 	var player = hitZone.player
+	
 	if player != null:
 		var player_position = player.global_position
 		var direction = (player_position - global_position).normalized()
 		arrow.set_direction(direction)
-		var rotation_radians = atan2(direction.y, direction.x)
-		var rotation_degrees = rad2deg(rotation_radians)
-		arrow.rotation = rotation_degrees
-	print(player)	
+		var input_vector = direction
+		input_vector.y *= -1
+		animationTree.set("parameters/Attack/blend_position", input_vector)
 	get_parent().add_child(arrow)
 	arrow.position = $Position2D.global_position
 

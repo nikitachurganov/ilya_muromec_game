@@ -22,6 +22,7 @@ var state = CHASE
 
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
+onready var hitZone = $HitZoneDetection
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
@@ -115,3 +116,17 @@ func _on_HitZoneDetection_area_entered(area):
 
 func _on_HitZoneDetectionAir_body_entered(body):
 	state = ATTACK_BLOW
+
+func arrow_create():
+	var arrow = Arrow.instance()
+	var player = hitZone.player
+	if player != null:
+		var player_position = player.global_position
+		var direction = (player_position - global_position).normalized()
+		arrow.set_direction(direction)
+		var rotation_radians = atan2(direction.y, direction.x)
+		var rotation_degrees = rad2deg(rotation_radians)
+		arrow.rotation = rotation_degrees
+	print(player)	
+	get_parent().add_child(arrow)
+	arrow.position = $Position2D.global_position
