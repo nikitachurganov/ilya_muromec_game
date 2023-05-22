@@ -1,10 +1,106 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Glossary.gd" type="Script" id=1]
-[ext_resource path="res://Art/glossariy.png" type="Texture" id=2]
+[ext_resource path="res://Art/book_bg.png" type="Texture" id=2]
 [ext_resource path="res://UI/GlossaryButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/Buttons/ClosePressed.png" type="Texture" id=4]
 [ext_resource path="res://Art/Buttons/CloseNotPressed.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/zarubkaType-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Art/Buttons/CloseHover.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.870588, 0.815686, 0.572549, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.960784, 0.870588, 0.482353, 1 )
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color( 0.870588, 0.815686, 0.572549, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 0.0
+bg_color = Color( 0.870588, 0.815686, 0.572549, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.294118, 0.278431, 0.278431, 0.345098 )
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.454902, 0.435294, 0.435294, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="Theme" id=5]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 9 )
+VScrollBar/styles/grabber_pressed = SubResource( 7 )
+VScrollBar/styles/scroll = SubResource( 8 )
+VScrollBar/styles/scroll_focus = null
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 6 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -21,6 +117,7 @@ margin_top = -75.0
 margin_right = 150.0
 margin_bottom = 75.0
 texture = ExtResource( 2 )
+expand = true
 
 [node name="Control" type="Control" parent="TextureRect"]
 margin_left = 12.0
@@ -32,16 +129,19 @@ rect_min_size = Vector2( 130, 120 )
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Control/ScrollContainer"]
 margin_right = 130.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 130, 0 )
+theme = SubResource( 6 )
 
 [node name="TextureButton" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 label_text = "sifjsdbf skdfbksjdbf ksjdbf ksbdf ksjdbf ksbdf kjbsdf"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Control"
 
 [node name="TextureButton2" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -50,6 +150,7 @@ margin_bottom = 36.0
 label_text = " sdf sljdf s bsd kjbfsd  jksbdf skjdf"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton2" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Kladenec"
 
 [node name="TextureButton3" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -58,6 +159,7 @@ margin_bottom = 56.0
 label_text = "phkrnth ro nrjb bhj brohj"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton3" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Murom"
 
 [node name="TextureButton4" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -66,6 +168,7 @@ margin_bottom = 76.0
 label_text = "bojuierh j kjbdn, bgjsdb,mdf jkfdbgjbd gjdflg bdfj gldfbgm,df g nk"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton4" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Chernigov"
 
 [node name="TextureButton5" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -74,6 +177,7 @@ margin_bottom = 96.0
 label_text = "ousdfj sdfkj svd fkshdvf ksvd fksd fksv dkfjblsjb fsljdbfl jsbdljf bsdb l"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton5" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Tugarin"
 
 [node name="TextureButton6" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -82,6 +186,7 @@ margin_bottom = 116.0
 label_text = "123456789"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton6" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Ilya"
 
 [node name="TextureButton7" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -90,6 +195,7 @@ margin_bottom = 136.0
 label_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Vivamus bibendum, purus in efficitur hendrerit, orci nulla lacinia dolor, non vehicula sapien neque id velit. Sed auctor diam vel velit dignissim, vel faucibus enim tempus. Nam euismod justo vel orci elementum, a eleifend dolor dictum. Nulla facilisi. Vivamus at est vel erat lacinia tincidunt. Praesent euismod nisl eget neque interdum, a aliquet orci luctus. Sed sed felis non mi mollis convallis at et dui. In hac habitasse platea dictumst."
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton7" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "Solovey"
 
 [node name="Control2" type="Control" parent="TextureRect"]
@@ -112,19 +218,24 @@ rect_min_size = Vector2( 130, 0 )
 margin_right = 130.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 130, 110 )
+custom_fonts/mono_font = SubResource( 12 )
+custom_fonts/bold_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 10 )
 
 [node name="Glossary" type="Label" parent="TextureRect"]
 margin_left = 48.0
-margin_top = 6.0
+margin_top = 4.0
 margin_right = 103.0
 margin_bottom = 20.0
-text = "Glossary"
+custom_fonts/font = SubResource( 2 )
+text = "Глоссарий"
 
 [node name="ChoosingItem" type="Label" parent="TextureRect"]
 margin_left = 205.0
 margin_top = 6.0
 margin_right = 245.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 13 )
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect"]
 anchor_left = 1.0
@@ -137,6 +248,8 @@ rect_min_size = Vector2( 16, 16 )
 rect_scale = Vector2( 0.8, 0.8 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 8 )
+expand = true
 
 [connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_TextureButton_pressed"]
 
