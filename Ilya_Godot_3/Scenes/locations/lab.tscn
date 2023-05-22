@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=5]
@@ -598,14 +598,8 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 48, 0, 48 )
 } ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=69]
+[sub_resource type="ConvexPolygonShape2D" id=74]
 points = PoolVector2Array( 48, 32, 0, 32, 0, 16, 48, 16 )
-
-[sub_resource type="ConvexPolygonShape2D" id=70]
-points = PoolVector2Array( 48, 16, 0, 16, 0, 0, 48, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=71]
-points = PoolVector2Array( 47.7861, 31.9181, 46.7094, 33.9369, 46.3056, 37.84, 42.8064, 39.9934, 37.0191, 39.9934, 35.9424, 38.2437, 34.7311, 37.1671, 16.5617, 37.0325, 14.6775, 38.6475, 7.67891, 38.6475, 5.12174, 37.5708, 0.814922, 35.0136, 0, 32, 16, 32 )
 
 [sub_resource type="TileSet" id=72]
 0/name = "TilesetReliefDetail.png 0"
@@ -618,26 +612,26 @@ points = PoolVector2Array( 47.7861, 31.9181, 46.7094, 33.9369, 46.3056, 37.84, 4
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 69 )
+0/shape = SubResource( 74 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 69 ),
+"shape": SubResource( 74 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 70 ),
+"shape": SubResource( 74 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 71 ),
+"shape": SubResource( 74 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0

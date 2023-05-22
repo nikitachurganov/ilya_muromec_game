@@ -41,6 +41,3 @@ func can_see_player():
 func _on_AirZoneDetection_body_entered(body):
 	player = body
 
-
-func _on_AirZoneDetection_body_exited(body):
-	player = null

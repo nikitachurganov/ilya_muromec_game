@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Art/tatar2.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/AirZoneDetection.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Stats/Stats.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 3.0
@@ -492,9 +493,13 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="AirZoneDetection" index="0"]
 shape = SubResource( 42 )
 
+[node name="WanderController" parent="." instance=ExtResource( 8 )]
+
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
+[connection signal="body_exited" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_exited"]
+[connection signal="timeout" from="AirZoneDetection/Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]

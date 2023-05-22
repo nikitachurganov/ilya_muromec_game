@@ -773,7 +773,9 @@ shape = SubResource( 54 )
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
+[connection signal="timeout" from="HitZoneDetection/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
+[connection signal="body_exited" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_exited"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]

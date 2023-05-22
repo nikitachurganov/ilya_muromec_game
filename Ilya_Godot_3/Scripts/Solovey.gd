@@ -13,11 +13,11 @@ enum{
 	ATTACK_HIT, 
 	ATTACK_BLOW
 }
-
+var i = 0
 var velocity =  Vector2.ZERO
 var knockback = Vector2.ZERO
 var input_vector = Vector2.ZERO
-
+var timer
 var state = CHASE 
 
 onready var stats = $Stats
@@ -29,6 +29,11 @@ onready var hurtbox = $Hurtbox
 onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
+	timer = Timer.new()
+	add_child(timer)
+	timer.connect("timeout", self, "_on_Timer_timeout")
+	timer.wait_time = 2 
+	
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
 	
@@ -66,8 +71,9 @@ func seek_player():
 
 func attack_state_blow(delta):
 	velocity = Vector2.ZERO
-	print("f")
+	
 	animationState.travel("AttackBlow")
+	
 	
 func attack_state_hit(delta):
 	velocity = Vector2.ZERO
@@ -75,6 +81,7 @@ func attack_state_hit(delta):
 	
 func attack_animation_finished():
 	state = CHASE
+	
 	
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
@@ -114,6 +121,7 @@ func arrow_create():
 	if player != null:
 		var player_position = player.global_position
 		var direction = (player_position - global_position).normalized()
+		timer.start()
 		arrow.set_direction(direction)
 		var input_vector = direction
 		input_vector.y *= -1
@@ -123,7 +131,13 @@ func arrow_create():
 
 func _on_HitZoneDetection_body_entered(body):
 	state = ATTACK_HIT
+	timer.stop()
 
 func _on_AirZoneDetection_body_entered(body):
 	state = ATTACK_BLOW
+	
+func _on_AirZoneDetection_body_exited(body):
+	timer.stop()
 
+func _on_Timer_timeout():
+	state = ATTACK_BLOW

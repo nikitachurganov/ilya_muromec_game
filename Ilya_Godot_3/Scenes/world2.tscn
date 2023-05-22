@@ -240,7 +240,7 @@ parameters/playback = SubResource( 5 )
 position = Vector2( 793, 360 )
 
 [node name="Solovey" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 181, 44 )
+position = Vector2( 246, 222 )
 
 [node name="Tatar_sword" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 66, 309 )
@@ -252,12 +252,13 @@ position = Vector2( 579, 31 )
 
 [node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 92, 132 )
+collision_mask = 0
 
 [node name="Bush3" parent="YSort/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 210, 113 )
 
 [node name="Bush4" parent="YSort/Bushes" instance=ExtResource( 2 )]
-position = Vector2( 200, 39 )
+position = Vector2( 165, 35 )
 
 [node name="Grass" type="YSort" parent="YSort"]
 
