@@ -23,6 +23,7 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var animationPlayer = $AnimationPlayer
 onready var  animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
+onready var timer = $HitZoneDetection/Timer
 onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
@@ -99,6 +100,11 @@ func load_from_data(data):
 	state = data["state"]
 	stats.set_health(stats.health)
 
+func _on_HitZoneDetection_body_entered(body):
+	timer.start()
+	
+func _on_HitZoneDetection_body_exited(body):
+	timer.stop()
 
-func _on_HitZoneDetection_area_entered(area):
+func _on_Timer_timeout():
 	state = ATTACK

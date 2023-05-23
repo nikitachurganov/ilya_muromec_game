@@ -73,6 +73,7 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
 		IDLE_TREE:
+			
 			animationState.travel("IdleTree")
 		CHASE:
 			var player = playerDetectionZone.player
@@ -108,7 +109,7 @@ func tree_destruct():
 	state = CHASE
 
 func seek_player():
-	if playerDetectionZone.can_see_player() && stats.health < 125:
+	if playerDetectionZone.can_see_player() && !tree:
 		state = CHASE
 
 func attack_state_blow(delta):
@@ -124,13 +125,14 @@ func attack_tree(delta):
 	animationState.travel("AttackTree")
 
 func attack_animation_finished():
-	if stats.health < 125:
+	if !tree:
 		state = CHASE
 
 	
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
-	knockback = area.knockback_vector * 40
+	if !tree:
+		knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
@@ -173,39 +175,42 @@ func arrow_create():
 			arrow.position = $Position2D.global_position
 	
 func _on_HitZoneDetection_body_entered(body):
-	timerHit.stop()
+	if !tree:
+		timerHit.stop()
 
 func _on_AirZoneDetection_body_entered(body):
-	if stats.health < 125:
+	if !tree:
 		state = ATTACK_BLOW
 	else:
 		state = ATTACK_TREE
 	
 	
 func _on_AirZoneDetection_body_exited(body):
-	if stats.health < 125:
+	if !tree:
 		state = IDLE
 	else:
 		state = IDLE_TREE
 	
 func _on_Timer_timeout():
-	if stats.health < 125:
+	if !tree:
 		state = ATTACK_BLOW
 	else:
 		state = ATTACK_TREE
 
 func _on_HitZoneDetection_body_exited(body):
-	if stats.health < 125:
+	if !tree:
 		timerHit.stop()
 
 func _on_PlayerDetectionZone_body_entered(body):
-	if stats.health < 125:
+	if !tree:
+		print("ddd")
 		timer.stop()
 
 func _on_PlayerDetectionZone_body_exited(body):
-	if stats.health < 125:
+	if !tree:
+		print("ddd")
 		timer.start()
 
 func _on_TimerHit_timeout():
-	if stats.health < 125:
+	if !tree:
 		state = ATTACK_HIT

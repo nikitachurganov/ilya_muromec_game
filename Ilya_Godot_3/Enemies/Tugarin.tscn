@@ -683,6 +683,8 @@ position = Vector2( 7, 3.99999 )
 shape = SubResource( 41 )
 
 [node name="HitZoneDetection" parent="." instance=ExtResource( 7 )]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitZoneDetection" index="0"]
 position = Vector2( 0, 4 )
@@ -690,7 +692,9 @@ shape = SubResource( 42 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="area_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_area_entered"]
+[connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
+[connection signal="body_exited" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_exited"]
+[connection signal="timeout" from="HitZoneDetection/Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="Hurtbox"]

@@ -429,14 +429,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "arrow_create"
-}, {
-"args": [  ],
-"method": "attack_animation_finished"
 } ]
 }
 
@@ -875,7 +872,7 @@ parameters/IdleTree/blend_position = 0
 parameters/Run/blend_position = Vector2( -0.0507132, 0.168548 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
-max_health = 130
+max_health = 170
 atk = 20
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
@@ -931,7 +928,6 @@ shape = SubResource( 54 )
 [connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
 [connection signal="body_exited" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_exited"]
 [connection signal="timeout" from="HitZoneDetection/Timer" to="." method="_on_TimerHit_timeout"]
-[connection signal="timeout" from="HitZoneDetection/Timer" to="HitZoneDetection" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
 [connection signal="body_exited" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_exited"]
 [connection signal="timeout" from="AirZoneDetection/Timer" to="." method="_on_Timer_timeout"]

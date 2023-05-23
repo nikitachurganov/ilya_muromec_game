@@ -60,11 +60,8 @@ func _physics_process(delta):
 				input_vector.y = global_position.y - player.global_position.y
 				animationTree.set("parameters/Idle/blend_position", input_vector)
 				animationTree.set("parameters/Run/blend_position", input_vector)
-
-
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
-				timer.stop()
 				velocity = velocity.move_toward(direction * -max_speed, acceleration * delta)
 		
 			else:
@@ -153,7 +150,6 @@ func arrow_create():
 	arrow.position = $Position2D.global_position
 
 func _on_AirZoneDetection_body_entered(body):
-	
 	state = ATTACK
 
 func _on_Timer_timeout():

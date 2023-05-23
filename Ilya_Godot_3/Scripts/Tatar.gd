@@ -23,11 +23,18 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
+onready var timer = $HitZoneDetection/Timer
 onready var animationState = animationTree.get("parameters/playback")
 
+var direction
+var dist = false
+			
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
+	
+	if !dist:
+		direction = Vector2.UP
 	
 	match state:
 		IDLE:
@@ -44,7 +51,7 @@ func _physics_process(delta):
 				animationTree.set("parameters/Attack/blend_position", input_vector)
 				
 				animationState.travel("Run")
-				var direction = (player.global_position - global_position).normalized()
+				direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 				
 			else:
@@ -91,8 +98,7 @@ func save():
 	}
 	
 	return data
-
-
+	
 func load_from_data(data):
 	position = data["position"]
 	global_position = data["global_position"]
@@ -101,5 +107,13 @@ func load_from_data(data):
 	state = data["state"]
 	stats.set_health(stats.health)
 
-func _on_HitZoneDetection_area_entered(area):
-		state = ATTACK
+func _on_HitZoneDetection_body_entered(body):
+	timer.start()
+	dist = true
+
+func _on_HitZoneDetection_body_exited(body):
+	timer.stop()
+	dist = false
+	
+func _on_Timer_timeout():
+	state = ATTACK
