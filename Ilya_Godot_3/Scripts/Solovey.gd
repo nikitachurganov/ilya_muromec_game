@@ -9,19 +9,23 @@ export var friction = 1000
 
 enum{
 	IDLE,
+	IDLE_TREE,
 	CHASE,
 	ATTACK_HIT, 
-	ATTACK_BLOW
+	ATTACK_BLOW,
+	ATTACK_TREE
 }
-var i = 0
+
 var velocity =  Vector2.ZERO
 var knockback = Vector2.ZERO
 var input_vector = Vector2.ZERO
 var state = CHASE 
+var tree = true
+
 
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
-onready var hitZone = $AirZoneDetection
+onready var airZone = $AirZoneDetection
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
@@ -29,7 +33,38 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var timer = $AirZoneDetection/Timer
 onready var timerHit = $HitZoneDetection/Timer
 
-func _physics_process(delta):	
+func _ready():
+	state = IDLE_TREE
+	
+func _process(delta):
+	if stats.health >= 125:
+		$PlayerDetectionZone/CollisionShape2D.disabled = true
+		$HitboxPivot/Hitbox/CollisionShape2D.disabled = true
+		$HitZoneDetection/CollisionShape2D.disabled = true
+		$Sprite.visible = false
+		$SpriteTree.visible = true
+		$CollisionShape2D.shape.radius = 5
+		$CollisionShape2D.rotation_degrees = 0
+		$CollisionShape2D.position.x = -2
+		$CollisionShape2D.position.y = -4
+		
+	else:
+		$PlayerDetectionZone/CollisionShape2D.disabled = false
+		$HitboxPivot/Hitbox/CollisionShape2D.disabled = false
+		$HitZoneDetection/CollisionShape2D.disabled = false
+		$Sprite.visible = true
+		$SpriteTree.visible = false
+		$CollisionShape2D.shape.radius = 4
+		$CollisionShape2D.rotation_degrees = 90
+		$CollisionShape2D.position.x = -1
+		$CollisionShape2D.position.y = 12
+		
+	if stats.health < 125 && tree == true:
+		tree_destruct()
+		tree = false
+		
+	
+func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
 	
@@ -37,17 +72,22 @@ func _physics_process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
+		IDLE_TREE:
+			animationState.travel("IdleTree")
 		CHASE:
 			var player = playerDetectionZone.player
-		
 			input_vector = input_vector.normalized()
 			if player != null:
 				input_vector.x = player.global_position.x - global_position.x
 				input_vector.y = global_position.y - player.global_position.y
 				animationTree.set("parameters/Idle/blend_position", input_vector)
+				animationTree.set("parameters/IdleTree/blend_position", input_vector)
 				animationTree.set("parameters/Run/blend_position", input_vector)
 				animationTree.set("parameters/AttackHit/blend_position", input_vector)
-
+				animationTree.set("parameters/AttackTree/blend_position", input_vector)
+				animationTree.set("parameters/AttackBlow/blend_position", input_vector)
+				animationTree.set("parameters/TreeDestruction/blend_position", input_vector)
+				
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
@@ -58,11 +98,17 @@ func _physics_process(delta):
 			attack_state_hit(delta)
 		ATTACK_BLOW:
 			attack_state_blow(delta)
-			
+		ATTACK_TREE:
+			attack_tree(delta)
+		
 	velocity = move_and_slide(velocity)
 
+func tree_destruct():
+	animationState.travel("DestructionTree")
+	state = CHASE
+
 func seek_player():
-	if playerDetectionZone.can_see_player():
+	if playerDetectionZone.can_see_player() && stats.health < 125:
 		state = CHASE
 
 func attack_state_blow(delta):
@@ -72,9 +118,15 @@ func attack_state_blow(delta):
 func attack_state_hit(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("AttackHit")
-	
+
+func attack_tree(delta):
+	velocity = Vector2.ZERO
+	animationState.travel("AttackTree")
+
 func attack_animation_finished():
-	state = CHASE
+	if stats.health < 125:
+		state = CHASE
+
 	
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
@@ -96,7 +148,6 @@ func save():
 		"state": state,
 		"global_position": global_position
 	}
-	
 	return data
 
 func load_from_data(data):
@@ -109,7 +160,7 @@ func load_from_data(data):
 
 func arrow_create():
 	var arrow = Arrow.instance()
-	var player = hitZone.player
+	var player = airZone.player
 	
 	if player != null:
 		if PlayerStats.health >= 1:
@@ -118,7 +169,6 @@ func arrow_create():
 			arrow.set_direction(direction)
 			var input_vector = direction
 			input_vector.y *= -1
-			animationTree.set("parameters/AttackBlow/blend_position", input_vector)
 			get_parent().add_child(arrow)
 			arrow.position = $Position2D.global_position
 	
@@ -126,22 +176,36 @@ func _on_HitZoneDetection_body_entered(body):
 	timerHit.stop()
 
 func _on_AirZoneDetection_body_entered(body):
-	state = ATTACK_BLOW
+	if stats.health < 125:
+		state = ATTACK_BLOW
+	else:
+		state = ATTACK_TREE
+	
 	
 func _on_AirZoneDetection_body_exited(body):
-	state = IDLE
+	if stats.health < 125:
+		state = IDLE
+	else:
+		state = IDLE_TREE
 	
 func _on_Timer_timeout():
-	state = ATTACK_BLOW
+	if stats.health < 125:
+		state = ATTACK_BLOW
+	else:
+		state = ATTACK_TREE
 
 func _on_HitZoneDetection_body_exited(body):
-	timerHit.stop()
+	if stats.health < 125:
+		timerHit.stop()
 
 func _on_PlayerDetectionZone_body_entered(body):
-	timer.stop()
+	if stats.health < 125:
+		timer.stop()
 
 func _on_PlayerDetectionZone_body_exited(body):
-	timer.start()
+	if stats.health < 125:
+		timer.start()
 
 func _on_TimerHit_timeout():
-	state = ATTACK_HIT
+	if stats.health < 125:
+		state = ATTACK_HIT

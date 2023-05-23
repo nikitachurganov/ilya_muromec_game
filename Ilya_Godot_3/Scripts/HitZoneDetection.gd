@@ -15,3 +15,7 @@ func _on_HitZoneDetection_body_entered(body):
 func _on_HitZoneDetection_body_exited(body):
 	player = null
 	timer.stop()
+
+
+func _on_Timer_timeout():
+	pass # Replace with function body.

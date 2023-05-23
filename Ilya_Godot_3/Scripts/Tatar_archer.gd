@@ -153,6 +153,7 @@ func arrow_create():
 	arrow.position = $Position2D.global_position
 
 func _on_AirZoneDetection_body_entered(body):
+	
 	state = ATTACK
 
 func _on_Timer_timeout():
