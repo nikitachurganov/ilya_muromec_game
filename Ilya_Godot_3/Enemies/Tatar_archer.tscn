@@ -497,9 +497,9 @@ shape = SubResource( 42 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_exited"]
 [connection signal="body_entered" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_entered"]
 [connection signal="body_exited" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_exited"]
-[connection signal="timeout" from="AirZoneDetection/Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]

@@ -60,7 +60,7 @@ func _physics_process(delta):
 				input_vector.y = global_position.y - player.global_position.y
 				animationTree.set("parameters/Idle/blend_position", input_vector)
 				animationTree.set("parameters/Run/blend_position", input_vector)
-				
+
 
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
@@ -110,8 +110,6 @@ func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 
-
-
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
 	wanderController.start_wander_timer(rand_range(1, 3))
@@ -129,7 +127,6 @@ func save():
 		"state": state,
 		"global_position": global_position
 	}
-	
 	return data
 
 func load_from_data(data):
@@ -155,13 +152,15 @@ func arrow_create():
 	get_parent().add_child(arrow)
 	arrow.position = $Position2D.global_position
 
-
 func _on_AirZoneDetection_body_entered(body):
 	state = ATTACK
 
 func _on_Timer_timeout():
    state = ATTACK
 
-
 func _on_AirZoneDetection_body_exited(body):
-	 timer.stop()
+	timer.stop()
+
+func _on_PlayerDetectionZone_body_exited(body):
+	if timer.is_stopped():
+		timer.start()

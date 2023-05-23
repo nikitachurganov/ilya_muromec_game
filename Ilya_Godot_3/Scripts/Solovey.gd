@@ -17,7 +17,6 @@ var i = 0
 var velocity =  Vector2.ZERO
 var knockback = Vector2.ZERO
 var input_vector = Vector2.ZERO
-var timer
 var state = CHASE 
 
 onready var stats = $Stats
@@ -27,13 +26,10 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
 onready var animationState = animationTree.get("parameters/playback")
+onready var timer = $AirZoneDetection/Timer
+onready var timerHit = $HitZoneDetection/Timer
 
-func _physics_process(delta):
-	timer = Timer.new()
-	add_child(timer)
-	timer.connect("timeout", self, "_on_Timer_timeout")
-	timer.wait_time = 2 
-	
+func _physics_process(delta):	
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
 	
@@ -71,9 +67,7 @@ func seek_player():
 
 func attack_state_blow(delta):
 	velocity = Vector2.ZERO
-	
 	animationState.travel("AttackBlow")
-	
 	
 func attack_state_hit(delta):
 	velocity = Vector2.ZERO
@@ -81,7 +75,6 @@ func attack_state_hit(delta):
 	
 func attack_animation_finished():
 	state = CHASE
-	
 	
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
@@ -119,25 +112,36 @@ func arrow_create():
 	var player = hitZone.player
 	
 	if player != null:
-		var player_position = player.global_position
-		var direction = (player_position - global_position).normalized()
-		timer.start()
-		arrow.set_direction(direction)
-		var input_vector = direction
-		input_vector.y *= -1
-		animationTree.set("parameters/AttackBlow/blend_position", input_vector)
-	get_parent().add_child(arrow)
-	arrow.position = $Position2D.global_position
-
+		if PlayerStats.health >= 1:
+			var player_position = player.global_position
+			var direction = (player_position - global_position).normalized()
+			arrow.set_direction(direction)
+			var input_vector = direction
+			input_vector.y *= -1
+			animationTree.set("parameters/AttackBlow/blend_position", input_vector)
+			get_parent().add_child(arrow)
+			arrow.position = $Position2D.global_position
+	
 func _on_HitZoneDetection_body_entered(body):
-	state = ATTACK_HIT
-	timer.stop()
+	timerHit.stop()
 
 func _on_AirZoneDetection_body_entered(body):
 	state = ATTACK_BLOW
 	
 func _on_AirZoneDetection_body_exited(body):
-	timer.stop()
-
+	state = IDLE
+	
 func _on_Timer_timeout():
 	state = ATTACK_BLOW
+
+func _on_HitZoneDetection_body_exited(body):
+	timerHit.stop()
+
+func _on_PlayerDetectionZone_body_entered(body):
+	timer.stop()
+
+func _on_PlayerDetectionZone_body_exited(body):
+	timer.start()
+
+func _on_TimerHit_timeout():
+	state = ATTACK_HIT

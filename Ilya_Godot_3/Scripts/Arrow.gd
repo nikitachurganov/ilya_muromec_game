@@ -17,6 +17,5 @@ func set_direction(direction: Vector2):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
 func _on_Arrow_area_entered(area):
 	queue_free()
