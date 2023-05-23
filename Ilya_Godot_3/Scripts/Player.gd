@@ -152,19 +152,21 @@ func save():
 
 
 func load_from_data(data):
-	position = data["position"]
-	stats.health = data["health"]
-	stats.experience = data["experience"]
-	stats.max_exp = data["max_exp"]
-	stats.max_health = data["max_health"]
-	stats.atk = data["atk"]
-	stats.lvl = data["lvl"]
-	stats.inventory = data["inventory"].duplicate(true)
-	stats.set_health(stats.health)
-	stats.set_equipment(data["armor"])
-	stats.set_equipment(data["sword"])
-	stats.set_equipment(data["helmet"])
-	stats.emit_signal("equipment_changed")
+	PlayerStats.health = data["player"]["health"]
+	PlayerStats.max_health = data["player"]["max_health"]
+	PlayerStats.experience = data["player"]["experience"]
+	PlayerStats.max_exp = data["player"]["max_exp"]
+	PlayerStats.atk = data["player"]["atk"]
+	PlayerStats.lvl = data["player"]["lvl"]
+	PlayerStats.inventory = data["player"]["inventory"].duplicate(true)
+	self.position = data["player"]["position"]
+	PlayerStats.position_x = position.x
+	PlayerStats.position_y = position.y
+	PlayerStats.set_equipment(data["player"]["armor"])
+	PlayerStats.set_equipment(data["player"]["sword"])
+	PlayerStats.set_equipment(data["player"]["helmet"])
+	PlayerStats.set_health(PlayerStats.health)
+	PlayerStats.quests = data["player"]["quests"]
 
 
 func _on_Timer_timeout():

@@ -6,8 +6,8 @@ func get_player():
 func _ready():
 	add_to_group(PlayerStats.saving_group)
 	SceneChanger.game_ready()
-	$YSort/Player/Camera2D/Limits/BottomRight.position.x = 793
-	$YSort/Player/Camera2D/Limits/BottomRight.position.y = 360
+	#$YSort/Player/Camera2D/Limits/BottomRight.position.x = 793
+	#$YSort/Player/Camera2D/Limits/BottomRight.position.y = 360
 	$YSort/Player/Camera2D.current = true
 
 func save():
@@ -45,23 +45,7 @@ func load_from_data(data):
 		enemy.queue_free()
 	
 	var p = $YSort/Player
-	PlayerStats.health = data["player"]["health"]
-	PlayerStats.max_health = data["player"]["max_health"]
-	PlayerStats.experience = data["player"]["experience"]
-	PlayerStats.max_exp = data["player"]["max_exp"]
-	PlayerStats.atk = data["player"]["atk"]
-	PlayerStats.lvl = data["player"]["lvl"]
-	PlayerStats.inventory = data["player"]["inventory"].duplicate(true)
-	p.position = data["player"]["position"]
-	PlayerStats.position_x = p.position.x
-	PlayerStats.position_y = p.position.y
-	PlayerStats.set_equipment(data["player"]["armor"])
-	PlayerStats.set_equipment(data["player"]["sword"])
-	PlayerStats.set_equipment(data["player"]["helmet"])
-	PlayerStats.set_health(PlayerStats.health)
-	PlayerStats.quests = data["player"]["quests"]
-	
-	#get_parent().connect_player_to_death()
+	p.load_from_data(data)
 	
 	for i in data["items"]:
 		var item = load(i["filename"]).instance()

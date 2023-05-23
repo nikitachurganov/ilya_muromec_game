@@ -35,12 +35,15 @@ func new_game():
 	stats.lvl = 1
 	stats.position_x = 150
 	stats.position_y = 150
-	stats.quests = ["set equipment", "kill solovey"]
+	stats.quests = ["Надеть экипировку", "Выйти из дома", "Отправиться в Чернигов", "Победить татар", "Войти в Чернигов", "Пройти топи", "Одолеть Тугарина", "Одолеть Змея Горыныча", "Одолеть Соловья-разбойника"]
 
 func quit():
 	get_tree().quit()
 
 func load_file():
+	PlayerStats.helmet = ""
+	PlayerStats.armor = ""
+	PlayerStats.sword = ""
 	var file_path = stats.save_dir.plus_file(stats.save_temp % "save")
 	var file = File.new()
 	

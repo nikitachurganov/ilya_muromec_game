@@ -133,70 +133,79 @@ theme = SubResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Control/ScrollContainer"]
 margin_right = 130.0
-margin_bottom = 136.0
+margin_bottom = 156.0
 rect_min_size = Vector2( 130, 0 )
 theme = SubResource( 6 )
 
 [node name="TextureButton" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-label_text = "sifjsdbf skdfbksjdbf ksjdbf ksbdf ksjdbf ksbdf kjbsdf"
+label_text = "“w” – передвижение вперед/n“a” – передвижение влево/n“s” – передвижение назад/n“d” – передвижение вправо/n“shift” – рывок/n“b” – открыть инвентарь/n“ЛКМ”/ “space” – атака/n“e” – взаимодействие с миром/n“enter” – переключение диалогов"
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton" index="0"]
 custom_fonts/font = SubResource( 1 )
-text = "Control"
-
-[node name="TextureButton2" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 20.0
-margin_bottom = 36.0
-label_text = " sdf sljdf s bsd kjbfsd  jksbdf skjdf"
-
-[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton2" index="0"]
-custom_fonts/font = SubResource( 1 )
-text = "Kladenec"
-
-[node name="TextureButton3" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 40.0
-margin_bottom = 56.0
-label_text = "phkrnth ro nrjb bhj brohj"
-
-[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton3" index="0"]
-custom_fonts/font = SubResource( 1 )
-text = "Murom"
-
-[node name="TextureButton4" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 60.0
-margin_bottom = 76.0
-label_text = "bojuierh j kjbdn, bgjsdb,mdf jkfdbgjbd gjdflg bdfj gldfbgm,df g nk"
-
-[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton4" index="0"]
-custom_fonts/font = SubResource( 1 )
-text = "Chernigov"
-
-[node name="TextureButton5" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 80.0
-margin_bottom = 96.0
-label_text = "ousdfj sdfkj svd fkshdvf ksvd fksd fksv dkfjblsjb fsljdbfl jsbdljf bsdb l"
-
-[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton5" index="0"]
-custom_fonts/font = SubResource( 1 )
-text = "Tugarin"
+text = "Управление"
 
 [node name="TextureButton6" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 100.0
-margin_bottom = 116.0
-label_text = "123456789"
+margin_top = 20.0
+margin_bottom = 36.0
+label_text = "Илья Муромец — один из главных героев древнерусского и русского былинного эпоса. Богатырь, крестьянский сын, выходец из Северо-Восточной Руси, приехавший на службу в Киев к князю Владимиру; возглавил оборону Древней Руси./nВпервые появляется в письменных источниках в XVI веке у Ф. С. Кмиты-Чернобыльского как Илья Муравленин, у Эриха Лясоты — как исполин Илья Моровлин в Софийском соборе Киева, в некоторых былинах — как Моровец, Муровец, Муравленин, Моровлянин. Образ Ильи Муромца широко представлен в литературе, музыке, живописи и кино."
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton6" index="0"]
 custom_fonts/font = SubResource( 1 )
-text = "Ilya"
+text = "Илья Муромец"
 
-[node name="TextureButton7" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="TextureButton8" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 40.0
+margin_bottom = 56.0
+label_text = "Соловей-разбойник — в восточнославянской мифологии и былинном эпосе антропоморфный чудовищный противник героя, поражающий врагов страшным посвистом. Родственен Змею — рогатому Соколу (Соловью) в белорусском эпосе./nИзображается либо в виде человека, либо в виде загадочного громадного существа с птичьими крыльями, под которым сгибается дуб. Согласно былинам, у Соловья-разбойника крепкий двор и терем, в котором живёт его семья."
+
+[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton8" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Соловей-разбойник"
+
+[node name="TextureButton5" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 60.0
+margin_bottom = 76.0
+label_text = "Тугарин — злой богатырь в русских былинах и сказках, противник русских богатырей Добрыни Никитича и Алёши Поповича. «В эпоху борьбы с кочевниками стал символом дикой степи, исходящей от неё опасности, язычества». Главный текст о Тугарине — былина о бое Алёши Поповича с Тугарином в разных её вариантах./nВ былинном образе Тугарина сливаются отголоски различных слоёв эпической традиции. Прежде всего в змеевидной природе Тугарина нельзя не видеть одной из вариаций бродячего мотива о змееборстве, весьма распространённого в русской народной поэзии (сказках и былинах), древность которого засвидетельствована памятниками (летописное сказание о Никите Кожемяке, былины о Змее Горыныче), а также аналогиями в южнославянском эпосе. Отношение Тугарина к Апраксии и Марине, жене Добрыни, даёт основание сблизить его со змеем-любовником сербских сказок и песен."
+
+[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton5" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Тугарин"
+
+[node name="TextureButton3" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 80.0
+margin_bottom = 96.0
+label_text = "Змей Горыныч — славянский фольклорный змей, похищающий женщин./nГорыныч живёт обычно в горах, нередко у огненной реки и стережёт «Калинов мост», по которому попадают в царство мёртвых. Существует версия, что Змей Горыныч был собирательным образом половцев."
+
+[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton3" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Змей Горыныч"
+
+[node name="TextureButton2" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 100.0
+margin_bottom = 116.0
+label_text = "Меч-кладенец или самосек — мифическое холодное оружие, которое обладало магическими свойствами и обеспечивало поражение противника в битве. Также мечом-кладенцом именовались мечи нескольких богатырей из русского фольклора. Могли быть волшебными и придавать владельцу непобедимость. Обычно попадали в руки хозяину из какого-либо тайника."
+
+[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton2" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Меч-кладенец"
+
+[node name="TextureButton4" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 120.0
 margin_bottom = 136.0
-label_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Vivamus bibendum, purus in efficitur hendrerit, orci nulla lacinia dolor, non vehicula sapien neque id velit. Sed auctor diam vel velit dignissim, vel faucibus enim tempus. Nam euismod justo vel orci elementum, a eleifend dolor dictum. Nulla facilisi. Vivamus at est vel erat lacinia tincidunt. Praesent euismod nisl eget neque interdum, a aliquet orci luctus. Sed sed felis non mi mollis convallis at et dui. In hac habitasse platea dictumst."
+label_text = "Калинов мост — мост через реку Смородину в русских сказках и былинах, соединяющий мир живых и мир мёртвых. За Огненной рекой жил Змей Горыныч и находилась избушка Бабы-Яги."
+
+[node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton4" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Калинов Мост"
+
+[node name="TextureButton7" parent="TextureRect/Control/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 140.0
+margin_bottom = 156.0
+label_text = "Монголо-татарское иго, татаро-монгольское иго, монгольское иго, татарское иго, ордынское иго — система политической и даннической зависимости русских княжеств от Монгольской империи, а позже от Золотой орды с 1242 года до конца XV века. Установление ига стало возможным в результате монгольского нашествия на Русь в 1237—1242 годах; иго устанавливалось в течение двух десятилетий после нашествия, в том числе и в не разорённых землях. В Северо-Восточной Руси продлилось до эпохи правления Ивана III (традиционно событием, положившим конец игу, считается Стояние на Угре 1480 года, однако часть историков относит его к более раннему событию — сражению под Алексином 1472 года). В других русских землях иго устранялось в XIV веке по мере присоединения их к Великому княжеству Литовскому и Речи Посполитой."
 
 [node name="Label" parent="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton7" index="0"]
 custom_fonts/font = SubResource( 1 )
-text = "Solovey"
+text = "Татарское иго"
 
 [node name="Control2" type="Control" parent="TextureRect"]
 margin_left = 158.0
@@ -231,11 +240,14 @@ custom_fonts/font = SubResource( 2 )
 text = "Глоссарий"
 
 [node name="ChoosingItem" type="Label" parent="TextureRect"]
-margin_left = 200.0
+margin_left = 165.0
 margin_top = 6.0
-margin_right = 240.0
+margin_right = 265.0
 margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
 custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect"]
 anchor_left = 1.0
@@ -254,9 +266,10 @@ expand = true
 [connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton"]
-[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton2"]
-[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton3"]
-[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton4"]
-[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton5"]
 [editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton6"]
+[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton8"]
+[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton5"]
+[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton3"]
+[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton2"]
+[editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton4"]
 [editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton7"]

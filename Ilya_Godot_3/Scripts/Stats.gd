@@ -30,7 +30,7 @@ var items = {
 	"Pie": {"heal": 3, "type": "food", "name": "Пирожок"}
 }
 
-var quests = ["set equipment", "kill solovey"]
+var quests = ["Надеть экипировку", "Выйти из дома", "Отправиться в Чернигов", "Победить татар", "Войти в Чернигов", "Пройти топи", "Одолеть Тугарина", "Одолеть Змея Горыныча", "Одолеть Соловья-разбойника"]
 
 onready var saving_group = "TO_BE_SAVED"
 onready var save_dir = "user://Saves"

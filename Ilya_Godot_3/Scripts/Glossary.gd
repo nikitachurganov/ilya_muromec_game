@@ -17,7 +17,7 @@ func _on_glossary_button_pressed(args):
 		var button_name = args[0]
 		var button_text = args[1]
 		$TextureRect/ChoosingItem.text = button_name
-		$TextureRect/Control2/ScrollContainer/VBoxContainer/RichTextLabel.text = button_text
+		$TextureRect/Control2/ScrollContainer/VBoxContainer/RichTextLabel.text = button_text.replace("/n","\n")
 
 
 

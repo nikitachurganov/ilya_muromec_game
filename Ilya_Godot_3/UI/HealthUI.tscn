@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sword.png" type="Texture" id=2]
@@ -19,6 +19,13 @@
 [sub_resource type="DynamicFont" id=1]
 size = 10
 font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/Montserrat-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = SubResource( 2 )
 
 [node name="HealthUI" type="CanvasLayer"]
 pause_mode = 2
@@ -156,5 +163,6 @@ script = ExtResource( 15 )
 [node name="Label" type="Label" parent="Control/Quest"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
