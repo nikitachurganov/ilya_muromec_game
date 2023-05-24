@@ -24,11 +24,19 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
 onready var timer = $HitZoneDetection/Timer
+onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
 
+var max_health = 100
+var currentHealth = max_health
 var direction
 var dist = false
-			
+
+func _ready():
+	healthBar.rect_size.x = 28
+	healthBar.rect_min_size.y = 3
+	
+
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
@@ -77,6 +85,8 @@ func attack_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
+	currentHealth = clamp(stats.health, 0, max_health)
+	healthBar.rect_size.x = (currentHealth * 28 / max_health)
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 

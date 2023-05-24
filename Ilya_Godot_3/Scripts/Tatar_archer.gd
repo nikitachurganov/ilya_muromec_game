@@ -29,7 +29,11 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
 onready var wanderController = $WanderController
+onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
+
+var max_health = 100
+var currentHealth = max_health
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
@@ -37,6 +41,8 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	timer.wait_time = 2 
+	healthBar.rect_size.x = 28
+	healthBar.rect_min_size.y = 3
 
 func _physics_process(delta):
 	if wanderController.start_position == Vector2.ZERO:
@@ -91,9 +97,9 @@ func attack_animation_finished():
 	state = CHASE
 	
 func _on_Hurtbox_area_entered(area):
-	
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
-	
+	currentHealth = clamp(stats.health, 0, max_health)
+	healthBar.rect_size.x = (currentHealth * 28 / max_health)
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 
