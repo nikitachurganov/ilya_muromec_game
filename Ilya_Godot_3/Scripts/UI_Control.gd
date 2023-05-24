@@ -9,7 +9,9 @@ func _ready():
 func toggle_inventory(inventory):
 	if pack.visible:
 		pack.visible = false
+		get_tree().paused = false
 	else:
+		get_tree().paused = true
 		pack.visible = true
 		pack.activeItem = null
 		pack.show_inventory(inventory)
@@ -24,7 +26,11 @@ func set_death_screen():
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("esc"):
+		if pack.visible:
+			toggle_inventory(PlayerStats.inventory)
 		$Menu.open()
+	if event.is_action_pressed("inventory"):
+		toggle_inventory(PlayerStats.inventory)
 
 func equipmentHood():
 	if PlayerStats.helmet == "":

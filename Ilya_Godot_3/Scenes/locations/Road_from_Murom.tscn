@@ -1,9 +1,10 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=1]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=3]
 [ext_resource path="res://Art/TilesetHouse.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=37]
 0/name = "TilesetFloor_2.png 0"
@@ -1071,6 +1072,8 @@ points = PoolVector2Array( 48, 19.8379, 0, 19.8379, 0, 5.77219, 48, 5.77219 )
 22/shapes = [  ]
 22/z_index = 0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=55]
+
 [node name="World" type="Node2D"]
 
 [node name="ground" type="TileMap" parent="."]
@@ -1102,3 +1105,22 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( -3276812, 6, 0, -3276809, 6, 0, -3276806, 6, 0, -3276803, 6, 0, -3342336, 6, 0, -3342333, 6, 0, -3342330, 6, 0, -3342327, 6, 0, -3342324, 7, 0, -3342321, 6, 0, -3342318, 6, 0, -3342315, 6, 0, -3342312, 6, 0, -3342309, 6, 0, -3342306, 6, 0, 786420, 11, 0, 786421, 11, 0, 786422, 11, 0, 786423, 11, 0, 786424, 11, 0, 786425, 11, 0, 786426, 11, 0, 786427, 11, 0, 786428, 11, 0, 786429, 11, 0, 786430, 11, 0, 786431, 11, 0, 720896, 11, 0, 720897, 11, 0, 720898, 11, 0, 720899, 11, 0, 720900, 11, 0, 720901, 11, 0, 720902, 11, 0, 720903, 11, 0, 720904, 11, 0, 720905, 11, 0, 720906, 11, 0, 720907, 11, 0, 720908, 11, 0, 720909, 11, 0, 720910, 11, 0, 720911, 7, 0, 720914, 11, 0, 720915, 11, 0, 720916, 11, 0, 720917, 11, 0, 720918, 11, 0, 720919, 11, 0, 720920, 11, 0, 720921, 11, 0, 720922, 11, 0, 720923, 11, 0, 720924, 11, 0, 720925, 11, 0, 720926, 11, 0, 720927, 11, 0, 720928, 11, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 263, 173 )
+
+[node name="AnimationTree" parent="YSort/Player" index="4"]
+parameters/playback = SubResource( 55 )
+
+[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+position = Vector2( -191, -807 )
+
+[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+position = Vector2( 524, 216 )
+
+[editable path="YSort/Player"]
+[editable path="YSort/Player/HitboxPivot/SwordHitbox"]
+[editable path="YSort/Player/Hurtbox"]
+[editable path="YSort/Player/Camera2D"]

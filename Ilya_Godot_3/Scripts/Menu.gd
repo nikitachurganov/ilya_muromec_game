@@ -33,8 +33,8 @@ func new_game():
 	stats.atk = 10
 	stats.def = 0
 	stats.lvl = 1
-	stats.position_x = 150
-	stats.position_y = 150
+	stats.position_x = 53
+	stats.position_y = 78
 	stats.quests = ["Надеть экипировку", "Выйти из дома", "Отправиться в Чернигов", "Победить татар", "Войти в Чернигов", "Пройти топи", "Одолеть Тугарина", "Одолеть Змея Горыныча", "Одолеть Соловья-разбойника"]
 
 func quit():

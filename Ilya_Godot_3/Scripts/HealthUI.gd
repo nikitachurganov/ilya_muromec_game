@@ -26,7 +26,7 @@ func set_atk(value):
 
 func set_def(value):
 	var labelDef = $LabelDef
-	def = clamp(value, 0, 100)
+	def = clamp(PlayerStats.items[PlayerStats.helmet]["def"] + PlayerStats.items[PlayerStats.armor]["def"], 0, 100)
 	if labelDef != null:
 		labelDef.text = str(def)
 
