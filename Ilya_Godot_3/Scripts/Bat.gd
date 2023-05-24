@@ -20,13 +20,16 @@ var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var state = CHASE
 
+var max_health = 100
+var currentHealth = max_health
+
 onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
-
+onready var healthBar = $HealthBar/Control/TextureRect
 
 func _ready():
 	#yield(SceneChanger, "on_game_ready")
@@ -85,7 +88,8 @@ func seek_player():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
-	
+	currentHealth = clamp(stats.health, 0, max_health)
+	healthBar.rect_size.x = (currentHealth * 28 / max_health)
 	knockback = area.knockback_vector * 120
 	hurtbox.create_hit_effect()
 

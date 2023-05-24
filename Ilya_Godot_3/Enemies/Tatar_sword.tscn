@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Tatar.gd" type="Script" id=1]
 [ext_resource path="res://Stats/Stats.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/tatar1.png" type="Texture" id=5]
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -642,6 +643,22 @@ position = Vector2( 0, 4 )
 rotation = 1.5708
 shape = SubResource( 42 )
 
+[node name="Timer" parent="HitZoneDetection" index="1"]
+wait_time = 0.3
+
+[node name="HealthBar" parent="." instance=ExtResource( 7 )]
+position = Vector2( -13, -23 )
+
+[node name="Control" parent="HealthBar" index="0"]
+margin_left = -1.0
+margin_right = 27.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 0, 2 )
+
+[node name="TextureRect" parent="HealthBar/Control" index="0"]
+margin_right = 28.0
+margin_bottom = 2.0
+
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="HitZoneDetection" to="." method="_on_HitZoneDetection_body_entered"]
@@ -653,3 +670,4 @@ shape = SubResource( 42 )
 [editable path="Hurtbox"]
 [editable path="HitboxPivot/Hitbox"]
 [editable path="HitZoneDetection"]
+[editable path="HealthBar"]
