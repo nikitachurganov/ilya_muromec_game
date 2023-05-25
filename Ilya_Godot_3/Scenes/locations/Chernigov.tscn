@@ -1178,7 +1178,7 @@ position = Vector2( 553, -55 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -20 )
 region_enabled = true
-region_rect = Rect2( 255.923, 96.1457, 48.1561, 79.0989 )
+region_rect = Rect2( 255.923, 96.1457, 48.077, 79.0989 )
 
 [node name="CollisionShape2D" parent="YSort/buildings/tower" index="1"]
 position = Vector2( 0, 2 )
@@ -1193,7 +1193,7 @@ position = Vector2( 0, 16.5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -20 )
 region_enabled = true
-region_rect = Rect2( 255.923, 96.1457, 48.1561, 79.0989 )
+region_rect = Rect2( 255.923, 96.1457, 48.077, 79.0989 )
 
 [node name="CollisionShape2D" parent="YSort/buildings/tower3" index="1"]
 position = Vector2( 0, 18.5 )
@@ -1208,7 +1208,7 @@ position = Vector2( 0, 16.5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -20 )
 region_enabled = true
-region_rect = Rect2( 255.923, 96.1457, 48.1561, 79.0989 )
+region_rect = Rect2( 255.923, 96.1457, 48.077, 79.0989 )
 
 [node name="CollisionShape2D" parent="YSort/buildings/tower4" index="1"]
 position = Vector2( 0, 18.5 )
@@ -1222,7 +1222,7 @@ position = Vector2( 648, -54 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -20 )
 region_enabled = true
-region_rect = Rect2( 255.923, 96.1457, 48.1561, 79.0989 )
+region_rect = Rect2( 255.923, 96.1457, 48.077, 79.0989 )
 
 [node name="CollisionShape2D" parent="YSort/buildings/tower2" index="1"]
 position = Vector2( 0, 2 )
