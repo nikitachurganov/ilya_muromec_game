@@ -429,11 +429,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "arrow_create"
+}, {
+"args": [  ],
+"method": "attack_animation_finished"
 } ]
 }
 
@@ -762,10 +765,6 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=48]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=63]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=64]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=74]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=75]
@@ -774,24 +773,28 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=77]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
 [sub_resource type="AnimationNodeStateMachine" id=26]
 states/AttackBlow/node = SubResource( 33 )
 states/AttackBlow/position = Vector2( 174, -17 )
 states/AttackHit/node = SubResource( 38 )
 states/AttackHit/position = Vector2( 71, 170 )
 states/AttackTree/node = SubResource( 62 )
-states/AttackTree/position = Vector2( 275, 170 )
+states/AttackTree/position = Vector2( -217, 197 )
 states/DestructionTree/node = SubResource( 73 )
-states/DestructionTree/position = Vector2( 437, -17 )
+states/DestructionTree/position = Vector2( -277, 78 )
 states/Idle/node = SubResource( 25 )
 states/Idle/position = Vector2( 174, 78 )
 states/IdleTree/node = SubResource( 69 )
 states/IdleTree/position = Vector2( -64, 78 )
 states/Run/node = SubResource( 28 )
 states/Run/position = Vector2( 350, 78 )
-transitions = [ "Idle", "Run", SubResource( 43 ), "Run", "Idle", SubResource( 44 ), "Idle", "AttackHit", SubResource( 45 ), "AttackHit", "Idle", SubResource( 46 ), "AttackBlow", "Idle", SubResource( 47 ), "Idle", "AttackBlow", SubResource( 48 ), "Idle", "AttackTree", SubResource( 63 ), "AttackTree", "Idle", SubResource( 64 ), "IdleTree", "Idle", SubResource( 74 ), "Idle", "IdleTree", SubResource( 75 ), "Idle", "DestructionTree", SubResource( 76 ), "DestructionTree", "Idle", SubResource( 77 ) ]
+transitions = [ "Idle", "Run", SubResource( 43 ), "Run", "Idle", SubResource( 44 ), "Idle", "AttackHit", SubResource( 45 ), "AttackHit", "Idle", SubResource( 46 ), "AttackBlow", "Idle", SubResource( 47 ), "Idle", "AttackBlow", SubResource( 48 ), "IdleTree", "Idle", SubResource( 74 ), "Idle", "IdleTree", SubResource( 75 ), "IdleTree", "AttackTree", SubResource( 76 ), "AttackTree", "IdleTree", SubResource( 77 ), "IdleTree", "DestructionTree", SubResource( 78 ), "DestructionTree", "IdleTree", SubResource( 79 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -210, -68 )
+graph_offset = Vector2( -517, 34 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
@@ -820,10 +823,9 @@ script = ExtResource( 5 )
 [node name="SpruteShow" type="Sprite" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 1 )
 hframes = 56
-frame = 36
+frame = 18
 
 [node name="SpriteTree" type="Sprite" parent="."]
 texture = ExtResource( 9 )
@@ -866,7 +868,7 @@ parameters/playback = SubResource( 27 )
 parameters/AttackBlow/blend_position = Vector2( 0.014263, -0.578448 )
 parameters/AttackHit/blend_position = Vector2( -0.462758, -0.0709678 )
 parameters/AttackTree/blend_position = Vector2( 0, 0.993464 )
-parameters/DestructionTree/blend_position = 0
+parameters/DestructionTree/blend_position = -0.00298065
 parameters/Idle/blend_position = Vector2( 0.066561, -0.73629 )
 parameters/IdleTree/blend_position = 0
 parameters/Run/blend_position = Vector2( -0.0507132, 0.168548 )

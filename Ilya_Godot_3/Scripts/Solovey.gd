@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 const Arrow = preload("res://Effects/Whistle.tscn")
+const Destruction = preload("res://Scenes/TreeDestruction.tscn")
 
 export var acceleration = 300
 export var max_speed = 50
@@ -47,17 +48,7 @@ func _process(delta):
 		$CollisionShape2D.rotation_degrees = 0
 		$CollisionShape2D.position.x = -2
 		$CollisionShape2D.position.y = -4
-		
-	else:
-		$PlayerDetectionZone/CollisionShape2D.disabled = false
-		$HitZoneDetection/CollisionShape2D.disabled = false
-		$Sprite.visible = true
-		$SpriteTree.visible = false
-		$CollisionShape2D.shape.radius = 4
-		$CollisionShape2D.rotation_degrees = 90
-		$CollisionShape2D.position.x = -1
-		$CollisionShape2D.position.y = 12
-		
+
 	if stats.health < 125 && tree == true:
 		tree_destruct()
 		tree = false
@@ -73,7 +64,6 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
 		IDLE_TREE:
-			
 			animationState.travel("IdleTree")
 		CHASE:
 			var player = playerDetectionZone.player
@@ -87,7 +77,7 @@ func _physics_process(delta):
 				animationTree.set("parameters/AttackHit/blend_position", input_vector)
 				animationTree.set("parameters/AttackTree/blend_position", input_vector)
 				animationTree.set("parameters/AttackBlow/blend_position", input_vector)
-				animationTree.set("parameters/TreeDestruction/blend_position", input_vector)
+				
 				
 				animationState.travel("Run")
 				var direction = (player.global_position - global_position).normalized()
@@ -105,7 +95,27 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func tree_destruct():
-	animationState.travel("DestructionTree")
+	var destruction = Destruction.instance()
+	get_parent().add_child(destruction)
+	destruction.global_position = global_position
+	$SpriteTree.visible = false
+	var timer = Timer.new()
+	timer.wait_time = 0.5
+	timer.one_shot = true
+	timer.connect("timeout", self, "after_destruct")
+	add_child(timer)
+	timer.start()
+	
+	
+func after_destruct():
+	
+	$Sprite.visible = true
+	$PlayerDetectionZone/CollisionShape2D.disabled = false
+	$HitZoneDetection/CollisionShape2D.disabled = false
+	$CollisionShape2D.shape.radius = 4
+	$CollisionShape2D.rotation_degrees = 90
+	$CollisionShape2D.position.x = -1
+	$CollisionShape2D.position.y = 12
 	state = CHASE
 
 func seek_player():
@@ -127,6 +137,8 @@ func attack_tree(delta):
 func attack_animation_finished():
 	if !tree:
 		state = CHASE
+	else:
+		state = IDLE_TREE
 
 	
 func _on_Hurtbox_area_entered(area):
