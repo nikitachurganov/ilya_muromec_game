@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Scripts/Tatar.gd" type="Script" id=1]
 [ext_resource path="res://Stats/Stats.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -658,6 +659,8 @@ rect_min_size = Vector2( 0, 2 )
 [node name="TextureRect" parent="HealthBar/Control" index="0"]
 margin_right = 28.0
 margin_bottom = 2.0
+
+[node name="WanderController" parent="." instance=ExtResource( 9 )]
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

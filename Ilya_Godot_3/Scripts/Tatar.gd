@@ -5,11 +5,13 @@ const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
+export var WANDER_TARGET_RANGE = 4
 
 enum{
 	IDLE,
 	CHASE,
-	ATTACK
+	ATTACK,
+	WANDER
 }
 
 var velocity =  Vector2.ZERO
@@ -24,30 +26,36 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var hurtbox = $Hurtbox
 onready var timer = $HitZoneDetection/Timer
+onready var wanderController = $WanderController
 onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
 
 var max_health = 100
 var currentHealth = max_health
 var direction
-var dist = false
+
 
 func _ready():
+	state = pick_random_state([IDLE, WANDER])
 	healthBar.rect_size.x = 28
 	healthBar.rect_min_size.y = 3
 	
 
 func _physics_process(delta):
+	if wanderController.start_position == Vector2.ZERO:
+		wanderController.start_position = global_position
+	
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
 	
-	if !dist:
-		direction = Vector2.UP
+	
 	
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
+			if wanderController.get_time_left() == 0:
+				update_wander()
 		CHASE:
 			var player = playerDetectionZone.player
 			input_vector = input_vector.normalized()
@@ -68,6 +76,14 @@ func _physics_process(delta):
 		ATTACK:
 			attack_state(delta)
 			
+		WANDER:
+			seek_player()
+			if wanderController.get_time_left() == 0:
+				update_wander()
+			accelerate_towards_point(wanderController.target_position, delta)
+			if global_position.distance_to(wanderController.target_position) <= WANDER_TARGET_RANGE:
+				update_wander()
+				
 	velocity = move_and_slide(velocity)
 
 func seek_player():
@@ -96,6 +112,17 @@ func _on_Stats_no_health():
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
 
+func accelerate_towards_point(point, delta):
+	var direction = global_position.direction_to(point)
+	velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
+
+func update_wander():
+	state = pick_random_state([IDLE, WANDER])
+	wanderController.start_wander_timer(rand_range(1, 3))
+
+func pick_random_state(state_list):
+	state_list.shuffle()
+	return state_list.pop_front()
 
 func save():
 	var data = {
@@ -119,11 +146,11 @@ func load_from_data(data):
 
 func _on_HitZoneDetection_body_entered(body):
 	timer.start()
-	dist = true
+
 
 func _on_HitZoneDetection_body_exited(body):
 	timer.stop()
-	dist = false
+
 	
 func _on_Timer_timeout():
 	state = ATTACK

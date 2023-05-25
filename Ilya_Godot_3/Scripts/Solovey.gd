@@ -106,9 +106,7 @@ func tree_destruct():
 	add_child(timer)
 	timer.start()
 	
-	
 func after_destruct():
-	
 	$Sprite.visible = true
 	$PlayerDetectionZone/CollisionShape2D.disabled = false
 	$HitZoneDetection/CollisionShape2D.disabled = false
