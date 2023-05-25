@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Scripts/Tatar.gd" type="Script" id=1]
 [ext_resource path="res://Stats/Stats.tscn" type="PackedScene" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sounds/Swipe.wav" type="AudioStream" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
-height = 8.0
+height = 4.0
 
 [sub_resource type="Animation" id=27]
 resource_name = "AttackDown"
@@ -91,6 +92,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 14, 0 ) ]
 }
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "AttackLeft"
@@ -156,6 +171,20 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 11, -2 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=29]
@@ -236,6 +265,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 11, 5 ) ]
 }
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [sub_resource type="Animation" id=30]
 resource_name = "AttackUp"
@@ -313,6 +356,20 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 4, -0.999999 ) ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -576,7 +633,7 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 hframes = 40
-frame = 6
+frame = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 10 )
@@ -623,8 +680,8 @@ position = Vector2( 0, -1 )
 shape = SubResource( 26 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( -2, 0 )
-rotation = 1.5708
+position = Vector2( 3, -4 )
+rotation = -1.5708
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 6 )]
 position = Vector2( 0, -2 )
@@ -634,6 +691,7 @@ damage = 15
 [node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
 position = Vector2( 18, -5 )
 shape = SubResource( 39 )
+disabled = false
 
 [node name="HitZoneDetection" parent="." instance=ExtResource( 8 )]
 collision_layer = 0
@@ -661,6 +719,11 @@ margin_right = 28.0
 margin_bottom = 2.0
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -0.874
+pitch_scale = 2.63
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

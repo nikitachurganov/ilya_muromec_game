@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/material-zvukovogo-effekta-rolla-ognennogo-shara-42190.wav-e521985a64b94f5e34b99eb1af990c8f.sample"
+
+[deps]
+
+source_file="res://Sounds/material-zvukovogo-effekta-rolla-ognennogo-shara-42190.wav"
+dest_files=[ "res://.import/material-zvukovogo-effekta-rolla-ognennogo-shara-42190.wav-e521985a64b94f5e34b99eb1af990c8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

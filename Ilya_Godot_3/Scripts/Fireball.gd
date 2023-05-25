@@ -6,10 +6,11 @@ var velocity = Vector2.ZERO
 var offset = 0.05
 
 func _physics_process(delta):
+	
 	translate(velocity * delta)
 
 func set_direction(direction: Vector2):
-	
+	$AudioStreamPlayer.play()
 	rotation = direction.angle()
 	direction.y -= offset
 	velocity = direction * speed 

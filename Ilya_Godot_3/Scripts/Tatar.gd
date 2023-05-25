@@ -36,6 +36,7 @@ var direction
 
 
 func _ready():
+	$HitboxPivot/Hitbox/CollisionShape2D.disabled = true
 	state = pick_random_state([IDLE, WANDER])
 	healthBar.rect_size.x = 28
 	healthBar.rect_min_size.y = 3

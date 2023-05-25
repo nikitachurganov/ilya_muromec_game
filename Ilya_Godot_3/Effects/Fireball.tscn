@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Fireball.gd" type="Script" id=1]
 [ext_resource path="res://Art/Fireball.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/material-zvukovogo-effekta-rolla-ognennogo-shara-42190.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -47,6 +48,10 @@ position = Vector2( 0, 1 )
 shape = SubResource( 6 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 0.43
 
 [connection signal="area_entered" from="." to="." method="_on_Fireball_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
