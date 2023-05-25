@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Art/solovey.png" type="Texture" id=1]
 [ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=2]
@@ -520,21 +520,6 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=70]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteTree:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 6 ]
-}
-
 [sub_resource type="Animation" id=8]
 resource_name = "RunDown"
 loop = true
@@ -597,23 +582,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 6, 7, 8, 9, 10, 11 ]
-}
-
-[sub_resource type="Animation" id=71]
-resource_name = "TreeDestruction"
-length = 1.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteTree:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 6, 7, 8, 9 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=29]
@@ -688,13 +656,6 @@ blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 61 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id=72]
-animation = "TreeDestruction"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id=73]
-blend_point_0/node = SubResource( 72 )
-blend_point_0/pos = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "IdleLeft"
@@ -773,28 +734,22 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=77]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=78]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=79]
-
 [sub_resource type="AnimationNodeStateMachine" id=26]
 states/AttackBlow/node = SubResource( 33 )
 states/AttackBlow/position = Vector2( 174, -17 )
 states/AttackHit/node = SubResource( 38 )
-states/AttackHit/position = Vector2( 71, 170 )
+states/AttackHit/position = Vector2( 174, 170 )
 states/AttackTree/node = SubResource( 62 )
-states/AttackTree/position = Vector2( -217, 197 )
-states/DestructionTree/node = SubResource( 73 )
-states/DestructionTree/position = Vector2( -277, 78 )
+states/AttackTree/position = Vector2( -64, 170 )
 states/Idle/node = SubResource( 25 )
 states/Idle/position = Vector2( 174, 78 )
 states/IdleTree/node = SubResource( 69 )
 states/IdleTree/position = Vector2( -64, 78 )
 states/Run/node = SubResource( 28 )
 states/Run/position = Vector2( 350, 78 )
-transitions = [ "Idle", "Run", SubResource( 43 ), "Run", "Idle", SubResource( 44 ), "Idle", "AttackHit", SubResource( 45 ), "AttackHit", "Idle", SubResource( 46 ), "AttackBlow", "Idle", SubResource( 47 ), "Idle", "AttackBlow", SubResource( 48 ), "IdleTree", "Idle", SubResource( 74 ), "Idle", "IdleTree", SubResource( 75 ), "IdleTree", "AttackTree", SubResource( 76 ), "AttackTree", "IdleTree", SubResource( 77 ), "IdleTree", "DestructionTree", SubResource( 78 ), "DestructionTree", "IdleTree", SubResource( 79 ) ]
+transitions = [ "Idle", "Run", SubResource( 43 ), "Run", "Idle", SubResource( 44 ), "Idle", "AttackHit", SubResource( 45 ), "AttackHit", "Idle", SubResource( 46 ), "AttackBlow", "Idle", SubResource( 47 ), "Idle", "AttackBlow", SubResource( 48 ), "IdleTree", "Idle", SubResource( 74 ), "Idle", "IdleTree", SubResource( 75 ), "IdleTree", "AttackTree", SubResource( 76 ), "AttackTree", "IdleTree", SubResource( 77 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -517, 34 )
+graph_offset = Vector2( -505, -31 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
@@ -825,7 +780,7 @@ script = ExtResource( 5 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 56
-frame = 18
+frame = 48
 
 [node name="SpriteTree" type="Sprite" parent="."]
 texture = ExtResource( 9 )
@@ -853,12 +808,10 @@ anims/IdleLeft = SubResource( 2 )
 anims/IdleRight = SubResource( 3 )
 anims/IdleTree = SubResource( 66 )
 anims/IdleUp = SubResource( 4 )
-anims/RESET = SubResource( 70 )
 anims/RunDown = SubResource( 8 )
 anims/RunLeft = SubResource( 9 )
 anims/RunRight = SubResource( 6 )
 anims/RunUp = SubResource( 7 )
-anims/TreeDestruction = SubResource( 71 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 26 )
@@ -868,7 +821,6 @@ parameters/playback = SubResource( 27 )
 parameters/AttackBlow/blend_position = Vector2( 0.014263, -0.578448 )
 parameters/AttackHit/blend_position = Vector2( -0.462758, -0.0709678 )
 parameters/AttackTree/blend_position = Vector2( 0, 0.993464 )
-parameters/DestructionTree/blend_position = -0.00298065
 parameters/Idle/blend_position = Vector2( 0.066561, -0.73629 )
 parameters/IdleTree/blend_position = 0
 parameters/Run/blend_position = Vector2( -0.0507132, 0.168548 )
