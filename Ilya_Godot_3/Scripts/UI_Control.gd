@@ -8,10 +8,12 @@ func _ready():
 
 func toggle_inventory(inventory):
 	if pack.visible:
+		$ColorRect.visible = false
 		pack.visible = false
 		get_tree().paused = false
 	else:
 		get_tree().paused = true
+		$ColorRect.visible = true
 		pack.visible = true
 		pack.activeItem = null
 		pack.show_inventory(inventory)

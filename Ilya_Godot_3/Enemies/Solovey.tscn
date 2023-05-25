@@ -823,7 +823,7 @@ script = ExtResource( 5 )
 visible = false
 texture = ExtResource( 1 )
 hframes = 56
-frame = 18
+frame = 36
 
 [node name="SpriteTree" type="Sprite" parent="."]
 texture = ExtResource( 9 )
@@ -900,7 +900,6 @@ damage = 20
 [node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
 position = Vector2( 9, -1 )
 shape = SubResource( 52 )
-disabled = false
 
 [node name="HitZoneDetection" parent="." instance=ExtResource( 7 )]
 collision_layer = 0

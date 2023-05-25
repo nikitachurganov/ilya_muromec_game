@@ -25,7 +25,7 @@ func new_game():
 	stats.helmet = ""
 	stats.armor = ""
 	stats.sword = ""
-	stats.max_health = 100
+	stats.max_health = 1000000000
 	stats.health = stats.max_health
 	stats.max_exp = 500
 	stats.experience = 0

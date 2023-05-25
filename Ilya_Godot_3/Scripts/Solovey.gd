@@ -50,7 +50,6 @@ func _process(delta):
 		
 	else:
 		$PlayerDetectionZone/CollisionShape2D.disabled = false
-		$HitboxPivot/Hitbox/CollisionShape2D.disabled = false
 		$HitZoneDetection/CollisionShape2D.disabled = false
 		$Sprite.visible = true
 		$SpriteTree.visible = false
@@ -62,6 +61,7 @@ func _process(delta):
 	if stats.health < 125 && tree == true:
 		tree_destruct()
 		tree = false
+		$HitboxPivot/Hitbox/CollisionShape2D.disabled = true
 		
 	
 func _physics_process(delta):
@@ -203,12 +203,10 @@ func _on_HitZoneDetection_body_exited(body):
 
 func _on_PlayerDetectionZone_body_entered(body):
 	if !tree:
-		print("ddd")
 		timer.stop()
 
 func _on_PlayerDetectionZone_body_exited(body):
 	if !tree:
-		print("ddd")
 		timer.start()
 
 func _on_TimerHit_timeout():
