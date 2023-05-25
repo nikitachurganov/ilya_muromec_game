@@ -30,7 +30,8 @@ func _unhandled_key_input(event):
 	if event.is_action_pressed("esc"):
 		if pack.visible:
 			toggle_inventory(PlayerStats.inventory)
-		$Menu.open()
+		else:
+			$Menu.open()
 	if event.is_action_pressed("inventory"):
 		toggle_inventory(PlayerStats.inventory)
 

@@ -13,8 +13,11 @@ func _ready():
 
 func open():
 	if visible:
-		hide()
-		get_tree().paused = false
+		if $Control.visible:
+			$Control.hide()
+		else:
+			hide()
+			get_tree().paused = false
 	else:
 		get_tree().paused = true
 		show()
