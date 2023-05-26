@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/most.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Gorynych.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/MapScript.gd" type="Script" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetWater_2.png 0"
@@ -224,7 +226,10 @@ points = PoolVector2Array( 16.9405, 15.1474, 0, 15.1474, 0, 7.20293, 16.9405, 7.
 } ]
 3/z_index = 0
 
-[node name="world" type="Node2D"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Water" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -245,8 +250,25 @@ tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 25, 96 )
 
+[node name="AnimationTree" parent="YSort/Player" index="4"]
+parameters/playback = SubResource( 6 )
+
+[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+position = Vector2( 3, 0 )
+
+[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+position = Vector2( 363, 187 )
+
 [node name="Items" type="YSort" parent="YSort"]
 
 [node name="Enemies" type="YSort" parent="YSort"]
 
+[node name="gorynych" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 215, 70 )
+
 [node name="Objects" type="YSort" parent="YSort"]
+
+[editable path="YSort/Player"]
+[editable path="YSort/Player/HitboxPivot/SwordHitbox"]
+[editable path="YSort/Player/Hurtbox"]
+[editable path="YSort/Player/Camera2D"]

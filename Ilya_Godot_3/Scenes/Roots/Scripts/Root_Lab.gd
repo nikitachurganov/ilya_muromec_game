@@ -18,6 +18,6 @@ func connect_player_to_death():
 	player.connect("on_death", $HealthUI/Control, "set_death_screen", [])
 
 func equip_quest():
-	if PlayerStats.quests[0] == "Войти в Чернигов":
+	if PlayerStats.quests[0] == "Выйти из Чернигова":
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()

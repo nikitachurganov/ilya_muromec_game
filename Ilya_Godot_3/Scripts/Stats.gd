@@ -21,7 +21,7 @@ var items = {
 	"Helmet3": {"def": 10, "type": "helmet", "name": "Металлический шлем"},
 	"Sword1": {"attack": 2, "type": "sword", "name": "Простой меч"},
 	"Sword2": {"attack": 5, "type": "sword", "name": "Железный меч"},
-	"Sword3": {"attack": 10, "type": "sword", "name": "Меч Кладенец"},
+	"Sword3": {"attack": 100, "type": "sword", "name": "Меч Кладенец"},
 	"Armor1": {"def": 2, "type": "armor", "name": "Кожаная броня"},
 	"Armor2": {"def": 5, "type": "armor", "name": "Кольчуга"},
 	"Armor3": {"def": 10, "type": "armor", "name": "Доспехи"},

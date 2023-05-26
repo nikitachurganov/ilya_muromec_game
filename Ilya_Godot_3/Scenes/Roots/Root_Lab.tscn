@@ -20,6 +20,9 @@ script = ExtResource( 4 )
 
 [node name="SceenTransition" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1558, 46 )
+new_sceen = "res://Scenes/Roots/Root_cave.tscn"
+position_x = 49
+position_y = 252
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition"]
 position = Vector2( -0.5, 0 )
@@ -27,6 +30,9 @@ shape = SubResource( 1 )
 
 [node name="SceenTransition2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1929, 1257 )
+new_sceen = "res://Scenes/Roots/Root_bereg_do.tscn"
+position_x = -55
+position_y = 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition2"]
 position = Vector2( 0, 6 )
