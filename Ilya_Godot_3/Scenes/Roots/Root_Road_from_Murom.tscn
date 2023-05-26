@@ -17,6 +17,9 @@ script = ExtResource( 4 )
 
 [node name="SceenTransition" parent="." instance=ExtResource( 3 )]
 position = Vector2( 216, -781 )
+new_sceen = "res://Scenes/Roots/Root_Chernigov.tscn"
+position_x = 408
+position_y = 206
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition"]
 position = Vector2( 0, 6 )

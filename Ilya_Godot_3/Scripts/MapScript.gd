@@ -6,8 +6,6 @@ func get_player():
 func _ready():
 	add_to_group(PlayerStats.saving_group)
 	SceneChanger.game_ready()
-	#$YSort/Player/Camera2D/Limits/BottomRight.position.x = 793
-	#$YSort/Player/Camera2D/Limits/BottomRight.position.y = 360
 	$YSort/Player/Camera2D.current = true
 
 func save():

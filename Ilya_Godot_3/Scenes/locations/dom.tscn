@@ -1304,7 +1304,7 @@ shape = SubResource( 157 )
 
 [node name="Item" parent="YSort/Items" instance=ExtResource( 4 )]
 position = Vector2( 313, 48 )
-item_name = "Sword1"
+item_name = "Sword3"
 
 [node name="Item2" parent="YSort/Items" instance=ExtResource( 4 )]
 position = Vector2( 332, 47 )

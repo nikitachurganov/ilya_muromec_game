@@ -18,7 +18,6 @@ func connect_player_to_death():
 	player.connect("on_death", $HealthUI/Control, "set_death_screen", [])
 
 func equip_quest():
-	if PlayerStats.sword != "" and PlayerStats.armor != "" and PlayerStats.helmet != "" and PlayerStats.quests[0] == "Надеть экипировку":
-		$SceenTransition/CollisionShape2D.disabled = false
+	if PlayerStats.quests[0] == "Войти в Чернигов":
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()

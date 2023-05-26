@@ -1,7 +1,6 @@
 extends Node2D
 
 func _ready():
-	$SceenTransition/CollisionShape2D.disabled = true
 	connect_player_to_death()
 	equip_quest()
 	PlayerStats.connect("first_quest", self, "equip_quest")
@@ -19,6 +18,5 @@ func connect_player_to_death():
 
 func equip_quest():
 	if PlayerStats.quests[0] == "Выйти из дома":
-		$SceenTransition/CollisionShape2D.disabled = false
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()

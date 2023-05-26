@@ -1,8 +1,9 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/MapScript.gd" type="Script" id=4]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=5]
 [ext_resource path="res://Art/TilesetReliefDetail.png" type="Texture" id=6]
 [ext_resource path="res://Art/TilesetFloorDetail.png" type="Texture" id=7]
@@ -866,6 +867,7 @@ height = 0.0
 
 [node name="World" type="Node2D"]
 position = Vector2( 140, 1328 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1122.0 ]
 }

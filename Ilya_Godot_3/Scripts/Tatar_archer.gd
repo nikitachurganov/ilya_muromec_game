@@ -7,6 +7,7 @@ export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
 export var WANDER_TARGET_RANGE = 4
+export var GIVE_EXP = 25
 
 enum{
 	IDLE,
@@ -104,6 +105,7 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
+	PlayerStats.experience += GIVE_EXP
 	queue_free()
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
