@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 const Arrow = preload("res://Effects/Fireball.tscn")
+const Flight = preload("res://Sounds/GorFlight.mp3")
 
 export var acceleration = 300
 export var max_speed = 50
@@ -31,10 +32,12 @@ onready var timer = $AirZoneDetection/Timer
 onready var timerHit = $HitZoneDetection/Timer
 
 
-
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
+	
+	
+	
 	
 	match state:
 		IDLE:
@@ -52,6 +55,9 @@ func _physics_process(delta):
 				animationTree.set("parameters/AttackFire/blend_position", input_vector)
 				
 				animationState.travel("Run")
+				if !$Flight.is_playing():
+					print("aaa")
+					$Flight.play()
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 			else:
@@ -65,8 +71,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func seek_player():
-	if playerDetectionZone.can_see_player() && stats.health < 125:
-		state = CHASE
+	state = CHASE
 
 func attack_state_fire(delta):
 	velocity = Vector2.ZERO
@@ -76,16 +81,15 @@ func attack_state_hit(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("AttackHit")
 
-func attack_tree(delta):
-	velocity = Vector2.ZERO
-	animationState.travel("AttackTree")
 
 func attack_animation_finished():
 		state = CHASE
+		
 
 	
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
+	$Damaged.play()
 	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 

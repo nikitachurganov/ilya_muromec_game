@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Art/Bat.png" type="Texture" id=1]
 [ext_resource path="res://Art/SmallShadow.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Overlap/SoftCollision.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/BatFlight.mp3" type="AudioStream" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -64,6 +65,7 @@ GIVE_EXP = 123
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -111,6 +113,11 @@ position = Vector2( -13, -30 )
 [node name="TextureRect" parent="HealthBar/Control" index="0"]
 margin_left = -1.0
 margin_right = 27.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+pitch_scale = 1.4
+autoplay = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

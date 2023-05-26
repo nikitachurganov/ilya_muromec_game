@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=1]
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/most.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor_2.png 0"
@@ -419,6 +420,8 @@ points = PoolVector2Array( 45.9469, 4.33917, 47.8074, 8.29282, 48.04, 17.5955, 6
 6/shapes = [  ]
 6/z_index = 0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=100]
+
 [node name="world" type="Node2D"]
 
 [node name="ground" type="TileMap" parent="."]
@@ -455,8 +458,19 @@ tile_data = PoolIntArray( -393204, 4, 0, -327671, 4, 0, -327665, 4, 0, -131080, 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -111, 141 )
 
+[node name="AnimationTree" parent="YSort/Player" index="4"]
+parameters/playback = SubResource( 100 )
+
+[node name="StepSound" parent="YSort/Player" index="10"]
+stream = ExtResource( 6 )
+
 [node name="Items" type="YSort" parent="YSort"]
 
 [node name="Enemies" type="YSort" parent="YSort"]
 
 [node name="Objects" type="YSort" parent="YSort"]
+
+[editable path="YSort/Player"]
+[editable path="YSort/Player/HitboxPivot/SwordHitbox"]
+[editable path="YSort/Player/Hurtbox"]
+[editable path="YSort/Player/Camera2D"]

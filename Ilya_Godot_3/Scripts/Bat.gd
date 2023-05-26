@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
+
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
@@ -37,6 +38,8 @@ func _ready():
 
 
 func _physics_process(delta):
+	if !$AudioStreamPlayer.is_playing():
+		$AudioStreamPlayer.play()
 	if wanderController.start_position == Vector2.ZERO:
 		wanderController.start_position = global_position
 		

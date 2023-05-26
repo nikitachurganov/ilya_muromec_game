@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Fireball.gd" type="Script" id=1]
 [ext_resource path="res://Art/Fireball.png" type="Texture" id=2]
-[ext_resource path="res://Sounds/material-zvukovogo-effekta-rolla-ognennogo-shara-42190.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/FireEffect.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -40,7 +40,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -51,7 +51,10 @@ shape = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-pitch_scale = 0.43
+volume_db = -2.622
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_Fireball_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

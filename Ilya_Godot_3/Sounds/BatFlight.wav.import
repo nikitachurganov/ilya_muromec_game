@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Fireball.wav-b02811fbe562685b810e1b4e1d40681b.sample"
+path="res://.import/BatFlight.wav-1489236f770521490147106d7bed568e.sample"
 
 [deps]
 
-source_file="res://Sounds/Fireball.wav"
-dest_files=[ "res://.import/Fireball.wav-b02811fbe562685b810e1b4e1d40681b.sample" ]
+source_file="res://Sounds/BatFlight.wav"
+dest_files=[ "res://.import/BatFlight.wav-1489236f770521490147106d7bed568e.sample" ]
 
 [params]
 

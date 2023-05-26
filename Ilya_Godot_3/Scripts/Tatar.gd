@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const SoundHit = preload("res://Sounds/SwordToSword.wav")
 
 export var acceleration = 300
 export var max_speed = 50
@@ -103,6 +104,8 @@ func attack_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
+	$Sound.stream = SoundHit
+	$Sound.play()
 	currentHealth = clamp(stats.health, 0, max_health)
 	healthBar.rect_size.x = (currentHealth * 28 / max_health)
 	knockback = area.knockback_vector * 40

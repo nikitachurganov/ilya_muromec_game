@@ -780,7 +780,7 @@ script = ExtResource( 5 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 56
-frame = 48
+frame = 18
 
 [node name="SpriteTree" type="Sprite" parent="."]
 texture = ExtResource( 9 )
@@ -873,6 +873,8 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="AirZoneDetection" index="0"]
 position = Vector2( 0, 2 )
 shape = SubResource( 54 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

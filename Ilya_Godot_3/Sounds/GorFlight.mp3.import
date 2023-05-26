@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GorFlight.mp3-a1df7ed5028940bb2cf455a135007a50.mp3str"
+
+[deps]
+
+source_file="res://Sounds/GorFlight.mp3"
+dest_files=[ "res://.import/GorFlight.mp3-a1df7ed5028940bb2cf455a135007a50.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

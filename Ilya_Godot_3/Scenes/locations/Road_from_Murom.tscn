@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Enemies/Tatar_archer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=9]
 
 [sub_resource type="TileSet" id=37]
 0/name = "TilesetFloor_2.png 0"
@@ -859,6 +860,8 @@ height = 36.0
 radius = 14.0
 height = 0.0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=58]
+
 [sub_resource type="ConvexPolygonShape2D" id=39]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
@@ -1162,6 +1165,9 @@ position = Vector2( -191, -807 )
 
 [node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
 position = Vector2( 524, 216 )
+
+[node name="StepSound" parent="YSort/Player" index="10"]
+stream = ExtResource( 9 )
 
 [node name="Trees" type="YSort" parent="YSort"]
 
@@ -2377,6 +2383,9 @@ position = Vector2( 185, -160 )
 
 [node name="Tatar_archer" parent="YSort/Enemies" instance=ExtResource( 6 )]
 
+[node name="AnimationTree" parent="YSort/Enemies/Tatar_archer" index="4"]
+parameters/playback = SubResource( 58 )
+
 [node name="Tatar_archer2" parent="YSort/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 217, -5 )
 
@@ -2466,3 +2475,8 @@ tile_data = PoolIntArray( 786420, 11, 0, 786421, 11, 0, 786422, 11, 0, 786423, 1
 [editable path="YSort/Trees/TripleTree62"]
 [editable path="YSort/Trees/TripleTree63"]
 [editable path="YSort/Trees/TripleTree64"]
+[editable path="YSort/Enemies/Tatar_archer"]
+[editable path="YSort/Enemies/Tatar_archer/Hurtbox"]
+[editable path="YSort/Enemies/Tatar_archer/PlayerDetectionZone"]
+[editable path="YSort/Enemies/Tatar_archer/AirZoneDetection"]
+[editable path="YSort/Enemies/Tatar_archer/HealthBar"]

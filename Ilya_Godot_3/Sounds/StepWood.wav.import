@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Swipe.wav-a71f35f3a8909b98298d754b083a30f8.sample"
+path="res://.import/StepWood.wav-f6913334cf8cbad063174ba0cc5f2399.sample"
 
 [deps]
 
-source_file="res://Sounds/Swipe.wav"
-dest_files=[ "res://.import/Swipe.wav-a71f35f3a8909b98298d754b083a30f8.sample" ]
+source_file="res://Sounds/StepWood.wav"
+dest_files=[ "res://.import/StepWood.wav-f6913334cf8cbad063174ba0cc5f2399.sample" ]
 
 [params]
 

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const SoundForestStep = preload("res://Sounds/StepForest.wav")
+const SoundWoodStep = preload("res://Sounds/StepWood.wav")
 
 export var AXELERATION = 1000
 export var MAX_SPEED = 100
@@ -33,7 +35,6 @@ onready var collisionSwordHitbox = $HitboxPivot/SwordHitbox/CollisionShape2D
 onready var hurtbox = $Hurtbox
 onready var ui = get_viewport().get_node("Root/HealthUI/Control")
 
-
 func _ready():
 	randomize()
 	stats.def = 0
@@ -46,7 +47,6 @@ func _ready():
 	collisionSwordHitbox.disabled = true
 	swordHitbox.knockback_vector = roll_vector
 	$Timer.start(5)
-
 
 func _physics_process(delta):
 	match state:
@@ -79,6 +79,13 @@ func move_state(delta):
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
+		
+		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
+			if !$StepSound.is_playing():
+				$StepSound.play()
+		else:
+			$StepSound.stop()
+			
 		animationState.travel("Move")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, AXELERATION * delta)
 	else:
@@ -101,6 +108,7 @@ func roll_state(delta):
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
+	
 
 
 func move():
@@ -117,6 +125,9 @@ func attack_animation_finished():
 
 
 func _on_Hurtbox_area_entered(area):
+	if !$HurtSound.is_playing():
+		$HurtSound.play()
+	
 	stats.health -= (area.damage - (stepify(float(area.damage) / 100 * stats.def, 1)))
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
@@ -164,7 +175,13 @@ func load_from_data(data):
 	PlayerStats.set_health(PlayerStats.health)
 	PlayerStats.quests = data["player"]["quests"]
 
-
 func _on_Timer_timeout():
 	if EP:
 		stats.HP_replenishment(1)
+
+func _on_SoundDetectionWood_body_entered(body):
+	$StepSound.stream = SoundWoodStep
+
+func _on_SoundDetectionWood_body_exited(body):
+	$StepSound.stream = SoundForestStep
+
