@@ -30,6 +30,8 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var timer = $AirZoneDetection/Timer
 onready var timerHit = $HitZoneDetection/Timer
 
+
+
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
@@ -144,6 +146,7 @@ func _on_HitZoneDetection_body_exited(body):
 
 func _on_PlayerDetectionZone_body_entered(body):
 	timer.stop()
+	state = CHASE
 
 func _on_PlayerDetectionZone_body_exited(body):
 	timer.start()

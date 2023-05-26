@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/most.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Gorynych.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=5]
+[ext_resource path="res://Art/FireZoneAttack.png" type="Texture" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetWater_2.png 0"
@@ -228,6 +229,8 @@ points = PoolVector2Array( 16.9405, 15.1474, 0, 15.1474, 0, 7.20293, 16.9405, 7.
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
 [node name="World" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -266,9 +269,26 @@ position = Vector2( 363, 187 )
 [node name="gorynych" parent="YSort/Enemies" instance=ExtResource( 4 )]
 position = Vector2( 215, 70 )
 
+[node name="TextureRect" parent="YSort/Enemies/gorynych/HitboxPivot/Hitbox" index="1"]
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource( 6 )
+
+[node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
+frame = 0
+
+[node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
+parameters/playback = SubResource( 7 )
+
 [node name="Objects" type="YSort" parent="YSort"]
 
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
+[editable path="YSort/Enemies/gorynych"]
+[editable path="YSort/Enemies/gorynych/HitboxPivot/Hitbox"]
+[editable path="YSort/Enemies/gorynych/PlayerDetectionZone"]
+[editable path="YSort/Enemies/gorynych/Hurtbox"]
+[editable path="YSort/Enemies/gorynych/HitZoneDetection"]
+[editable path="YSort/Enemies/gorynych/AirZoneDetection"]

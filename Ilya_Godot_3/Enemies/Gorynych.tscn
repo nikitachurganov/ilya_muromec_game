@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Art/gorynych.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Gorynych.gd" type="Script" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/HitZoneDetection.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/AirZoneDetection.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CircleShape2D" id=40]
+radius = 21.0
+
+[sub_resource type="ShaderMaterial" id=54]
 
 [sub_resource type="CapsuleShape2D" id=39]
 radius = 9.0
@@ -139,6 +144,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 40.0 ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("HitboxPivot/Hitbox/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -53, -63 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("HitboxPivot/Hitbox/TextureRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=43]
 resource_name = "AttackDownFireball"
@@ -268,9 +297,6 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 40.0 ]
 }
-
-[sub_resource type="CircleShape2D" id=40]
-radius = 21.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "AttackLeft"
@@ -444,6 +470,30 @@ tracks/13/keys = {
 "args": [  ],
 "method": "attack_animation_finished"
 } ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("HitboxPivot/Hitbox/TextureRect:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("HitboxPivot/Hitbox/TextureRect:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -60, -37 ) ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -760,6 +810,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ 40.0 ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("HitboxPivot/Hitbox/TextureRect:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -45, -37 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("HitboxPivot/Hitbox/TextureRect:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=45]
 resource_name = "AttackRightFireball"
@@ -1027,6 +1101,30 @@ tracks/9/keys = {
 "args": [  ],
 "method": "attack_animation_finished"
 } ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HitboxPivot/Hitbox/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -53, -47 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("HitboxPivot/Hitbox/TextureRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -1528,6 +1626,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("HitboxPivot/Hitbox/TextureRect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HitboxPivot/Hitbox/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -53, -63 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "RunDown"
@@ -1936,17 +2058,41 @@ script = ExtResource( 2 )
 max_speed = 30
 
 [node name="SpriteShadow" type="Sprite" parent="."]
-position = Vector2( 0, 25 )
+position = Vector2( 0.5, 9 )
 scale = Vector2( 4, 3 )
 texture = ExtResource( 4 )
 
+[node name="HitboxPivot" type="Position2D" parent="."]
+position = Vector2( 0.5, 7 )
+rotation = 1.5708
+
+[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 7 )]
+position = Vector2( 16, 39 )
+collision_mask = 4
+damage = 20
+
+[node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
+position = Vector2( -21, 8 )
+rotation = 1.5708
+shape = SubResource( 40 )
+
+[node name="TextureRect" type="TextureRect" parent="HitboxPivot/Hitbox"]
+visible = false
+material = SubResource( 54 )
+margin_left = -53.0
+margin_top = -63.0
+margin_right = 21.0
+margin_bottom = 12.0
+texture = ExtResource( 4 )
+expand = true
+
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.5, -16 )
 texture = ExtResource( 1 )
 hframes = 60
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 23 )
+position = Vector2( 0.5, 7 )
 rotation = 1.5708
 shape = SubResource( 39 )
 
@@ -1983,12 +2129,14 @@ parameters/Run/blend_position = Vector2( 0.0649762, 0.275972 )
 max_health = 300
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.5, -16 )
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 position = Vector2( 1, 0 )
 shape = SubResource( 37 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0.5, -16 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -1996,21 +2144,8 @@ position = Vector2( -7, 9 )
 rotation = 0.872665
 shape = SubResource( 38 )
 
-[node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( -4.76837e-07, 23 )
-rotation = 1.5708
-
-[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 7 )]
-position = Vector2( 16, 39 )
-collision_mask = 4
-damage = 20
-
-[node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
-position = Vector2( -21, 8 )
-rotation = 1.5708
-shape = SubResource( 40 )
-
 [node name="HitZoneDetection" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0.5, -16 )
 collision_layer = 0
 collision_mask = 2
 
@@ -2020,6 +2155,7 @@ rotation = 1.5708
 shape = SubResource( 41 )
 
 [node name="AirZoneDetection" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0.5, -16 )
 collision_layer = 0
 collision_mask = 2
 
@@ -2030,7 +2166,7 @@ shape = SubResource( 42 )
 wait_time = 1.0
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -16 )
+position = Vector2( 0.5, -32 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
@@ -2044,8 +2180,8 @@ position = Vector2( 0, -16 )
 [connection signal="body_exited" from="AirZoneDetection" to="." method="_on_AirZoneDetection_body_exited"]
 [connection signal="timeout" from="AirZoneDetection/Timer" to="." method="_on_Timer_timeout"]
 
+[editable path="HitboxPivot/Hitbox"]
 [editable path="PlayerDetectionZone"]
 [editable path="Hurtbox"]
-[editable path="HitboxPivot/Hitbox"]
 [editable path="HitZoneDetection"]
 [editable path="AirZoneDetection"]
