@@ -1321,6 +1321,10 @@ item_name = "Milk"
 [node name="Item5" parent="YSort/Items" instance=ExtResource( 4 )]
 position = Vector2( 170, 113 )
 
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Objects" type="YSort" parent="YSort"]
+
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]

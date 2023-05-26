@@ -23,10 +23,10 @@ func save():
 	for item in $YSort/Items.get_children():
 		data["items"].append(item.save())
 	
-	for object in $YSort/Grass.get_children():
+	for object in $YSort/Objects.get_children():
 		data["objects"].append(object.save())
 	
-	for enemy in $YSort/Bats.get_children():
+	for enemy in $YSort/Enemies.get_children():
 		data["enemy"].append(enemy.save())
 	
 	return data
@@ -36,12 +36,12 @@ func load_from_data(data):
 		$YSort/Items.remove_child(item)
 		item.queue_free()
 	
-	for object in $YSort/Grass.get_children():
-		$YSort/Grass.remove_child(object)
+	for object in $YSort/Objects.get_children():
+		$YSort/Objects.remove_child(object)
 		object.queue_free()
 	
-	for enemy in $YSort/Bats.get_children():
-		$YSort/Bats.remove_child(enemy)
+	for enemy in $YSort/Enemies.get_children():
+		$YSort/Enemies.remove_child(enemy)
 		enemy.queue_free()
 	
 	var p = $YSort/Player
@@ -54,12 +54,12 @@ func load_from_data(data):
 	
 	for i in data["objects"]:
 		var object = load(i["filename"]).instance()
-		$YSort/Grass.add_child(object)
+		$YSort/Objects.add_child(object)
 		object.load_from_data(i)
 	
 	for i in data["enemy"]:
 		var enemy = load(i["filename"]).instance()
-		$YSort/Bats.add_child(enemy)
+		$YSort/Enemies.add_child(enemy)
 		enemy.load_from_data(i)
 
 

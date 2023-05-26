@@ -1,7 +1,8 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=5]
 [ext_resource path="res://Art/TilesetReliefDetail.png" type="Texture" id=6]
 [ext_resource path="res://Art/TilesetFloorDetail.png" type="Texture" id=7]
@@ -861,6 +862,8 @@ height = 36.0
 radius = 14.0
 height = 0.0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=78]
+
 [node name="World" type="Node2D"]
 position = Vector2( 140, 1328 )
 __meta__ = {
@@ -1108,6 +1111,26 @@ position = Vector2( 0, -20 )
 rotation = 1.5708
 shape = SubResource( 77 )
 
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -201, -1317 )
+
+[node name="AnimationTree" parent="YSort/Player" index="4"]
+parameters/playback = SubResource( 78 )
+
+[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+position = Vector2( -195, -7 )
+
+[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+position = Vector2( 1931, 1916 )
+
+[node name="Items" type="YSort" parent="YSort"]
+
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Objects" type="YSort" parent="YSort"]
+
 [editable path="trees/TripleTree"]
 [editable path="trees/TripleTree2"]
 [editable path="trees/TripleTree3"]
@@ -1118,3 +1141,7 @@ shape = SubResource( 77 )
 [editable path="trees/TripleTree8"]
 [editable path="trees/TripleTree9"]
 [editable path="trees/TripleTree10"]
+[editable path="YSort/Player"]
+[editable path="YSort/Player/HitboxPivot/SwordHitbox"]
+[editable path="YSort/Player/Hurtbox"]
+[editable path="YSort/Player/Camera2D"]

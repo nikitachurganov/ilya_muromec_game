@@ -106,7 +106,7 @@ margin_left = 0.0
 margin_top = 42.0
 margin_right = 100.0
 margin_bottom = 62.0
-scene_to_open = "res://Scenes/Root1.tscn"
+scene_to_open = "res://Scenes/Roots/Root_Muromets_house.tscn"
 
 [node name="Label" parent="Buttons/Button" index="0"]
 text = "Новая игра"

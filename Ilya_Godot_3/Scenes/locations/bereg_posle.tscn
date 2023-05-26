@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=1]
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=2]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/most.png" type="Texture" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -448,3 +449,14 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( -393204, 4, 0, -327671, 4, 0, -327665, 4, 0, -131080, 4, 0, -131078, 4, 0, -131076, 4, 0, -131074, 4, 0, -196608, 4, 0, -196606, 4, 0, -196604, 4, 0, -196602, 4, 0, -196600, 4, 0, -196592, 4, 0, -196590, 4, 0, -196588, 4, 0, -65516, 4, 0, 65556, 4, 0, 196628, 4, 0, 327700, 4, 0, 458772, 4, 0, 589844, 4, 0, 720916, 4, 0, 917496, 4, 0, 917498, 4, 0, 917500, 4, 0, 917502, 4, 0, 851968, 4, 0, 851970, 4, 0, 851972, 4, 0, 851974, 4, 0, 851976, 4, 0, 851978, 4, 0, 851980, 4, 0, 851982, 4, 0, 851984, 4, 0, 851986, 4, 0, 851988, 4, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -111, 141 )
+
+[node name="Items" type="YSort" parent="YSort"]
+
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Objects" type="YSort" parent="YSort"]

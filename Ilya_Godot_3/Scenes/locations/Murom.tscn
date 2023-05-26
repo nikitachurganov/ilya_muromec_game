@@ -1042,6 +1042,7 @@ tile_data = PoolIntArray( -458754, 11, 0, -458753, 11, 0, -524288, 11, 0, -52428
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 279, 195 )
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 73 )
@@ -1564,6 +1565,12 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( -524293, 0, 0, -524292, 5, 0, -524291, 5, 0, -524290, 5, 0, -524289, 5, 0, -589824, 5, 0, -589823, 5, 0, -589822, 5, 0, -589821, 6, 0, -458757, 8, 0, -524285, 8, 0, -393221, 8, 0, -458749, 8, 0, -327685, 8, 0, -393213, 8, 0, -262149, 8, 0, -327677, 8, 0, -196613, 8, 0, -262141, 8, 0, -131077, 8, 0, -196605, 8, 0, -65541, 8, 0, -131069, 8, 0, -5, 3, 0, -4, 5, 0, -3, 7, 0, -65535, 9, 0, -65534, 5, 0, -65533, 4, 0 )
+
+[node name="Items" type="YSort" parent="YSort"]
+
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Objects" type="YSort" parent="YSort"]
 
 [node name="wall_dawm" type="TileMap" parent="."]
 position = Vector2( 0, 270 )
