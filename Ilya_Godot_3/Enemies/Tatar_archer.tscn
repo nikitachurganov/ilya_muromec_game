@@ -447,16 +447,17 @@ script = ExtResource( 3 )
 max_speed = 25
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 0, 15 )
+position = Vector2( 0, 5.5 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -9.5 )
 texture = ExtResource( 1 )
 hframes = 48
 frame = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 13 )
+position = Vector2( 0, 3.5 )
 rotation = 1.5708
 shape = SubResource( 11 )
 
@@ -488,6 +489,7 @@ parameters/Run/blend_position = Vector2( 0.00633919, 0.730172 )
 max_health = 100
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, -9.5 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -495,14 +497,17 @@ position = Vector2( 0, 2 )
 shape = SubResource( 38 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -9.5 )
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 39 )
 
 [node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -9.5 )
 rotation = -1.5708
 
 [node name="AirZoneDetection" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -9.5 )
 collision_layer = 0
 collision_mask = 2
 
@@ -510,9 +515,10 @@ collision_mask = 2
 shape = SubResource( 42 )
 
 [node name="WanderController" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -9.5 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 9 )]
-position = Vector2( -13, -23 )
+position = Vector2( -13, -32.5 )
 
 [node name="TextureRect" parent="HealthBar/Control" index="0"]
 margin_right = 28.0
