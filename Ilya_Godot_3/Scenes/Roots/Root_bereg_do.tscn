@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/SceenTransition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/locations/bereg_do.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Roots/Scripts/Root_bereg_do.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 82 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="World" parent="." instance=ExtResource( 3 )]
+
+[node name="HealthUI" parent="." instance=ExtResource( 2 )]
+
+[node name="SceenTransition" parent="." instance=ExtResource( 1 )]
+position = Vector2( 381, 55 )
+new_sceen = "res://Scenes/Roots/Root_bridge.tscn"
+position_x = 25
+position_y = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition"]
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
