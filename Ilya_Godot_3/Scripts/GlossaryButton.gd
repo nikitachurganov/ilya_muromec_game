@@ -17,3 +17,9 @@ func _on_TextureButton_button_down():
 
 func _on_TextureButton_button_up():
 	$Label.rect_position.x -= 1
+
+
+
+func _on_TextureButton_mouse_entered():
+	if !$AudioStreamPlayer.is_playing():
+		$AudioStreamPlayer.play()

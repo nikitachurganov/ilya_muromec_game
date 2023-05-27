@@ -133,6 +133,7 @@ valign = 1
 
 [connection signal="button_down" from="Buttons/Quit" to="." method="_on_Quit_button_down"]
 [connection signal="button_up" from="Buttons/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="mouse_entered" from="Buttons/Quit" to="Buttons/Resume" method="_on_Button_mouse_entered"]
 
 [editable path="Buttons/Resume"]
 [editable path="Buttons/Button"]

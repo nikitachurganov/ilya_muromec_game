@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Buttons/SceneButton.gd" type="Script" id=1]
 [ext_resource path="res://Art/Buttons/MenuButtonNotPressed.png" type="Texture" id=2]
 [ext_resource path="res://Art/Buttons/MenuButtonPressed.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Art/Buttons/MenuButtonHover.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Button_dawn.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -28,5 +29,9 @@ margin_right = 99.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 1 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
 [connection signal="button_down" from="." to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="." to="." method="_on_Button_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
