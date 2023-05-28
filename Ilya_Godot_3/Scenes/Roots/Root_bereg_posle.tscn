@@ -16,8 +16,9 @@ script = ExtResource( 4 )
 [node name="HealthUI" parent="." instance=ExtResource( 3 )]
 
 [node name="SceenTransition" parent="." instance=ExtResource( 1 )]
-position_x = -111
-position_y = 141
+new_sceen = "res://Scenes/Roots/Root_solovey_fight.tscn"
+position_x = 239
+position_y = 221
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition"]
 position = Vector2( 224, -18 )

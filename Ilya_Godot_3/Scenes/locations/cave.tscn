@@ -735,7 +735,7 @@ position = Vector2( 365, 15 )
 
 [node name="Tugarin" parent="YSort/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 370, 155 )
-GIVE_EXP = 500
+GIVE_EXP = 600
 
 [node name="Objects" type="YSort" parent="YSort"]
 

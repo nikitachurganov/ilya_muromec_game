@@ -275,12 +275,14 @@ stream = ExtResource( 6 )
 
 [node name="gorynych" parent="YSort/Enemies" instance=ExtResource( 4 )]
 position = Vector2( 215, 70 )
+GIVE_EXP = 600
 
 [node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
-frame = 3
+frame = 12
 
 [node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
 parameters/playback = SubResource( 8 )
+parameters/Idle/blend_position = Vector2( -0.165361, 0.0377682 )
 
 [node name="Objects" type="YSort" parent="YSort"]
 

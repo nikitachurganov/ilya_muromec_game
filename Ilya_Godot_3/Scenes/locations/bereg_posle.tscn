@@ -463,6 +463,12 @@ position = Vector2( -111, 141 )
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 100 )
 
+[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+position = Vector2( -113, -34 )
+
+[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+position = Vector2( 379, 247 )
+
 [node name="StepSound" parent="YSort/Player" index="10"]
 stream = ExtResource( 6 )
 

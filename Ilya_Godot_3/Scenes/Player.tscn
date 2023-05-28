@@ -1,7 +1,7 @@
 [gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Art/Player.png" type="Texture" id=2]
+[ext_resource path="res://Art/murom_opyat.png" type="Texture" id=2]
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/MediumShadow.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SwordHitbox.gd" type="Script" id=5]

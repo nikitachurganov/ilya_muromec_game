@@ -96,19 +96,29 @@ func move_state(delta):
 		state = ROLL
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
-		stats.emit_signal("equipment_changed")
+		
 
 
 func roll_state(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	roll_vector = input_vector
+	animationTree.set("parameters/Roll/blend_position", input_vector)
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
+	if Input.is_action_just_pressed("attack"):
+		state = ATTACK
 
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
+	if Input.is_action_just_pressed("roll"):
+		state = ROLL
 
 
 func move():

@@ -18,6 +18,8 @@ script = ExtResource( 4 )
 [node name="SceenTransition" parent="." instance=ExtResource( 2 )]
 position = Vector2( 355, 95 )
 new_sceen = "res://Scenes/Roots/Root_bereg_posle.tscn"
+position_x = -111
+position_y = 141
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceenTransition"]
 shape = SubResource( 1 )

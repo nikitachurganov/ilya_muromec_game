@@ -34,7 +34,7 @@ func load_from_data(data):
 		$YSort/Items.remove_child(item)
 		item.queue_free()
 	
-	for object in $YSowrt/Objects.get_children():
+	for object in $YSort/Objects.get_children():
 		$YSort/Objects.remove_child(object)
 		object.queue_free()
 	
