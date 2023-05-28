@@ -1118,7 +1118,6 @@ shape = SubResource( 77 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -201, -1317 )
-EP = false
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 78 )

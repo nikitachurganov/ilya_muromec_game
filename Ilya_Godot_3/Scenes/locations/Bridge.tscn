@@ -256,6 +256,7 @@ tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 25, 96 )
+EP = true
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 6 )
@@ -278,7 +279,7 @@ position = Vector2( 215, 70 )
 GIVE_EXP = 600
 
 [node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
-frame = 12
+frame = 13
 
 [node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
 parameters/playback = SubResource( 8 )

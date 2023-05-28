@@ -741,6 +741,7 @@ height = 0.0
 collision_layer = 2
 collision_mask = 17
 script = ExtResource( 1 )
+EP = false
 
 [node name="ShadowSprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
