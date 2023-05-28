@@ -475,7 +475,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=37]
 resource_name = "RollDown"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -483,10 +483,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 55, 56, 57, 58, 59 ]
+"values": [ 52, 53, 54, 55 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -495,7 +495,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -505,7 +505,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=38]
 resource_name = "RollLeft"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -513,10 +513,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 50, 51, 52, 53, 54 ]
+"values": [ 48, 49, 50, 51 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -525,7 +525,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -535,7 +535,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=39]
 resource_name = "RollRight"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -543,10 +543,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 40, 41, 42, 43, 44 ]
+"values": [ 40, 41, 42, 43 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -555,7 +555,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -565,7 +565,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=40]
 resource_name = "RollUp"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -573,10 +573,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 45, 46, 47, 48, 49 ]
+"values": [ 44, 45, 46, 47 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -585,7 +585,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -749,7 +749,7 @@ texture = ExtResource( 4 )
 position = Vector2( 0, -5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -8 )
-hframes = 60
+hframes = 56
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
