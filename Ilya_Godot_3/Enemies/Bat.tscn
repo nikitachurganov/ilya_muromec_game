@@ -65,7 +65,6 @@ GIVE_EXP = 123
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 

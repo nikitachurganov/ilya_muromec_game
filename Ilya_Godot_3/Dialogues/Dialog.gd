@@ -13,6 +13,7 @@ func _ready():
 	$IlyaMuromets.visible = false
 	$OtherDude.texture = load(otherDudeTexture)
 	$OtherDude.visible = false
+	
 
 func start():
 	if d_active:

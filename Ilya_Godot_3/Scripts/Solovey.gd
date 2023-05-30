@@ -9,6 +9,7 @@ const treeHit = preload("res://Sounds/TreeHit.wav")
 export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
+export var GIVE_EXP = 25
 
 enum{
 	IDLE,
@@ -158,6 +159,7 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+	PlayerStats.experience += GIVE_EXP
 
 func save():
 	var data = {
