@@ -2,7 +2,7 @@ extends Node
 
 export var max_health = 1 setget set_max_health
 var health = max_health setget set_health
-export var atk = 10 setget set_atk
+export var atk = 1000 setget set_atk
 export var max_exp = 500 setget set_max_exp
 export var experience = 0 setget set_exp
 onready var lvl = 1 setget set_lvl

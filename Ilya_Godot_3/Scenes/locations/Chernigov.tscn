@@ -1113,6 +1113,7 @@ tile_data = PoolIntArray( -458757, 0, 4, -458756, 0, 196609, -458755, 0, 196609,
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 408, 206 )
+EP = true
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
 parameters/playback = SubResource( 97 )

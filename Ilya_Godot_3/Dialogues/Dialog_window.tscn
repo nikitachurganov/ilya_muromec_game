@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Dialogues/Subtract.png" type="Texture" id=1]
 [ext_resource path="res://Dialogues/Dialog.gd" type="Script" id=2]
-[ext_resource path="res://Art/Dialogues/2GARIN_porteret.png" type="Texture" id=3]
+[ext_resource path="res://Art/Dialogues/solovey_portrait.png" type="Texture" id=3]
 [ext_resource path="res://Art/Dialogues/MUROM_portret.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=5]
 
@@ -34,12 +34,17 @@ rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
 
 [node name="OtherDude" type="TextureRect" parent="."]
-margin_left = 260.0
-margin_top = 59.0
-margin_right = 355.0
-margin_bottom = 133.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -145.0
+margin_right = 24.0
+margin_bottom = -62.0
 rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 3 )
+stretch_mode = 4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 pause_mode = 2

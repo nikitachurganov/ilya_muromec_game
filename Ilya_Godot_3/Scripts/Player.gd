@@ -73,12 +73,7 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		roll_vector = input_vector
-		swordHitbox.knockback_vector = input_vector
-		animationTree.set("parameters/Idle/blend_position", input_vector)
-		animationTree.set("parameters/Move/blend_position", input_vector)
-		animationTree.set("parameters/Attack/blend_position", input_vector)
-		animationTree.set("parameters/Roll/blend_position", input_vector)
+		animationTree(input_vector)
 		
 		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
 			if !$StepSound.is_playing():
@@ -91,6 +86,7 @@ func move_state(delta):
 	else:
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		collisionSwordHitbox.disabled = true
 	move()
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
@@ -104,13 +100,25 @@ func roll_state(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-	roll_vector = input_vector
-	animationTree.set("parameters/Roll/blend_position", input_vector)
+	if input_vector != Vector2.ZERO:
+		animationTree(input_vector)
+	else:
+		animationState.travel("Idle")
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+
+
+func animationTree(input_vector):
+	roll_vector = input_vector
+	swordHitbox.knockback_vector = input_vector
+	animationTree.set("parameters/Idle/blend_position", input_vector)
+	animationTree.set("parameters/Move/blend_position", input_vector)
+	animationTree.set("parameters/Attack/blend_position", input_vector)
+	animationTree.set("parameters/Roll/blend_position", input_vector)
 
 
 func attack_state(delta):
@@ -119,6 +127,7 @@ func attack_state(delta):
 	
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
+		collisionSwordHitbox.disabled = true
 
 
 func move():
