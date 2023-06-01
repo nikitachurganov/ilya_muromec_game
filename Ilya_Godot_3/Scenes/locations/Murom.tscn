@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=1]
 [ext_resource path="res://Art/TilesetHouse.png" type="Texture" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/dom (1).png" type="Texture" id=5]
 [ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=6]
+[ext_resource path="res://NPC/Dialogue_NPC.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art/NPC/bab.png" type="Texture" id=8]
+[ext_resource path="res://Art/NPC/ded.png" type="Texture" id=9]
+[ext_resource path="res://Dialogues/script/quest_dialog.gd" type="Script" id=10]
+[ext_resource path="res://Dialogues/script/NPC_dialog.gd" type="Script" id=11]
+[ext_resource path="res://Art/NPC/krestyane.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "TilesetFloor_2.png 0"
@@ -1023,6 +1029,10 @@ points = PoolVector2Array( 15.8659, 16, 0.119141, 16, 0.119141, 9.44451, 15.8659
 } ]
 9/z_index = 0
 
+[sub_resource type="CapsuleShape2D" id=94]
+radius = 6.0
+height = 8.0
+
 [node name="World" type="Node2D"]
 
 [node name="ground" type="TileMap" parent="."]
@@ -1577,6 +1587,59 @@ tile_data = PoolIntArray( -524293, 0, 0, -524292, 5, 0, -524291, 5, 0, -524290, 
 
 [node name="Objects" type="YSort" parent="YSort"]
 
+[node name="Ded" type="StaticBody2D" parent="YSort"]
+position = Vector2( 354, 178 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Ded"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Ded"]
+position = Vector2( 0, 4 )
+shape = SubResource( 94 )
+
+[node name="Babka" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 335, 180 )
+
+[node name="Sprite" parent="YSort/Babka" index="0"]
+texture = ExtResource( 8 )
+
+[node name="Area2D" parent="YSort/Babka" index="2"]
+script = ExtResource( 10 )
+quest = "Поговорить с родителями"
+
+[node name="CanvasLayer" parent="YSort/Babka" index="3"]
+d_file = "res://Dialogues/json/Parent_dialog.json"
+otherDudeTexture = "res://Art/Dialogues/parents.png"
+
+[node name="Vilian" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 94, 28 )
+
+[node name="Sprite" parent="YSort/Vilian" index="0"]
+texture = ExtResource( 12 )
+hframes = 2
+frame = 1
+
+[node name="Area2D" parent="YSort/Vilian" index="2"]
+script = ExtResource( 11 )
+
+[node name="CanvasLayer" parent="YSort/Vilian" index="3"]
+d_file = "res://Dialogues/json/Murom_NPC2.json"
+otherDudeTexture = "res://Art/Dialogues/krestjanin_portrait.png"
+
+[node name="Vilian2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 284, 19 )
+
+[node name="Sprite" parent="YSort/Vilian2" index="0"]
+texture = ExtResource( 12 )
+hframes = 2
+
+[node name="Area2D" parent="YSort/Vilian2" index="2"]
+script = ExtResource( 11 )
+
+[node name="CanvasLayer" parent="YSort/Vilian2" index="3"]
+d_file = "res://Dialogues/json/Murom_NPC1.json"
+otherDudeTexture = "res://Art/Dialogues/krestjanka_portrait.png"
+
 [node name="wall_dawm" type="TileMap" parent="."]
 position = Vector2( 0, 270 )
 tile_set = SubResource( 11 )
@@ -1625,3 +1688,6 @@ tile_data = PoolIntArray( -65538, 11, 0, -65537, 11, 0, -131072, 11, 0, -131071,
 [editable path="YSort/buildings/tent"]
 [editable path="YSort/buildings/tent2"]
 [editable path="YSort/buildings/tent3"]
+[editable path="YSort/Babka"]
+[editable path="YSort/Vilian"]
+[editable path="YSort/Vilian2"]

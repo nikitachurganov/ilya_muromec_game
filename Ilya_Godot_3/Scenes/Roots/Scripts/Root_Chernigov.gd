@@ -4,6 +4,7 @@ func _ready():
 	connect_player_to_death()
 	equip_quest()
 	PlayerStats.connect("first_quest", self, "equip_quest")
+	$World/YSort/SequrityMain/Area2D.connect("talk", self, "quest_update")
 
 func save():
 	var data = {
@@ -21,3 +22,9 @@ func equip_quest():
 	if PlayerStats.quests[0] == "Войти в Чернигов":
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()
+		if PlayerStats.quests[0] == "Поговорить со стражниками":
+			$SceenTransition/CollisionShape2D.disabled = true
+
+func quest_update():
+	$HealthUI/Control/Quest.quest_update()
+	$SceenTransition/CollisionShape2D.disabled = false

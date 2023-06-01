@@ -6,6 +6,7 @@ func _ready():
 	PlayerStats.connect("exp_changed", self, "enemy_quest")
 	if PlayerStats.quests[0] == "Одолеть Тугарина":
 		$SceenTransition/CollisionShape2D.disabled = true
+	$World.connect("talk", self, "quest_update")
 
 func save():
 	var data = {
@@ -28,3 +29,6 @@ func enemy_quest(value):
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()
 		$SceenTransition/CollisionShape2D.set_deferred("disabled", false)
+
+func quest_update():
+	$HealthUI/Control/Quest.quest_update()

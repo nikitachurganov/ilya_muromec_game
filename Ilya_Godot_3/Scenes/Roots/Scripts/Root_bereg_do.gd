@@ -23,4 +23,5 @@ func equip_quest():
 	elif PlayerStats.quests[0] == "Пройти топи":
 		PlayerStats.quests.pop_front()
 		PlayerStats.quests.pop_front()
+		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()

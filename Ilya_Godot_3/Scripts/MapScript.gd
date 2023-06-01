@@ -1,5 +1,7 @@
 extends Node2D
 
+signal talk
+
 func get_player():
 	return $YSort/Player
 
@@ -61,14 +63,9 @@ func load_from_data(data):
 		enemy.load_from_data(i)
 
 
-
-
-
-
-
-
-
-
-
-
-
+func _on_Area2D_area_entered(area):
+	if PlayerStats.quests[0] == "Пройти пещеру":
+		PlayerStats.quests.pop_front()
+		emit_signal("talk")
+		$CanvasLayer.start()
+		print(PlayerStats.quests[0])

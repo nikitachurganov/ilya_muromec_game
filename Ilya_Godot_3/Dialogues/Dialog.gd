@@ -52,7 +52,7 @@ func next_script():
 		$OtherDude.visible = false
 		return
 	
-	if dialogue[current_dialogue_id]["name"] == "Ilya":
+	if dialogue[current_dialogue_id]["name"] == "Илья Муромец":
 		$IlyaMuromets.modulate.a = 1
 		$OtherDude.modulate.a = 0.5
 	else:
