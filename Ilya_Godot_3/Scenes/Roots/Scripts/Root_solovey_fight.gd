@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$SceenTransition/CollisionShape2D.disabled = true
 	connect_player_to_death()
 	PlayerStats.connect("exp_changed", self, "enemy_quest")
 	yield(get_tree().create_timer(0.8), "timeout")
@@ -20,6 +21,6 @@ func connect_player_to_death():
 func enemy_quest(value):
 	PlayerStats.quests.pop_front()
 	yield(get_tree().create_timer(0.8), "timeout")
+	$SceenTransition/CollisionShape2D.disabled = false
 	$CanvasLayer2.start()
 	$HealthUI/Control/Quest.quest_update()
-	print(PlayerStats.quests[0])

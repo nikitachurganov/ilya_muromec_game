@@ -1533,6 +1533,7 @@ position = Vector2( 409, 149 )
 texture = ExtResource( 8 )
 
 [node name="Area2D" parent="YSort/SequrityMain" index="2"]
+collision_layer = 0
 script = ExtResource( 13 )
 quest = "Поговорить со стражниками"
 
@@ -1548,6 +1549,7 @@ texture = ExtResource( 12 )
 hframes = 2
 
 [node name="Area2D" parent="YSort/Vilian" index="2"]
+collision_layer = 0
 script = ExtResource( 14 )
 
 [node name="CanvasLayer" parent="YSort/Vilian" index="3"]
@@ -1563,6 +1565,7 @@ hframes = 2
 frame = 1
 
 [node name="Area2D" parent="YSort/Vilian2" index="2"]
+collision_layer = 0
 script = ExtResource( 14 )
 
 [node name="CanvasLayer" parent="YSort/Vilian2" index="3"]

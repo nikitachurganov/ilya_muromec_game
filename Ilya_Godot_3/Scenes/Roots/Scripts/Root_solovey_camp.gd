@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$SceenTransition/CollisionShape2D.disabled = true
 	connect_player_to_death()
 	$World/YSort/StaticBody2D/Area2D.connect("talk", self, "quest_update")
 
@@ -18,3 +19,4 @@ func connect_player_to_death():
 func quest_update():
 	$HealthUI/Control/Quest.quest_update()
 	print(PlayerStats.quests[0])
+	$SceenTransition/CollisionShape2D.disabled = false

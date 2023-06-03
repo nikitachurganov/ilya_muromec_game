@@ -5,7 +5,7 @@ signal talk
 export var quest = ""
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and len(get_overlapping_bodies()) > 0:
+	if event.is_action_pressed("ui_accept") and len(get_overlapping_areas()) > 0:
 		use_dialogue()
 		if PlayerStats.quests[0] == quest:
 			PlayerStats.quests.pop_front()
