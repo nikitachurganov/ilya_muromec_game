@@ -7,13 +7,14 @@ var dialogue = []
 var current_dialogue_id = 0
 var d_active = false
 
+signal ttt
+
 func _ready():
 	$NinePatchRect.visible = false
 	$ColorRect.visible = false
 	$IlyaMuromets.visible = false
 	$OtherDude.texture = load(otherDudeTexture)
 	$OtherDude.visible = false
-	
 
 func start():
 	if d_active:
@@ -66,3 +67,4 @@ func next_script():
 func _on_Timer_timeout():
 	get_parent().get_tree().paused = false
 	d_active = false
+	emit_signal("ttt")
