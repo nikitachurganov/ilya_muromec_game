@@ -24,4 +24,7 @@ func equip_quest():
 		PlayerStats.quests.pop_front()
 		PlayerStats.quests.pop_front()
 		PlayerStats.quests.pop_front()
+		PlayerStats.quests.pop_front()
+		if PlayerStats.lvl == 2:
+			PlayerStats.experience = PlayerStats.max_exp + 1
 		$HealthUI/Control/Quest.quest_update()

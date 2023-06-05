@@ -279,7 +279,7 @@ position = Vector2( 215, 70 )
 GIVE_EXP = 600
 
 [node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
-frame = 12
+frame = 13
 
 [node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
 parameters/playback = SubResource( 8 )
@@ -292,6 +292,11 @@ parameters/Idle/blend_position = Vector2( -0.165361, 0.0377682 )
 [node name="CollisionShape2D" parent="SoundDetectionWood" index="0"]
 position = Vector2( 184, 95 )
 shape = SubResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 0, 17, 0, 175, 367, 175, 368, 15, 1, 16, 1, 11, 381, 7, 377, 193, -18, 183, -8, 17 )
 
 [connection signal="body_entered" from="SoundDetectionWood" to="YSort/Player" method="_on_SoundDetectionWood_body_entered"]
 
