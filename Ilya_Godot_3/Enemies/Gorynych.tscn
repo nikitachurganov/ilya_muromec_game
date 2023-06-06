@@ -2115,6 +2115,7 @@ radius = 293.043
 [node name="gorynych" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 2 )
+acceleration = 400
 max_speed = 30
 
 [node name="SpriteShadow" type="Sprite" parent="."]

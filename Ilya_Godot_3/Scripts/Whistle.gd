@@ -1,7 +1,7 @@
 extends Area2D
 
-export var damage = 10
-const speed = 70
+export var damage = 15
+const speed = 75
 var velocity = Vector2.ZERO
 var offset = 0.05
 
