@@ -486,7 +486,7 @@ parameters/Idle/blend_position = Vector2( -0.201268, 0.0758619 )
 parameters/Run/blend_position = Vector2( 0.00633919, 0.730172 )
 
 [node name="Stats" parent="." instance=ExtResource( 7 )]
-max_health = 100
+max_health = 120
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, -9.5 )

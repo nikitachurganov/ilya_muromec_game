@@ -724,7 +724,7 @@ parameters/Idle/blend_position = Vector2( -0.0208494, 0.806035 )
 parameters/Run/blend_position = Vector2( -0.518325, 0.256034 )
 
 [node name="Stats" parent="." instance=ExtResource( 2 )]
-max_health = 200
+max_health = 300
 atk = 15
 max_exp = 0
 

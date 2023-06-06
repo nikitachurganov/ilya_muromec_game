@@ -47,6 +47,7 @@ func save():
 func _on_Resume_button_down():
 	$Panel/Main/Buttons/Resume/Label.rect_position.x += 1
 	$Panel/Main/Buttons/Resume/Label.rect_position.y += 1
+	
 
 
 func _on_Resume_button_up():

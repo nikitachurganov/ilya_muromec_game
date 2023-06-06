@@ -143,6 +143,7 @@ align = 1
 valign = 1
 
 [node name="Control" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [connection signal="button_down" from="Panel/Main/Buttons/Resume" to="." method="_on_Resume_button_down"]
 [connection signal="button_up" from="Panel/Main/Buttons/Resume" to="." method="_on_Resume_button_up"]
