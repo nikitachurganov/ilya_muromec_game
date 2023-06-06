@@ -204,3 +204,5 @@ func _on_SoundDetectionWood_body_entered(body):
 func _on_SoundDetectionWood_body_exited(body):
 	$StepSound.stream = SoundForestStep
 
+func _on_SoundDetectionForest_body_entered(body):
+	$StepSound.stream = SoundForestStep

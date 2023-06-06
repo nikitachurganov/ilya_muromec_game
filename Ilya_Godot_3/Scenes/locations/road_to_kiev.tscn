@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Dialogues/script/quest_dialog.gd" type="Script" id=7]
 [ext_resource path="res://Art/NPC/doch1.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=10]
 
 [sub_resource type="TileSet" id=10]
 0/name = "TilesetFloor_2.png 0"
@@ -640,6 +641,11 @@ position = Vector2( -25, -164 )
 
 [node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
 position = Vector2( 559, 210 )
+
+[node name="StepSound" parent="YSort/Player" index="10"]
+stream = ExtResource( 10 )
+volume_db = -12.622
+pitch_scale = 0.7
 
 [node name="Items" type="YSort" parent="YSort"]
 

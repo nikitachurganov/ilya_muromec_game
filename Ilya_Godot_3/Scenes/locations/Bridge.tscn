@@ -269,6 +269,7 @@ position = Vector2( 363, 187 )
 
 [node name="StepSound" parent="YSort/Player" index="10"]
 stream = ExtResource( 6 )
+volume_db = -13.984
 
 [node name="Items" type="YSort" parent="YSort"]
 
@@ -279,11 +280,17 @@ position = Vector2( 215, 70 )
 GIVE_EXP = 600
 
 [node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
-frame = 13
+frame = 10
 
 [node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
 parameters/playback = SubResource( 8 )
 parameters/Idle/blend_position = Vector2( -0.165361, 0.0377682 )
+
+[node name="Damaged" parent="YSort/Enemies/gorynych" index="12"]
+volume_db = -4.37
+
+[node name="AudioStreamPlayer" parent="YSort/Enemies/gorynych" index="13"]
+volume_db = -4.37
 
 [node name="Objects" type="YSort" parent="YSort"]
 

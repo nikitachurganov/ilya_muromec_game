@@ -29,6 +29,7 @@ stretch_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+bus = "ButtonSound"
 
 [connection signal="button_down" from="." to="." method="_on_TextureButton_button_down"]
 [connection signal="button_up" from="." to="." method="_on_TextureButton_button_up"]

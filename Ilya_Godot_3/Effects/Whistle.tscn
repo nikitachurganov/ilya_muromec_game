@@ -59,6 +59,8 @@ shape = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -10.493
+bus = "EffectsFight"
 
 [connection signal="area_entered" from="." to="." method="_on_Whistle_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

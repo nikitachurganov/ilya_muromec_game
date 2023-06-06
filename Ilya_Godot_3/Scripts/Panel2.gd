@@ -61,6 +61,8 @@ func _on_Use_button_down():
 		stats.set_equipment(stats.inventory[activeItem])
 	update_inventory()
 	show_inventory(stats.inventory)
+	if !$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.is_playing():
+		$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.play()
 
 func _on_Use_button_up():
 	$HBoxContainer/Objects/HBoxContainer/Use/Label.rect_position.x -= 1
@@ -69,6 +71,8 @@ func _on_Use_button_up():
 func _on_Drop_button_down():
 	$HBoxContainer/Objects/HBoxContainer/Drop/Label.rect_position.x += 1
 	$HBoxContainer/Objects/HBoxContainer/Drop/Label.rect_position.y += 1
+	if !$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.is_playing():
+		$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.play()
 	stats.inventory.remove(activeItem)
 	activeItem = null
 	show_inventory(stats.inventory)
@@ -80,3 +84,11 @@ func _on_Drop_button_up():
 func update_inventory():
 	stats.inventory.remove(activeItem)
 	activeItem = null
+
+
+func _on_Use_mouse_entered():
+	$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.play()
+
+
+func _on_Drop_mouse_entered():
+	$HBoxContainer/Objects/HBoxContainer/Use/AudioStreamPlayer.play()

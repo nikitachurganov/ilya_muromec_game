@@ -1137,6 +1137,8 @@ position = Vector2( 732, 249 )
 
 [node name="StepSound" parent="YSort/Player" index="10"]
 stream = ExtResource( 7 )
+volume_db = -10.74
+pitch_scale = 0.7
 
 [node name="wall_up" type="TileMap" parent="YSort"]
 tile_set = SubResource( 4 )

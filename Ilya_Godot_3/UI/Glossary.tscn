@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Glossary.gd" type="Script" id=1]
 [ext_resource path="res://Art/book_bg.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Fonts/zarubkaType-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Art/Buttons/CloseHover.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/Button_dawn.wav" type="AudioStream" id=9]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.870588, 0.815686, 0.572549, 1 )
@@ -267,6 +268,11 @@ texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 8 )
 expand = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect/TextureButton"]
+stream = ExtResource( 9 )
+bus = "ButtonSound"
+
+[connection signal="mouse_entered" from="TextureRect/TextureButton" to="." method="_on_TextureButton_mouse_entered"]
 [connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [editable path="TextureRect/Control/ScrollContainer/VBoxContainer/TextureButton"]

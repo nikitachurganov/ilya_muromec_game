@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Art/Items/Pie.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art/Buttons/DeleteNotPressed.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Buttons/InventoryButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Buttons/DeleteHover.png" type="Texture" id=12]
+[ext_resource path="res://Sounds/Button_dawn.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 3 )
@@ -201,6 +202,10 @@ custom_fonts/font = SubResource( 1 )
 text = "Выбрать"
 align = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Objects/HBoxContainer/Use"]
+stream = ExtResource( 13 )
+bus = "ButtonSound"
+
 [node name="Drop" type="TextureButton" parent="HBoxContainer/Objects/HBoxContainer"]
 margin_left = 60.0
 margin_right = 120.0
@@ -220,7 +225,13 @@ custom_fonts/font = SubResource( 1 )
 text = "Удалить"
 align = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Objects/HBoxContainer/Drop"]
+stream = ExtResource( 13 )
+bus = "ButtonSound"
+
 [connection signal="button_down" from="HBoxContainer/Objects/HBoxContainer/Use" to="." method="_on_Use_button_down"]
 [connection signal="button_up" from="HBoxContainer/Objects/HBoxContainer/Use" to="." method="_on_Use_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/Objects/HBoxContainer/Use" to="." method="_on_Use_mouse_entered"]
 [connection signal="button_down" from="HBoxContainer/Objects/HBoxContainer/Drop" to="." method="_on_Drop_button_down"]
 [connection signal="button_up" from="HBoxContainer/Objects/HBoxContainer/Drop" to="." method="_on_Drop_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/Objects/HBoxContainer/Drop" to="." method="_on_Drop_mouse_entered"]

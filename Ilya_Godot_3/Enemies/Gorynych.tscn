@@ -2233,12 +2233,17 @@ position = Vector2( 0.5, -32 )
 
 [node name="Damaged" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -6.992
+bus = "EffectsFight"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "EffectsFight"
 
 [node name="Flight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = 2.622
 pitch_scale = 0.42
+bus = "EffectsFight"
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]

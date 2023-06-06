@@ -888,6 +888,7 @@ shape = SubResource( 54 )
 wait_time = 1.3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "EffectsFight"
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

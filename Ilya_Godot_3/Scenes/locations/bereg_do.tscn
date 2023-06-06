@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Art/DirtTileset.png" type="Texture" id=1]
 [ext_resource path="res://Art/TilesetWater_2.png" type="Texture" id=2]
@@ -453,6 +453,12 @@ points = PoolVector2Array( 47.7861, 31.9181, 46.7094, 33.9369, 46.3056, 37.84, 4
 [sub_resource type="RectangleShape2D" id=92]
 extents = Vector2( 55, 78 )
 
+[sub_resource type="RectangleShape2D" id=93]
+extents = Vector2( 46, 12.25 )
+
+[sub_resource type="RectangleShape2D" id=94]
+extents = Vector2( 14.5625, 26.75 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -516,7 +522,7 @@ position = Vector2( 393, 212 )
 
 [node name="StepSound" parent="YSort/Player" index="10"]
 stream = ExtResource( 10 )
-volume_db = -13.983
+volume_db = -11.361
 
 [node name="Items" type="YSort" parent="YSort"]
 
@@ -530,11 +536,23 @@ position = Vector2( 411, 63 )
 [node name="CollisionShape2D" parent="SoundDetectionWood" index="0"]
 shape = SubResource( 92 )
 
+[node name="SoundDetectionForest" parent="." instance=ExtResource( 9 )]
+
+[node name="CollisionShape2D" parent="SoundDetectionForest" index="0"]
+position = Vector2( 39, 7 )
+shape = SubResource( 93 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SoundDetectionForest"]
+position = Vector2( -14, 131 )
+shape = SubResource( 94 )
+
 [connection signal="body_entered" from="SoundDetectionWood" to="YSort/Player" method="_on_SoundDetectionWood_body_entered"]
 [connection signal="body_exited" from="SoundDetectionWood" to="YSort/Player" method="_on_SoundDetectionWood_body_exited"]
+[connection signal="body_entered" from="SoundDetectionForest" to="YSort/Player" method="_on_SoundDetectionForest_body_entered"]
 
 [editable path="YSort/Player"]
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
 [editable path="SoundDetectionWood"]
+[editable path="SoundDetectionForest"]

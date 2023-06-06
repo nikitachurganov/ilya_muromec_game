@@ -16,6 +16,7 @@ func _on_glossary_button_pressed(args):
 	if len(args) == 2:
 		var button_name = args[0]
 		var button_text = args[1]
+		
 		$TextureRect/ChoosingItem.text = button_name
 		$TextureRect/Control2/ScrollContainer/VBoxContainer/RichTextLabel.text = button_text.replace("/n","\n")
 
@@ -24,4 +25,10 @@ func _on_glossary_button_pressed(args):
 func _on_TextureButton_pressed():
 	$TextureRect/ChoosingItem.text = ""
 	$TextureRect/Control2/ScrollContainer/VBoxContainer/RichTextLabel.text = ""
+	if !$TextureRect/TextureButton/AudioStreamPlayer.is_playing():
+		$TextureRect/TextureButton/AudioStreamPlayer.play()
 	hide()
+
+
+func _on_TextureButton_mouse_entered():
+	$TextureRect/TextureButton/AudioStreamPlayer.play()

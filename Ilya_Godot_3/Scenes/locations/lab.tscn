@@ -1131,6 +1131,8 @@ position = Vector2( 1931, 1916 )
 
 [node name="StepSound" parent="YSort/Player" index="10"]
 stream = ExtResource( 8 )
+volume_db = -10.487
+pitch_scale = 0.7
 
 [node name="Items" type="YSort" parent="YSort"]
 

@@ -51,7 +51,8 @@ shape = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -2.622
+volume_db = -5.243
+bus = "EffectsFight"
 
 [node name="Timer" type="Timer" parent="."]
 
