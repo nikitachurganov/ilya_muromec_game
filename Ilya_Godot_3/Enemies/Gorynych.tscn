@@ -2150,6 +2150,7 @@ expand = true
 position = Vector2( 0.5, -16 )
 texture = ExtResource( 1 )
 hframes = 60
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, 7 )
@@ -2215,7 +2216,7 @@ rotation = 1.5708
 shape = SubResource( 41 )
 
 [node name="Timer" parent="HitZoneDetection" index="1"]
-wait_time = 1.8
+wait_time = 1.2
 
 [node name="AirZoneDetection" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0.5, -16 )
@@ -2224,9 +2225,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" parent="AirZoneDetection" index="0"]
 shape = SubResource( 42 )
-
-[node name="Timer" parent="AirZoneDetection" index="1"]
-wait_time = 2.5
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0.5, -32 )

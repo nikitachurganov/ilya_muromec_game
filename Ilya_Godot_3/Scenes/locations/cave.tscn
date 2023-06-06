@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Art/DirtTileset.png" type="Texture" id=1]
 [ext_resource path="res://Art/CliffTileset.png" type="Texture" id=2]
@@ -671,6 +671,8 @@ points = PoolVector2Array( 45.9469, 4.33917, 47.8074, 8.29282, 48.04, 17.5955, 6
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=136]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=139]
+
 [sub_resource type="RectangleShape2D" id=137]
 extents = Vector2( 271, 147 )
 
@@ -742,6 +744,9 @@ position = Vector2( 365, 15 )
 position = Vector2( 370, 155 )
 GIVE_EXP = 600
 
+[node name="AnimationTree" parent="YSort/Enemies/Tugarin" index="4"]
+parameters/playback = SubResource( 139 )
+
 [node name="Objects" type="YSort" parent="YSort"]
 
 [node name="SoundDetectionForest" parent="." instance=ExtResource( 9 )]
@@ -770,4 +775,9 @@ otherDudeTexture = "res://Art/Dialogues/2GARIN_porteret.png"
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
+[editable path="YSort/Enemies/Tugarin"]
+[editable path="YSort/Enemies/Tugarin/PlayerDetectionZone"]
+[editable path="YSort/Enemies/Tugarin/Hurtbox"]
+[editable path="YSort/Enemies/Tugarin/HitboxPivot/Hitbox"]
+[editable path="YSort/Enemies/Tugarin/HitZoneDetection"]
 [editable path="SoundDetectionForest"]

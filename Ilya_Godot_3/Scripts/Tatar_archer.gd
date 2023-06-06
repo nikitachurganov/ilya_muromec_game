@@ -105,7 +105,7 @@ func _on_Hurtbox_area_entered(area):
 	$Reload.play()
 	currentHealth = clamp(stats.health, 0, max_health)
 	healthBar.rect_size.x = (currentHealth * 28 / max_health)
-	knockback = area.knockback_vector * 40
+	knockback = area.knockback_vector * 65
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():

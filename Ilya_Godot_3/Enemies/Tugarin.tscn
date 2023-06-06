@@ -197,7 +197,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 7, -4.00001 ) ]
+"values": [ Vector2( 7, 4 ) ]
 }
 tracks/6/type = "audio"
 tracks/6/path = NodePath("AudioStreamPlayer")
@@ -289,7 +289,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 7, 3.99999 ) ]
+"values": [ Vector2( 7, -4 ) ]
 }
 tracks/6/type = "audio"
 tracks/6/path = NodePath("AudioStreamPlayer")
@@ -384,6 +384,18 @@ tracks/5/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0.2 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -653,7 +665,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
 [sub_resource type="CircleShape2D" id=23]
-radius = 56.1427
+radius = 169.85
 
 [sub_resource type="CapsuleShape2D" id=26]
 radius = 8.0
@@ -730,8 +742,8 @@ collision_layer = 8
 shape = SubResource( 26 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( 0, -6 )
-rotation = -1.5708
+position = Vector2( 0, 4 )
+rotation = 1.5708
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
 position = Vector2( 4, 1.43051e-05 )
@@ -750,6 +762,9 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="HitZoneDetection" index="0"]
 position = Vector2( 0, 4 )
 shape = SubResource( 42 )
+
+[node name="Timer" parent="HitZoneDetection" index="1"]
+wait_time = 0.17
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

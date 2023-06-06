@@ -263,7 +263,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 11, 5 ) ]
+"values": [ Vector2( 11, -3 ) ]
 }
 tracks/6/type = "audio"
 tracks/6/path = NodePath("AudioStreamPlayer")
@@ -355,7 +355,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4, -0.999999 ) ]
+"values": [ Vector2( 10, -1 ) ]
 }
 tracks/6/type = "audio"
 tracks/6/path = NodePath("AudioStreamPlayer")
@@ -635,7 +635,7 @@ position = Vector2( 0.5, -9 )
 position = Vector2( 0.5, -9 )
 texture = ExtResource( 5 )
 hframes = 40
-frame = 6
+frame = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, 1 )
@@ -684,7 +684,7 @@ position = Vector2( 0, -1 )
 shape = SubResource( 26 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( -1.5, -9 )
+position = Vector2( -2, 0 )
 rotation = 1.5708
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 6 )]
