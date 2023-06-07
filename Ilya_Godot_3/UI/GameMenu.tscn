@@ -70,9 +70,9 @@ alignment = 1
 
 [node name="Resume" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 11.0
+margin_top = 1.0
 margin_right = 100.0
-margin_bottom = 31.0
+margin_bottom = 21.0
 
 [node name="Label" parent="Panel/Main/Buttons/Resume" index="0"]
 text = "Продолжить игру"
@@ -81,9 +81,9 @@ valign = 1
 
 [node name="Glossariy" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 35.0
+margin_top = 25.0
 margin_right = 100.0
-margin_bottom = 55.0
+margin_bottom = 45.0
 
 [node name="Label" parent="Panel/Main/Buttons/Glossariy" index="0"]
 text = "Глоссарий"
@@ -92,9 +92,9 @@ valign = 1
 
 [node name="Save" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 59.0
+margin_top = 49.0
 margin_right = 100.0
-margin_bottom = 79.0
+margin_bottom = 69.0
 
 [node name="Label" parent="Panel/Main/Buttons/Save" index="0"]
 text = "Сохранить игру"
@@ -103,17 +103,26 @@ valign = 1
 
 [node name="Quit" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 83.0
+margin_top = 73.0
 margin_right = 100.0
-margin_bottom = 103.0
+margin_bottom = 93.0
 
 [node name="Label" parent="Panel/Main/Buttons/Quit" index="0"]
 text = "Выйти в меню"
 align = 1
 valign = 1
 
+[node name="MasterSlider" type="HSlider" parent="Panel/Main/Buttons"]
+margin_top = 97.0
+margin_right = 100.0
+margin_bottom = 113.0
+min_value = -45.0
+max_value = 0.0
+
 [node name="Control" parent="." instance=ExtResource( 7 )]
 visible = false
+
+[connection signal="value_changed" from="Panel/Main/Buttons/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
 
 [editable path="Panel/Main/Buttons/Resume"]
 [editable path="Panel/Main/Buttons/Glossariy"]

@@ -43,3 +43,7 @@ func save():
 	ResourceSaver.save(save_path, file)
 	emit_signal("on_saved")
 
+
+
+func _on_MasterSlider_value_changed(value):	
+	AudioServer.set_bus_volume_db(0, value)

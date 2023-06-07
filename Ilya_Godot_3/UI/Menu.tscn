@@ -88,11 +88,18 @@ margin_right = 50.0
 margin_bottom = 70.0
 alignment = 1
 
+[node name="Master" type="HSlider" parent="Buttons"]
+margin_top = 8.0
+margin_right = 100.0
+margin_bottom = 24.0
+min_value = -45.0
+max_value = 0.0
+
 [node name="Resume" parent="Buttons" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 18.0
+margin_top = 28.0
 margin_right = 100.0
-margin_bottom = 38.0
+margin_bottom = 48.0
 
 [node name="Label" parent="Buttons/Resume" index="0"]
 margin_left = 1.0
@@ -103,9 +110,9 @@ valign = 1
 
 [node name="Button" parent="Buttons" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 42.0
+margin_top = 52.0
 margin_right = 100.0
-margin_bottom = 62.0
+margin_bottom = 72.0
 scene_to_open = "res://Scenes/Roots/Root_Muromets_house.tscn"
 
 [node name="Label" parent="Buttons/Button" index="0"]
@@ -114,9 +121,9 @@ align = 1
 valign = 1
 
 [node name="Quit" type="TextureButton" parent="Buttons"]
-margin_top = 66.0
+margin_top = 76.0
 margin_right = 100.0
-margin_bottom = 86.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 100, 20 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
@@ -131,6 +138,7 @@ text = "Выйти из игры"
 align = 1
 valign = 1
 
+[connection signal="value_changed" from="Buttons/Master" to="." method="_on_Master_value_changed"]
 [connection signal="button_down" from="Buttons/Quit" to="." method="_on_Quit_button_down"]
 [connection signal="button_up" from="Buttons/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="mouse_entered" from="Buttons/Quit" to="Buttons/Resume" method="_on_Button_mouse_entered"]

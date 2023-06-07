@@ -77,3 +77,7 @@ func _on_Quit_button_down():
 func _on_Quit_button_up():
 	$Buttons/Quit/Label.rect_position.x -= 1
 	$Buttons/Quit/Label.rect_position.y -= 1
+
+
+func _on_Master_value_changed(value):
+	AudioServer.set_bus_volume_db(0, value)
