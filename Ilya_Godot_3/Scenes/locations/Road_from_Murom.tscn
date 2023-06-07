@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemies/Tatar_sword.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/MapScript.gd" type="Script" id=8]
 [ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=37]
 0/name = "TilesetFloor_2.png 0"
@@ -2373,28 +2374,149 @@ shape = SubResource( 57 )
 
 [node name="Items" type="YSort" parent="YSort"]
 
+[node name="Item" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 364, 40 )
+item_name = "Apple"
+
+[node name="Item2" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 407, -492 )
+item_name = "Apple"
+
+[node name="Item3" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 62, -699 )
+item_name = "Apple"
+
+[node name="Item4" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -3, -652 )
+item_name = "Apple"
+
+[node name="Item5" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 288, -676 )
+item_name = "Apple"
+
+[node name="Item6" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 131, -489 )
+item_name = "Apple"
+
+[node name="Item7" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -43, -480 )
+item_name = "Apple"
+
+[node name="Item8" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -100, -373 )
+item_name = "Apple"
+
+[node name="Item9" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -10, -413 )
+item_name = "Apple"
+
+[node name="Item10" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 326, -425 )
+item_name = "Apple"
+
+[node name="Item11" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 349, -377 )
+item_name = "Apple"
+
+[node name="Item12" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 428, -327 )
+item_name = "Apple"
+
+[node name="Item13" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 276, -268 )
+item_name = "Apple"
+
+[node name="Item14" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 197, -230 )
+item_name = "Apple"
+
+[node name="Item15" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -8, -123 )
+item_name = "Apple"
+
+[node name="Item16" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -102, -153 )
+item_name = "Apple"
+
+[node name="Item17" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -94, -90 )
+item_name = "Apple"
+
+[node name="Item18" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -70, -43 )
+item_name = "Apple"
+
+[node name="Item19" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 472, -136 )
+item_name = "Apple"
+
+[node name="Item20" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 334, -168 )
+item_name = "Apple"
+
+[node name="Item21" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -7, 8 )
+item_name = "Apple"
+
+[node name="Item22" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 216, -85 )
+item_name = "Apple"
+
+[node name="Item23" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 297, -55 )
+item_name = "Apple"
+
+[node name="Item24" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 255, -20 )
+item_name = "Apple"
+
+[node name="Item25" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 83, 90 )
+item_name = "Apple"
+
+[node name="Item26" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 116, 153 )
+item_name = "Apple"
+
+[node name="Item27" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 381, 62 )
+item_name = "Apple"
+
+[node name="Item28" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( 403, 40 )
+item_name = "Apple"
+
+[node name="Item29" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -87, 154 )
+item_name = "Apple"
+
+[node name="Item30" parent="YSort/Items" instance=ExtResource( 10 )]
+position = Vector2( -34, 116 )
+item_name = "Apple"
+
 [node name="Enemies" type="YSort" parent="YSort"]
 
 [node name="Tatar_sword" parent="YSort/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 14, -161 )
+position = Vector2( 43, -569 )
 GIVE_EXP = 100
 
 [node name="Tatar_sword2" parent="YSort/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 106, -50 )
+position = Vector2( 315, -325 )
 GIVE_EXP = 100
 
 [node name="Tatar_sword3" parent="YSort/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 185, -160 )
+position = Vector2( 111, -330 )
 GIVE_EXP = 100
 
 [node name="Tatar_archer" parent="YSort/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 169, -52 )
 GIVE_EXP = 110
 
 [node name="AnimationTree" parent="YSort/Enemies/Tatar_archer" index="4"]
 parameters/playback = SubResource( 58 )
 
 [node name="Tatar_archer2" parent="YSort/Enemies" instance=ExtResource( 6 )]
-position = Vector2( 217, -5 )
+position = Vector2( 310, -562 )
 GIVE_EXP = 110
 
 [node name="Objects" type="YSort" parent="YSort"]

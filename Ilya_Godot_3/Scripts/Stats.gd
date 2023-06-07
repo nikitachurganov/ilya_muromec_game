@@ -13,21 +13,22 @@ var inventory = []
 var sword = ""
 var helmet = ""
 var armor = ""
+var soundEffect = true
 
 var items = {
 	"": {"attack": 0, "def": 0},
-	"Helmet1": {"def": 2, "type": "helmet", "name": "Кожаный шлем"},
+	"Helmet1": {"def": 3, "type": "helmet", "name": "Кожаный шлем"},
 	"Helmet2": {"def": 5, "type": "helmet", "name": "Простой шлем"},
 	"Helmet3": {"def": 10, "type": "helmet", "name": "Металлический шлем"},
-	"Sword1": {"attack": 2, "type": "sword", "name": "Простой меч"},
+	"Sword1": {"attack": 3, "type": "sword", "name": "Простой меч"},
 	"Sword2": {"attack": 5, "type": "sword", "name": "Железный меч"},
 	"Sword3": {"attack": 10, "type": "sword", "name": "Меч Кладенец"},
-	"Armor1": {"def": 2, "type": "armor", "name": "Кожаная броня"},
+	"Armor1": {"def": 3, "type": "armor", "name": "Кожаная броня"},
 	"Armor2": {"def": 5, "type": "armor", "name": "Кольчуга"},
 	"Armor3": {"def": 10, "type": "armor", "name": "Доспехи"},
-	"Milk": {"heal": 5, "type": "food", "name": "Молоко"},
-	"Apple": {"heal": 2, "type": "food", "name": "Яблоко"},
-	"Pie": {"heal": 3, "type": "food", "name": "Пирожок"}
+	"Milk": {"heal": 20, "type": "food", "name": "Молоко"},
+	"Apple": {"heal": 5, "type": "food", "name": "Яблоко"},
+	"Pie": {"heal": 10, "type": "food", "name": "Пирожок"}
 }
 
 var quests = ["Надеть экипировку", 
@@ -127,8 +128,8 @@ func set_exp(value):
 		experience = experience - max_exp
 		set_max_exp(max_exp + 50)
 		set_exp(experience)
-		set_atk(atk + 5)
-		set_max_health(max_health + 10)
+		set_atk(atk + 2)
+		set_max_health(max_health + 5)
 		set_health(max_health)
 		set_lvl(lvl)
 

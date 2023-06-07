@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Scenes/world_item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/TilesetFloor_2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sounds/StepForest.wav" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Art/TilesetNature.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=3]
 0/name = "TilesetFloor_2.png 0"
@@ -1150,6 +1151,247 @@ item_name = "Sword2"
 
 [node name="Enemies" type="YSort" parent="YSort"]
 
+[node name="Bat" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -178, -303 )
+GIVE_EXP = 1
+
+[node name="AnimatedSprite" parent="YSort/Enemies/Bat" index="0"]
+frame = 4
+
+[node name="Stats" parent="YSort/Enemies/Bat" index="4"]
+max_health = 20
+
+[node name="Hitbox" parent="YSort/Enemies/Bat" index="6"]
+damage = 15
+
+[node name="Bat2" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 921, -1211 )
+GIVE_EXP = 1
+
+[node name="Bat51" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 80, 256 )
+GIVE_EXP = 1
+
+[node name="Bat52" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 65, -116 )
+GIVE_EXP = 1
+
+[node name="Bat53" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -22, -1148 )
+GIVE_EXP = 1
+
+[node name="Bat54" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 286, -1158 )
+GIVE_EXP = 1
+
+[node name="Bat55" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 873, -699 )
+GIVE_EXP = 1
+
+[node name="Bat56" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 448, -752 )
+GIVE_EXP = 1
+
+[node name="Bat57" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 675, -1192 )
+GIVE_EXP = 1
+
+[node name="Bat58" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1445, -1045 )
+GIVE_EXP = 1
+
+[node name="Bat3" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1676, 16 )
+GIVE_EXP = 1
+
+[node name="Bat4" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1664, 158 )
+GIVE_EXP = 1
+
+[node name="Bat5" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1609, 272 )
+GIVE_EXP = 1
+
+[node name="Bat6" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 554, -874 )
+GIVE_EXP = 1
+
+[node name="Bat7" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1421, 139 )
+GIVE_EXP = 1
+
+[node name="Bat8" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 370, -1290 )
+GIVE_EXP = 1
+
+[node name="Bat9" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1310, -964 )
+GIVE_EXP = 1
+
+[node name="Bat10" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1049, -95 )
+GIVE_EXP = 1
+
+[node name="Bat11" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 982, -51 )
+GIVE_EXP = 1
+
+[node name="Bat12" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1096, 35 )
+GIVE_EXP = 1
+
+[node name="Bat13" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1245, 128 )
+GIVE_EXP = 1
+
+[node name="Bat14" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1158, 264 )
+GIVE_EXP = 1
+
+[node name="Bat15" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1296, 389 )
+GIVE_EXP = 1
+
+[node name="Bat16" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1071, 447 )
+GIVE_EXP = 1
+
+[node name="Bat17" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1030, 212 )
+GIVE_EXP = 1
+
+[node name="Bat18" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 799, 208 )
+GIVE_EXP = 1
+
+[node name="Bat19" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 909, 364 )
+GIVE_EXP = 1
+
+[node name="Bat20" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 820, 311 )
+GIVE_EXP = 1
+
+[node name="Bat21" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 922, 265 )
+GIVE_EXP = 1
+
+[node name="Bat22" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 689, 333 )
+GIVE_EXP = 1
+
+[node name="Bat23" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 554, 369 )
+GIVE_EXP = 1
+
+[node name="Bat24" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 372, 364 )
+GIVE_EXP = 1
+
+[node name="Bat25" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 267, 256 )
+GIVE_EXP = 1
+
+[node name="Bat26" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 79, 106 )
+GIVE_EXP = 1
+
+[node name="Bat27" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 536, -162 )
+GIVE_EXP = 1
+
+[node name="Bat28" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -253, -653 )
+GIVE_EXP = 1
+
+[node name="Bat29" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -265, -496 )
+GIVE_EXP = 1
+
+[node name="Bat30" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 149, -824 )
+GIVE_EXP = 1
+
+[node name="Bat31" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 739, -745 )
+GIVE_EXP = 1
+
+[node name="Bat32" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 727, -597 )
+GIVE_EXP = 1
+
+[node name="Bat33" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 827, -450 )
+GIVE_EXP = 1
+
+[node name="Bat34" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 652, -209 )
+GIVE_EXP = 1
+
+[node name="Bat35" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 820, -104 )
+GIVE_EXP = 1
+
+[node name="Bat36" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 361, -357 )
+GIVE_EXP = 1
+
+[node name="Bat37" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 618, -376 )
+GIVE_EXP = 1
+
+[node name="Bat38" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 507, -257 )
+GIVE_EXP = 1
+
+[node name="Bat39" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 300, 117 )
+GIVE_EXP = 1
+
+[node name="Bat40" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 155, 42 )
+GIVE_EXP = 1
+
+[node name="Bat41" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 60, -484 )
+GIVE_EXP = 1
+
+[node name="Bat42" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 116, -234 )
+GIVE_EXP = 1
+
+[node name="Bat43" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 78, -325 )
+GIVE_EXP = 1
+
+[node name="Bat44" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -126, -107 )
+GIVE_EXP = 1
+
+[node name="Bat45" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -232, -36 )
+GIVE_EXP = 1
+
+[node name="Bat46" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -114, 313 )
+GIVE_EXP = 1
+
+[node name="Bat47" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -55, -815 )
+GIVE_EXP = 1
+
+[node name="Bat48" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -208, -767 )
+GIVE_EXP = 1
+
+[node name="Bat49" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -259, -905 )
+GIVE_EXP = 1
+
+[node name="Bat50" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -218, -1099 )
+GIVE_EXP = 1
+
 [node name="Objects" type="YSort" parent="YSort"]
 
 [editable path="trees/TripleTree"]
@@ -1166,3 +1408,9 @@ item_name = "Sword2"
 [editable path="YSort/Player/HitboxPivot/SwordHitbox"]
 [editable path="YSort/Player/Hurtbox"]
 [editable path="YSort/Player/Camera2D"]
+[editable path="YSort/Enemies/Bat"]
+[editable path="YSort/Enemies/Bat/Hurtbox"]
+[editable path="YSort/Enemies/Bat/PlayerDetectionZone"]
+[editable path="YSort/Enemies/Bat/Hitbox"]
+[editable path="YSort/Enemies/Bat/SoftCollision"]
+[editable path="YSort/Enemies/Bat/HealthBar"]
