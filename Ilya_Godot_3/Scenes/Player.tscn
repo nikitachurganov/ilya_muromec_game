@@ -833,7 +833,7 @@ bus = "EffectsFight"
 
 [node name="SwordSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -4.37
+volume_db = -11.362
 bus = "EffectsFight"
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
