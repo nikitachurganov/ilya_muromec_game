@@ -10,6 +10,7 @@ func _ready():
 	$Panel/Main/Buttons/Quit.connect("pressed", SceneChanger, "change_scene", ["res://UI/Menu.tscn"])
 	$Panel/Main/Buttons/Save.connect("pressed", self, "save")
 	$Panel/Main/Buttons/Glossariy.connect("pressed", $Control, "show")
+	
 
 func open():
 	if visible:
@@ -45,5 +46,3 @@ func save():
 
 
 
-func _on_MasterSlider_value_changed(value):	
-	AudioServer.set_bus_volume_db(0, value)

@@ -5,6 +5,7 @@ var stats = PlayerStats
 signal on_loaded(data)
 
 func _ready():
+	
 	get_tree().paused = false
 	if File.new().file_exists(stats.save_dir.plus_file(stats.save_temp % "save")):
 		$Buttons/Resume.visible = true
@@ -17,6 +18,7 @@ func _ready():
 	$Buttons/Quit.connect("pressed", self, "quit")
 	$Buttons/Resume.connect("pressed", self, "load_file")
 	connect("on_loaded", SceneChanger, "load_game")
+
 
 func change_scene(path):
 	SceneChanger.change_scene(path)
@@ -78,6 +80,3 @@ func _on_Quit_button_up():
 	$Buttons/Quit/Label.rect_position.x -= 1
 	$Buttons/Quit/Label.rect_position.y -= 1
 
-
-func _on_Master_value_changed(value):
-	AudioServer.set_bus_volume_db(0, value)
