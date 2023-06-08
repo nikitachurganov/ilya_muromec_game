@@ -9,7 +9,7 @@
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Fonts/zarubkaType-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Art/Buttons/MenuButtonHover.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Buttons/MasterSlider.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Buttons/SoundButton.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 8 )
@@ -78,27 +78,28 @@ text = "и"
 align = 1
 valign = 1
 
+[node name="TextureButton" parent="." instance=ExtResource( 10 )]
+margin_left = 172.0
+margin_top = 72.0
+margin_right = 188.0
+margin_bottom = 88.0
+
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -50.0
-margin_top = -35.0
+margin_top = -6.0
 margin_right = 50.0
-margin_bottom = 70.0
+margin_bottom = 65.0
 alignment = 1
-
-[node name="MasterSlider" parent="Buttons" instance=ExtResource( 10 )]
-margin_top = 8.0
-margin_right = 100.0
-margin_bottom = 24.0
 
 [node name="Resume" parent="Buttons" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 28.0
+margin_top = 1.0
 margin_right = 100.0
-margin_bottom = 48.0
+margin_bottom = 21.0
 
 [node name="Label" parent="Buttons/Resume" index="0"]
 margin_left = 1.0
@@ -109,9 +110,9 @@ valign = 1
 
 [node name="Button" parent="Buttons" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 52.0
+margin_top = 25.0
 margin_right = 100.0
-margin_bottom = 72.0
+margin_bottom = 45.0
 scene_to_open = "res://Scenes/Roots/Root_Muromets_house.tscn"
 
 [node name="Label" parent="Buttons/Button" index="0"]
@@ -120,9 +121,9 @@ align = 1
 valign = 1
 
 [node name="Quit" type="TextureButton" parent="Buttons"]
-margin_top = 76.0
+margin_top = 49.0
 margin_right = 100.0
-margin_bottom = 96.0
+margin_bottom = 69.0
 rect_min_size = Vector2( 100, 20 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )

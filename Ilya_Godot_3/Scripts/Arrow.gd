@@ -7,7 +7,7 @@ var offset = 0.05
 
 func _ready():
 	var timer = $Timer
-	timer.wait_time = 0.3
+	timer.wait_time = 0.4
 	timer.start()
 
 func _physics_process(delta):

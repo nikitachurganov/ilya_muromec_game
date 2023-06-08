@@ -3,7 +3,7 @@
 [ext_resource path="res://Art/MenuBackground2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/GameMenu.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Buttons/SceneButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Buttons/MasterSlider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Buttons/SoundButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/zarubkaType-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI/Glossary.tscn" type="PackedScene" id=7]
 
@@ -51,12 +51,18 @@ rect_min_size = Vector2( 150, 150 )
 
 [node name="Label" type="Label" parent="Panel/Main"]
 margin_left = 25.0
-margin_top = 14.0
+margin_top = 7.0
 margin_right = 125.0
-margin_bottom = 38.0
+margin_bottom = 31.0
 custom_fonts/font = SubResource( 1 )
 text = "Пауза"
 align = 1
+
+[node name="Sound" parent="Panel/Main" instance=ExtResource( 4 )]
+margin_left = 67.0
+margin_top = 33.0
+margin_right = 83.0
+margin_bottom = 49.0
 
 [node name="Buttons" type="VBoxContainer" parent="Panel/Main"]
 anchor_left = 0.5
@@ -64,21 +70,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -50.0
-margin_top = -40.0
+margin_top = -21.0
 margin_right = 50.0
-margin_bottom = 74.0
+margin_bottom = 76.0
 alignment = 1
-
-[node name="MasterSlider" parent="Panel/Main/Buttons" instance=ExtResource( 4 )]
-margin_top = 1.0
-margin_right = 100.0
-margin_bottom = 17.0
 
 [node name="Resume" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 21.0
+margin_top = 2.0
 margin_right = 100.0
-margin_bottom = 41.0
+margin_bottom = 22.0
 
 [node name="Label" parent="Panel/Main/Buttons/Resume" index="0"]
 text = "Продолжить игру"
@@ -87,9 +88,9 @@ valign = 1
 
 [node name="Glossariy" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 45.0
+margin_top = 26.0
 margin_right = 100.0
-margin_bottom = 65.0
+margin_bottom = 46.0
 
 [node name="Label" parent="Panel/Main/Buttons/Glossariy" index="0"]
 text = "Глоссарий"
@@ -98,9 +99,9 @@ valign = 1
 
 [node name="Save" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 69.0
+margin_top = 50.0
 margin_right = 100.0
-margin_bottom = 89.0
+margin_bottom = 70.0
 
 [node name="Label" parent="Panel/Main/Buttons/Save" index="0"]
 text = "Сохранить игру"
@@ -109,9 +110,9 @@ valign = 1
 
 [node name="Quit" parent="Panel/Main/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 93.0
+margin_top = 74.0
 margin_right = 100.0
-margin_bottom = 113.0
+margin_bottom = 94.0
 
 [node name="Label" parent="Panel/Main/Buttons/Quit" index="0"]
 text = "Выйти в меню"
