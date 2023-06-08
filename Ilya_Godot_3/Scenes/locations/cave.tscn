@@ -766,6 +766,7 @@ position = Vector2( 261, 137 )
 shape = SubResource( 137 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -86, -75 )
 collision_layer = 0
 collision_mask = 2
 
