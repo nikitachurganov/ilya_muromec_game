@@ -11,8 +11,9 @@
 [ext_resource path="res://UI/DeathScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Panel2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Art/Items/Armor1.png" type="Texture" id=11]
-[ext_resource path="res://Art/Items/Hemlet1.png" type="Texture" id=12]
+[ext_resource path="res://Art/Items/Helmet1.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=13]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
