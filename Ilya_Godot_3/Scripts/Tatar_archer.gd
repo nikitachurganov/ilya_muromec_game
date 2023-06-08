@@ -35,7 +35,7 @@ onready var wanderController = $WanderController
 onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
 
-var max_health = 50
+var max_health = 120
 var currentHealth = max_health
 
 func _ready():
@@ -100,6 +100,7 @@ func attack_animation_finished():
 	state = CHASE
 	
 func _on_Hurtbox_area_entered(area):
+	print(stats.health)
 	stats.health -= (PlayerStats.atk + PlayerStats.items[PlayerStats.sword]["attack"])
 	$Reload.stream = SoundHit
 	$Reload.play()
@@ -107,6 +108,7 @@ func _on_Hurtbox_area_entered(area):
 	healthBar.rect_size.x = (currentHealth * 28 / max_health)
 	knockback = area.knockback_vector * 65
 	hurtbox.create_hit_effect()
+	print(stats.health)
 
 func _on_Stats_no_health():
 	
