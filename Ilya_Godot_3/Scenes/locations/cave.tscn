@@ -755,7 +755,6 @@ parameters/playback = SubResource( 139 )
 
 [node name="Sound" parent="YSort/Enemies/Tugarin" index="11"]
 volume_db = -14.857
-bus = "EffectsFight"
 
 [node name="Objects" type="YSort" parent="YSort"]
 

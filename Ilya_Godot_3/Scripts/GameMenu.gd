@@ -10,6 +10,7 @@ func _ready():
 	$Panel/Main/Buttons/Quit.connect("pressed", SceneChanger, "change_scene", ["res://UI/Menu.tscn"])
 	$Panel/Main/Buttons/Save.connect("pressed", self, "save")
 	$Panel/Main/Buttons/Glossariy.connect("pressed", $Control, "show")
+	
 
 func open():
 	if visible:
@@ -42,4 +43,6 @@ func save():
 	
 	ResourceSaver.save(save_path, file)
 	emit_signal("on_saved")
+
+
 
