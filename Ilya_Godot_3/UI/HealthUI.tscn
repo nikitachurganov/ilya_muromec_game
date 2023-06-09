@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sword.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Art/Quest_background.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/QuestScript.gd" type="Script" id=15]
+[ext_resource path="res://Art/ekip_bg.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -51,8 +52,8 @@ text = "100 ХП"
 [node name="LabelAtk" type="Label" parent="Control/HealthUI"]
 margin_left = 18.0
 margin_top = 12.84
-margin_right = 37.0
-margin_bottom = 26.84
+margin_right = 29.0
+margin_bottom = 25.84
 custom_fonts/font = SubResource( 1 )
 text = "10"
 
@@ -119,13 +120,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.431373 )
 
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 335.0
+margin_top = 4.0
+margin_right = 358.0
+margin_bottom = 63.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -20.0
-margin_top = 4.0
-margin_right = 12.0
-margin_bottom = 108.0
+margin_left = -21.0
+margin_top = 5.0
+margin_right = 11.0
+margin_bottom = 109.0
 rect_scale = Vector2( 0.5, 0.5 )
 alignment = 1
 
@@ -153,15 +163,19 @@ texture = ExtResource( 7 )
 stretch_mode = 6
 
 [node name="NinePatchRect" parent="Control" instance=ExtResource( 10 )]
+visible = false
 
 [node name="Menu" parent="Control" instance=ExtResource( 8 )]
+visible = false
 
 [node name="DeathScreen" parent="Control" instance=ExtResource( 9 )]
 visible = false
 
 [node name="Quest" type="TextureRect" parent="Control"]
-margin_right = 85.0
-margin_bottom = 18.0
+margin_left = 6.0
+margin_top = 3.0
+margin_right = 91.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 85, 18 )
 texture = ExtResource( 14 )
 script = ExtResource( 15 )
