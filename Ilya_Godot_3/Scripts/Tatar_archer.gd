@@ -9,7 +9,7 @@ export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
 export var WANDER_TARGET_RANGE = 4
-export var GIVE_EXP = 25
+var GIVE_EXP = 110
 
 enum{
 	IDLE,
@@ -35,7 +35,7 @@ onready var wanderController = $WanderController
 onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
 
-var max_health = 120
+var max_health = 60
 var currentHealth = max_health
 
 func _ready():
@@ -106,7 +106,7 @@ func _on_Hurtbox_area_entered(area):
 	$Reload.play()
 	currentHealth = clamp(stats.health, 0, max_health)
 	healthBar.rect_size.x = (currentHealth * 28 / max_health)
-	knockback = area.knockback_vector * 65
+	knockback = area.knockback_vector * 40
 	hurtbox.create_hit_effect()
 	print(stats.health)
 

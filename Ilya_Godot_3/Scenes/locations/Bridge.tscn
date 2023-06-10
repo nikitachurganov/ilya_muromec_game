@@ -277,10 +277,9 @@ volume_db = -13.984
 
 [node name="gorynych" parent="YSort/Enemies" instance=ExtResource( 4 )]
 position = Vector2( 215, 70 )
-GIVE_EXP = 600
 
 [node name="Sprite" parent="YSort/Enemies/gorynych" index="2"]
-frame = 10
+frame = 13
 
 [node name="AnimationTree" parent="YSort/Enemies/gorynych" index="5"]
 parameters/playback = SubResource( 8 )

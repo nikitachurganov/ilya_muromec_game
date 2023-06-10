@@ -22,8 +22,12 @@ func equip_quest():
 	if PlayerStats.quests[0] == "Войти в Чернигов":
 		PlayerStats.quests.pop_front()
 		$HealthUI/Control/Quest.quest_update()
+		$SceenTransition/CollisionShape2D.disabled = true
+	else:
 		if PlayerStats.quests[0] == "Поговорить со стражниками":
 			$SceenTransition/CollisionShape2D.disabled = true
+		else:
+			$SceenTransition/CollisionShape2D.disabled = false
 
 func quest_update():
 	$HealthUI/Control/Quest.quest_update()

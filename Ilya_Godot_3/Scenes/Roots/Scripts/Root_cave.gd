@@ -6,6 +6,8 @@ func _ready():
 	PlayerStats.connect("exp_changed", self, "enemy_quest")
 	if PlayerStats.quests[0] == "Одолеть Тугарина":
 		$SceenTransition/CollisionShape2D.disabled = true
+	else:
+		$SceenTransition/CollisionShape2D.disabled = false
 	$World.connect("talk", self, "quest_update")
 
 func save():

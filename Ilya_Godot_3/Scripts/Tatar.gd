@@ -7,7 +7,7 @@ export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
 export var WANDER_TARGET_RANGE = 4
-export var GIVE_EXP = 25
+var GIVE_EXP = 110
 
 enum{
 	IDLE,

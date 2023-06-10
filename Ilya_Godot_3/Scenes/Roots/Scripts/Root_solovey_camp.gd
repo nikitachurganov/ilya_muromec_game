@@ -1,7 +1,10 @@
 extends Node2D
 
 func _ready():
-	$SceenTransition/CollisionShape2D.disabled = true
+	if PlayerStats.quests[0] == "Поговорить с детьми Соловья":
+		$SceenTransition/CollisionShape2D.disabled = true
+	else:
+		$SceenTransition/CollisionShape2D.disabled = false
 	connect_player_to_death()
 	$World/YSort/StaticBody2D/Area2D.connect("talk", self, "quest_update")
 

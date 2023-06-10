@@ -7,7 +7,7 @@ const Flight = preload("res://Sounds/GorFlight.mp3")
 export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
-export var GIVE_EXP = 25
+var GIVE_EXP = 625
 
 enum{
 	IDLE,

@@ -2498,26 +2498,21 @@ item_name = "Apple"
 
 [node name="Tatar_sword" parent="YSort/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 43, -569 )
-GIVE_EXP = 100
 
 [node name="Tatar_sword2" parent="YSort/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 315, -325 )
-GIVE_EXP = 100
 
 [node name="Tatar_sword3" parent="YSort/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 111, -330 )
-GIVE_EXP = 100
 
 [node name="Tatar_archer" parent="YSort/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 169, -52 )
-GIVE_EXP = 110
 
 [node name="AnimationTree" parent="YSort/Enemies/Tatar_archer" index="4"]
 parameters/playback = SubResource( 58 )
 
 [node name="Tatar_archer2" parent="YSort/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 310, -562 )
-GIVE_EXP = 110
 
 [node name="Objects" type="YSort" parent="YSort"]
 

@@ -6,7 +6,7 @@ const SoundHit = preload("res://Sounds/SwordToSword.wav")
 export var acceleration = 300
 export var max_speed = 50
 export var friction = 1300
-export var GIVE_EXP = 25
+var GIVE_EXP = 600
 
 enum{
 	IDLE,

@@ -1,11 +1,14 @@
 extends Node2D
 
 func _ready():
-	$SceenTransition/CollisionShape2D.disabled = true
 	connect_player_to_death()
 	PlayerStats.connect("exp_changed", self, "enemy_quest")
-	yield(get_tree().create_timer(0.8), "timeout")
-	$CanvasLayer.start()
+	if PlayerStats.quests[0] == "Одолеть Соловья-разбойника":
+		$SceenTransition/CollisionShape2D.disabled = true
+	else:
+		$SceenTransition/CollisionShape2D.disabled = false
+		yield(get_tree().create_timer(0.8), "timeout")
+		$CanvasLayer.start()
 
 func save():
 	var data = {

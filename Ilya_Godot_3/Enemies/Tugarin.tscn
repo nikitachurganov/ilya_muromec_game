@@ -725,8 +725,6 @@ parameters/Run/blend_position = Vector2( -0.518325, 0.256034 )
 
 [node name="Stats" parent="." instance=ExtResource( 2 )]
 max_health = 300
-atk = 15
-max_exp = 0
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, -10 )

@@ -1153,251 +1153,189 @@ item_name = "Sword2"
 
 [node name="Bat" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 113, -318 )
-GIVE_EXP = 1
 
 [node name="Bat2" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -214, -1121 )
-GIVE_EXP = 1
 
 [node name="Bat44" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 358, -1289 )
-GIVE_EXP = 1
 
 [node name="Bat45" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 148, -1303 )
-GIVE_EXP = 1
 
 [node name="Bat46" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1032, -1169 )
-GIVE_EXP = 1
 
 [node name="Bat47" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 126, -215 )
-GIVE_EXP = 1
 
 [node name="Bat48" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 75, -540 )
-GIVE_EXP = 1
 
 [node name="Bat49" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 861, 252 )
-GIVE_EXP = 1
 
 [node name="Bat50" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 865, 303 )
-GIVE_EXP = 1
 
 [node name="Bat51" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 691, 345 )
-GIVE_EXP = 1
 
 [node name="Bat52" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 458, 370 )
-GIVE_EXP = 1
 
 [node name="Bat53" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 992, 491 )
-GIVE_EXP = 1
 
 [node name="Bat54" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1128, 432 )
-GIVE_EXP = 1
 
 [node name="Bat55" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1156, 320 )
-GIVE_EXP = 1
 
 [node name="Bat56" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1048, 250 )
-GIVE_EXP = 1
 
 [node name="Bat57" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1270, 178 )
-GIVE_EXP = 1
 
 [node name="Bat58" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1552, 250 )
-GIVE_EXP = 1
 
 [node name="Bat59" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1406, 127 )
-GIVE_EXP = 1
 
 [node name="Bat60" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1711, 80 )
-GIVE_EXP = 1
 
 [node name="Bat61" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1686, 209 )
-GIVE_EXP = 1
 
 [node name="Bat62" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1292, 426 )
-GIVE_EXP = 1
 
 [node name="Bat3" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 255, -569 )
-GIVE_EXP = 1
 
 [node name="Bat4" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 286, -1137 )
-GIVE_EXP = 1
 
 [node name="Bat5" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 8, -1164 )
-GIVE_EXP = 1
 
 [node name="Bat6" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 192, -786 )
-GIVE_EXP = 1
 
 [node name="Bat7" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -25, -822 )
-GIVE_EXP = 1
 
 [node name="Bat8" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -230, -725 )
-GIVE_EXP = 1
 
 [node name="Bat9" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -251, -577 )
-GIVE_EXP = 1
 
 [node name="Bat10" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -224, -394 )
-GIVE_EXP = 1
 
 [node name="Bat11" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -233, -908 )
-GIVE_EXP = 1
 
 [node name="Bat12" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 5, -671 )
-GIVE_EXP = 1
 
 [node name="Bat13" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 483, -545 )
-GIVE_EXP = 1
 
 [node name="Bat14" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 399, -388 )
-GIVE_EXP = 1
 
 [node name="Bat15" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 585, -376 )
-GIVE_EXP = 1
 
 [node name="Bat30" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 822, -109 )
-GIVE_EXP = 1
 
 [node name="Bat31" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1082, 2 )
-GIVE_EXP = 1
 
 [node name="Bat32" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 318, 73 )
-GIVE_EXP = 1
 
 [node name="Bat33" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 161, 93 )
-GIVE_EXP = 1
 
 [node name="Bat34" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 277, 218 )
-GIVE_EXP = 1
 
 [node name="Bat35" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 63, 243 )
-GIVE_EXP = 1
 
 [node name="Bat36" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -129, 293 )
-GIVE_EXP = 1
 
 [node name="Bat37" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -202, 437 )
-GIVE_EXP = 1
 
 [node name="Bat38" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -131, 482 )
-GIVE_EXP = 1
 
 [node name="Bat39" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -206, 106 )
-GIVE_EXP = 1
 
 [node name="Bat40" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -120, -31 )
-GIVE_EXP = 1
 
 [node name="Bat41" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -195, -111 )
-GIVE_EXP = 1
 
 [node name="Bat42" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -36, -120 )
-GIVE_EXP = 1
 
 [node name="Bat43" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -179, -264 )
-GIVE_EXP = 1
 
 [node name="Bat16" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 488, -232 )
-GIVE_EXP = 1
 
 [node name="Bat17" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 765, -362 )
-GIVE_EXP = 1
 
 [node name="Bat18" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 731, -533 )
-GIVE_EXP = 1
 
 [node name="Bat19" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 725, -707 )
-GIVE_EXP = 1
 
 [node name="Bat20" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 440, -744 )
-GIVE_EXP = 1
 
 [node name="Bat21" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 563, -876 )
-GIVE_EXP = 1
 
 [node name="Bat22" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 471, -971 )
-GIVE_EXP = 1
 
 [node name="Bat23" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 680, -1168 )
-GIVE_EXP = 1
 
 [node name="Bat24" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 880, -1207 )
-GIVE_EXP = 1
 
 [node name="Bat25" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 944, -945 )
-GIVE_EXP = 1
 
 [node name="Bat26" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1219, -982 )
-GIVE_EXP = 1
 
 [node name="Bat27" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1411, -1048 )
-GIVE_EXP = 1
 
 [node name="Bat28" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1443, -1225 )
-GIVE_EXP = 1
 
 [node name="Bat29" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 870, -480 )
-GIVE_EXP = 1
 
 [node name="Objects" type="YSort" parent="YSort"]
 

@@ -6,6 +6,8 @@ func _ready():
 	PlayerStats.connect("exp_changed", self, "enemy_quest")
 	if PlayerStats.quests[0] == "Одолеть Змея Горыныча":
 		$SceenTransition/CollisionShape2D.disabled = true
+	else:
+		$SceenTransition/CollisionShape2D.disabled = false
 
 func save():
 	var data = {

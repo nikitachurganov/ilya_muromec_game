@@ -60,12 +60,10 @@ radius = 3.0
 [node name="Bat" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 3 )
-GIVE_EXP = 123
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 2
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -83,7 +81,7 @@ position = Vector2( 0, -13 )
 shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 15
+max_health = 20
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 

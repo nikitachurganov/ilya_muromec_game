@@ -9,7 +9,7 @@ const treeHit = preload("res://Sounds/TreeHit.wav")
 export var acceleration = 300
 export var max_speed = 50
 export var friction = 1000
-export var GIVE_EXP = 25
+var GIVE_EXP = 725
 
 enum{
 	IDLE,
