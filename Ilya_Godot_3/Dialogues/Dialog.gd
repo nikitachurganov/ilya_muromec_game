@@ -39,6 +39,13 @@ func laod_dialogue():
 func _input(event):
 	if not d_active:
 		return
+	if event.is_action_pressed("esc"):
+		$Timer.start()
+		$NinePatchRect.visible = false
+		$ColorRect.visible = false
+		$IlyaMuromets.visible = false
+		$OtherDude.visible = false
+		return
 	if event.is_action_pressed("ui_accept"):
 		next_script()
 

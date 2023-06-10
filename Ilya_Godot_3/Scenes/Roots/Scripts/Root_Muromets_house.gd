@@ -4,6 +4,7 @@ func _ready():
 	connect_player_to_death()
 	equip_quest()
 	PlayerStats.connect("first_quest", self, "equip_quest")
+	$CanvasLayer.start()
 
 func save():
 	var data = {
