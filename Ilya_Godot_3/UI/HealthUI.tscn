@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=1]
-[ext_resource path="res://Art/Sword.png" type="Texture" id=2]
-[ext_resource path="res://Art/Shield.png" type="Texture" id=3]
+[ext_resource path="res://Art/sword icon.png" type="Texture" id=2]
+[ext_resource path="res://Art/armor.png" type="Texture" id=3]
 [ext_resource path="res://Art/NoHealth.png" type="Texture" id=4]
 [ext_resource path="res://Art/FullHealth.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/UI_Control.gd" type="Script" id=6]
@@ -50,9 +50,9 @@ custom_fonts/font = SubResource( 1 )
 text = "100 ХП"
 
 [node name="LabelAtk" type="Label" parent="Control/HealthUI"]
-margin_left = 18.0
+margin_left = 14.0
 margin_top = 12.84
-margin_right = 29.0
+margin_right = 25.0
 margin_bottom = 25.84
 custom_fonts/font = SubResource( 1 )
 text = "10"
@@ -72,29 +72,30 @@ custom_fonts/font = SubResource( 1 )
 text = "1 уровень"
 
 [node name="LabelDef" type="Label" parent="Control/HealthUI"]
-margin_left = 63.0
-margin_top = 11.84
-margin_right = 75.0
-margin_bottom = 25.84
+margin_left = 54.0
+margin_top = 12.0
+margin_right = 66.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 text = "0"
 
 [node name="TextureAtk" type="TextureRect" parent="Control/HealthUI"]
-margin_left = 13.0
-margin_top = 8.84
-margin_right = 20.0
-margin_bottom = 24.84
-rect_rotation = 45.0
+margin_left = -1.0
+margin_top = 12.0
+margin_right = 10.0
+margin_bottom = 23.0
 rect_scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
+expand = true
 
 [node name="TextureDef" type="TextureRect" parent="Control/HealthUI"]
-margin_left = 44.0
-margin_top = 9.8401
-margin_right = 582.0
-margin_bottom = 547.84
+margin_left = 40.0
+margin_top = 13.1602
+margin_right = 440.0
+margin_bottom = 413.16
 rect_scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 3 )
+expand = true
 
 [node name="TextureNoHealth" type="TextureRect" parent="Control/HealthUI"]
 margin_left = 47.0

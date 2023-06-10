@@ -1,5 +1,8 @@
 extends Node2D
 
+onready var save_file = preload("res://Scripts/Recources/SaveData.gd")
+
+signal on_saved
 signal talk
 
 func get_player():
@@ -9,6 +12,21 @@ func _ready():
 	add_to_group(PlayerStats.saving_group)
 	SceneChanger.game_ready()
 	$YSort/Player/Camera2D.current = true
+	save_start()
+
+func save_start():
+	var dir = Directory.new()
+	if not dir.dir_exists(PlayerStats.save_dir):
+		dir.make_dir_recursive(PlayerStats.save_dir)
+	dir.change_dir(PlayerStats.save_dir)
+	
+	var file = save_file.new()
+	var able_to_save = get_tree().get_nodes_in_group(PlayerStats.saving_group)
+	file.set_data(able_to_save[0].save())
+	var save_path = PlayerStats.save_dir.plus_file(PlayerStats.save_temp % "save")
+	
+	ResourceSaver.save(save_path, file)
+	emit_signal("on_saved")
 
 func save():
 	var data = {
