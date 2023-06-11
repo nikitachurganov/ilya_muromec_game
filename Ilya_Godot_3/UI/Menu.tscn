@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Buttons/SceneButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Fonts/zarubkaType-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Art/Buttons/MenuButtonHover.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Buttons/SoundButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/OLIGARKH_-_Kiberslav_(musmore.com).mp3" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 8 )
@@ -137,6 +138,10 @@ custom_fonts/font = SubResource( 1 )
 text = "Выйти из игры"
 align = 1
 valign = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "Music"
 
 [connection signal="button_down" from="Buttons/Quit" to="." method="_on_Quit_button_down"]
 [connection signal="button_up" from="Buttons/Quit" to="." method="_on_Quit_button_up"]

@@ -27,7 +27,7 @@ func _on_TextureButton_pressed():
 		self.texture_hover  = soundOnHov
 		self.texture_pressed  = soundOnPress
 		stats.soundEffect = true
-		AudioServer.set_bus_volume_db(0, 0)
+		AudioServer.set_bus_volume_db(0, -4)
 
 func _on_TextureButton_button_down():
 	if !$AudioStreamPlayer.is_playing():

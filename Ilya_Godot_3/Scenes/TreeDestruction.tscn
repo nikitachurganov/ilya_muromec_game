@@ -31,8 +31,10 @@ animations = [ {
 [node name="TreeDestruction" type="AnimatedSprite"]
 frames = SubResource( 5 )
 animation = "Animate"
+frame = 1
 playing = true
 script = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -10.517

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OLIGARKH_-_Kiberslav_(musmore.com).mp3-15ffd04ba7c0e57182d7bb93be2750b3.mp3str"
+
+[deps]
+
+source_file="res://Sounds/OLIGARKH_-_Kiberslav_(musmore.com).mp3"
+dest_files=[ "res://.import/OLIGARKH_-_Kiberslav_(musmore.com).mp3-15ffd04ba7c0e57182d7bb93be2750b3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -5,7 +5,7 @@ var stats = PlayerStats
 signal on_loaded(data)
 
 func _ready():
-	
+	$Music.play()
 	get_tree().paused = false
 	if File.new().file_exists(stats.save_dir.plus_file(stats.save_temp % "save")):
 		$Buttons/Resume.visible = true
@@ -22,8 +22,10 @@ func _ready():
 
 func change_scene(path):
 	SceneChanger.change_scene(path)
+	$Music.stop()
 
 func new_game():
+	$Music.stop()
 	stats.helmet = ""
 	stats.armor = ""
 	stats.sword = ""
@@ -56,9 +58,11 @@ func new_game():
 					"Поговорить с Князем"]
 
 func quit():
+	$Music.stop()
 	get_tree().quit()
 
 func load_file():
+	$Music.stop()
 	PlayerStats.helmet = ""
 	PlayerStats.armor = ""
 	PlayerStats.sword = ""

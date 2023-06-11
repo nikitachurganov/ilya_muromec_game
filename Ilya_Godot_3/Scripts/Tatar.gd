@@ -32,7 +32,7 @@ onready var wanderController = $WanderController
 onready var healthBar = $HealthBar/Control/TextureRect
 onready var animationState = animationTree.get("parameters/playback")
 
-var max_health = 120
+var max_health = 100
 var currentHealth = max_health
 var direction
 

@@ -1,12 +1,12 @@
 [gd_resource type="AudioBusLayout" format=2]
 
 [resource]
-bus/0/volume_db = -12.9785
+bus/0/volume_db = -4.003
 bus/1/name = "ButtonSound"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -28.3339
+bus/1/volume_db = -42.9499
 bus/1/send = "Master"
 bus/2/name = "GlossSound"
 bus/2/solo = false
@@ -24,5 +24,11 @@ bus/4/name = "Step"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -9.63278
+bus/4/volume_db = -4.25003
 bus/4/send = "Master"
+bus/5/name = "Music"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -11.4678
+bus/5/send = "Master"
